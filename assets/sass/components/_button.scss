@@ -128,3 +128,19 @@
 			opacity: 0.25;
 		}
 	}
+
+	// Custom submit button styling
+	input[type="submit"].primary {
+		background-color: #ffffff !important;
+		color: #000000 !important;
+		
+		&:hover {
+			background-color: #ffffff !important;
+			color: #0066ff !important;
+		}
+		
+		&:active {
+			background-color: #ffffff !important;
+			color: #0066ff !important;
+		}
+	}

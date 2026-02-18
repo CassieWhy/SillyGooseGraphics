@@ -6,9 +6,9 @@
 -->
 <html>
 	<head>
-		<title>Project 1 - Silly Goose Graphics</title>
+		<title>Contact Me - Silly Goose Graphics</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
@@ -35,28 +35,27 @@
 					display: block !important;
 				}
 				
-			/* Left align banner text on mobile */
-			#banner .content {
-				text-align: left !important;
-			}
-			
-			#header .logo {
-				width: 100% !important;
-				margin-bottom: 0.25em !important;
-				text-align: center !important;
-			}
-			
-			#header .logo strong {
-				padding: 0 !important;
-				font-size: 1.3em !important;
-				display: block !important;
-			}
-			
-			/* Hide "by Cassie Fennell" on mobile */
-			#header .logo span {
-				display: none !important;
-			}
-			
+				/* Left align banner text on mobile */
+				#banner .content {
+					text-align: left !important;
+				}
+				
+				#header .logo {
+					width: 100% !important;
+					margin-bottom: 0.25em !important;
+					text-align: center !important;
+				}
+				
+				#header .logo strong {
+					padding: 0 !important;
+					font-size: 1.3em !important;
+					display: block !important;
+				}
+				
+				/* Hide "by Cassie Fennell" on mobile */
+				#header .logo span {
+					display: none !important;
+				}
 				
 				/* Navigation below logo */
 				#header nav {
@@ -120,11 +119,10 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
-						<nav>
-						<a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
-							<a href="#menu">Menu</a>
+				<header id="header">
+					<a href="index.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
+					<nav>
+					<a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
 						</nav>
 					</header>
 
@@ -135,7 +133,7 @@
 							<li><a href="landing.html">Landing</a></li>
 							<li><a href="generic.html">Generic</a></li>
 							<li><a href="elements.html">Elements</a></li>
-							<li><a href="#contact">Contact Me</a></li>
+							<li><a href="contact.html">Contact Me</a></li>
 						</ul>
 						<ul class="actions stacked">
 							<li><a href="#" class="button primary fit">Get Started</a></li>
@@ -143,83 +141,70 @@
 					</nav>
 
 				<!-- Banner -->
-				<!-- Note: The "styleN" class below should match that of the header element. -->
-					<section id="banner" class="style2">
+					<section id="banner" class="major">
 						<div class="inner">
-							<span class="image">
-								<img src="images/pic02.jpg" alt="" />
-							</span>
-							<header class="major">
-								<h1>Project 1</h1>
-							</header>
-							<div class="content">
-								<p>feugiat amet tempus</p>
-							</div>
+							<header class="major" style="text-align: center;">
+								<h1>Get In Touch</h1>
+							<p>I'd love to hear from you!</p>
+						</header>
 						</div>
 					</section>
 
 				<!-- Main -->
 					<div id="main">
 
-						<!-- One -->
-							<section id="one">
+						<!-- Contact Form -->
+							<section id="contact">
 								<div class="inner">
 									<header class="major">
-										<h2>Project Details</h2>
+										<h2>Send me a Message</h2>
 									</header>
-									<p>Add your project details here.</p>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field">
+												<label for="name">Name</label>
+												<input type="text" name="name" id="name" placeholder="Your Name" required />
+											</div>
+											<div class="field">
+												<label for="reason">Reason for Contact</label>
+												<input type="text" name="reason" id="reason" placeholder="e.g., Project Inquiry, Partnership, etc." required />
+											</div>
+											<div class="field">
+												<label for="message">Message</label>
+												<textarea name="message" id="message" rows="8" placeholder="Please provide details about your inquiry..." required></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" style="background-color: #000000 !important; color: #00FF00 !important;" /></li>
+											<li><input type="reset" value="Clear" /></li>
+										</ul>
+									</form>
+								</div>
+							</section>
+
+						<!-- Contact Info -->
+							<section id="contact-info">
+								<div class="inner">
+									<section class="split">
+										<section>
+											<div class="contact-method">
+												<span class="icon solid alt fa-envelope"></span>
+												<h3>Email</h3>
+												<a href="mailto:cassiefennell@outlook.com">cassiefennell@outlook.com</a>
+											</div>
+										</section>
+										<section>
+											<div class="contact-method">
+												<span class="icon solid alt fa-phone"></span>
+												<h3>Phone</h3>
+												<span>(000) 000-0000</span>
+											</div>
+										</section>
+									</section>
 								</div>
 							</section>
 
 					</div>
-
-				<!-- Contact -->
-					<section id="contact">
-						<div class="inner">
-							<section>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="6"></textarea>
-									</div>
-									<div class="field" style="margin-bottom: 2em;">
-										<label for="files">Attach Files</label>
-										<input type="file" name="files" id="files" multiple />
-									</div>
-								</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" style="color: #000000 !important;" onmouseover="this.style.color='#0066ff'" onmouseout="this.style.color='#000000'" /></li>
-										<li><input type="reset" value="Clear" /></li>
-									</ul>
-								</form>
-							</section>
-							<section class="split">
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-envelope"></span>
-										<h3>Email</h3>
-										<a href="mailto:cassiefennell@outlook.com">cassiefennell@outlook.com</a>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-
-										<span class="icon solid alt fa-home"></span>
-										<h3>Winnipeg MB Canada</h3>
-									</div>
-								</section>
-							</section>
-						</div>
-					</section>
 
 			</div>
 

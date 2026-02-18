@@ -8,9 +8,110 @@
 	<head>
 		<title>Silly Goose Graphics - Cassie Fennell</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Mobile optimizations */
+			@media screen and (max-width: 980px) {
+				/* Reduce header logo padding on tablets */
+				#header .logo strong {
+					padding: 0 15px !important;
+				}
+			}
+			
+			@media screen and (max-width: 736px) {
+				/* Reorganize header for mobile */
+				#header {
+					display: flex !important;
+					flex-direction: column !important;
+					align-items: flex-start !important;
+					padding: 0.75em 1em !important;
+					background-color: #000000 !important;
+				}
+				
+				/* Line break in welcome text on mobile only */
+				.welcome-line {
+					display: block !important;
+				}
+				
+				/* Left align banner text on mobile */
+				#banner .content {
+					text-align: left !important;
+				}
+				
+				#header .logo {
+					width: 100% !important;
+					margin-bottom: 0.25em !important;
+					text-align: center !important;
+				}
+				
+				#header .logo strong {
+					padding: 0 !important;
+					font-size: 1.3em !important;
+					display: block !important;
+				}
+				
+				/* Hide "by Cassie Fennell" on mobile */
+				#header .logo span {
+					display: none !important;
+				}
+				
+				/* Navigation below logo */
+				#header nav {
+					width: 100% !important;
+					display: flex !important;
+					justify-content: space-between !important;
+					align-items: center !important;
+					background-color: rgba(0, 0, 0, 0.95) !important;
+					padding: 0.5em 1em !important;
+					border-radius: 4px !important;
+				}
+				
+				#header nav a[href="#contact"] {
+					margin-right: 0 !important;
+					font-size: 0.85em !important;
+				}
+				
+				#header nav a[href="#menu"] {
+					font-size: 0.85em !important;
+				}
+				
+				/* Ensure images don't overflow */
+				.image img {
+					max-width: 100%;
+					height: auto;
+				}
+			}
+			
+			@media screen and (max-width: 480px) {
+				/* Even more compact on very small screens */
+				#header {
+					padding: 0.5em 0.75em !important;
+				}
+				
+				#header .logo strong {
+					font-size: 0.95em !important;
+				}
+				
+				#header nav a[href="#contact"],
+				#header nav a[href="#menu"] {
+					font-size: 0.75em !important;
+				}
+			}
+			
+			@media screen and (max-width: 360px) {
+				/* Extra small screens */
+				#header .logo strong {
+					font-size: 0.85em !important;
+				}
+				
+				#header nav a[href="#contact"],
+				#header nav a[href="#menu"] {
+					font-size: 0.7em !important;
+				}
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -18,10 +119,10 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header">
+					<header id="header" class="alt">
 						<a href="index.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
 						<nav>
-						<a href="#contact" style="margin-right: 1.5em;">CONTACT ME</a>
+						<a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
 							<a href="#menu">Menu</a>
 						</nav>
 					</header>
@@ -48,7 +149,7 @@
 
 							</header>
 						<div class="content" style="max-width: 1400px; text-align: right;">
-							<p style="font-size: 1.05em;">Welcome to my portfolio website!<br />
+							<p style="font-size: 1.05em; line-height: 1.8;"><span class="welcome-line">Welcome to </span>my portfolio Website!<br />
 							If you're interested in hiring me, reach out!</p>
 								<ul class="actions">
 									<li><a href="#contact" class="button next scrolly">Get In Touch</a></li>
