@@ -119,7 +119,7 @@
 					transform: translateX(0);
 				}
 				100% {
-					transform: translateX(-50%);
+					transform: translateX(-100%);
 				}
 			}
 			
@@ -128,14 +128,15 @@
 				position: relative;
 				width: 100%;
 				height: 100%;
+				display: flex;
 			}
 			
 			.sticker-slide {
 				animation: slideRightToLeft 20s linear infinite;
-				width: 200%;
+				min-width: 100%;
 				height: 100%;
 				object-fit: cover;
-				object-position: left center;
+				flex-shrink: 0;
 			}
 		</style>
 	</head>
@@ -200,8 +201,7 @@
 								</article>
 								<article>
 								<span class="image sticker-slide-container">
-								<img src="images/Stickers/Sticker Slide.jpg" alt="" class="sticker-slide" />
-									</span>
+								<img src="images/Stickers/Sticker Slide.jpg" alt="" class="sticker-slide" />							<img src="images/Stickers/Sticker Slide.jpg" alt="" class="sticker-slide" />									</span>
 									<header class="major">
 									<h3><a href="project1.html" class="link">Stickers</a></h3>
 									<p>CUSTOM MADE FOR ANY APPLICATION</p>
