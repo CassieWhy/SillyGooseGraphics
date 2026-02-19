@@ -116,10 +116,10 @@
 			/* Sticker slide animation */
 			@keyframes slideRightToLeft {
 				0% {
-					transform: translateX(100%);
+					transform: translateX(0);
 				}
 				100% {
-					transform: translateX(-100%);
+					transform: translateX(-50%);
 				}
 			}
 			
@@ -131,10 +131,11 @@
 			}
 			
 			.sticker-slide {
-				animation: slideRightToLeft 15s linear infinite;
-				width: 100%;
+				animation: slideRightToLeft 20s linear infinite;
+				width: 200%;
 				height: 100%;
 				object-fit: cover;
+				object-position: left center;
 			}
 		</style>
 	</head>
