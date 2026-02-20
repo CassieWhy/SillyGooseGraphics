@@ -115,24 +115,29 @@
 			
 			/* Sticker slide animation */
 			@keyframes slideBackAndForth {
-				0%, 100% {
+				0% {
 					transform: translateX(0%);
 				}
 				50% {
-					transform: translateX(-30%);
+					transform: translateX(-25%);
+				}
+				100% {
+					transform: translateX(0%);
 				}
 			}
 			
-			article.sticker-slide-article .image {
+			section.tiles article.sticker-slide-article .image {
 				overflow: hidden !important;
 			}
 			
-			article.sticker-slide-article .image img {
-				animation: slideBackAndForth 12s ease-in-out infinite !important;
-				width: 130% !important;
+			section.tiles article.sticker-slide-article .image img {
+				animation: slideBackAndForth 8s ease-in-out infinite !important;
+				width: 125% !important;
+				max-width: 125% !important;
 				height: 100% !important;
 				object-fit: cover !important;
 				display: block !important;
+				will-change: transform !important;
 			}
 		</style>
 	</head>
