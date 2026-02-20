@@ -115,11 +115,11 @@
 			
 			/* Sticker slide animation */
 			@keyframes slideBackAndForth {
-				0% {
-					object-position: 0% center;
+				0%, 100% {
+					transform: translateX(0%);
 				}
-				100% {
-					object-position: 100% center;
+				50% {
+					transform: translateX(-20%);
 				}
 			}
 			
@@ -131,10 +131,11 @@
 			}
 			
 			.sticker-slide {
-				animation: slideBackAndForth 10s ease-in-out infinite alternate;
-				width: 100%;
+				animation: slideBackAndForth 15s ease-in-out infinite;
+				width: 120%;
 				height: 100%;
 				object-fit: cover;
+				object-position: left center;
 			}
 		</style>
 	</head>
