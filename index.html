@@ -126,26 +126,42 @@
 				}
 			}
 			
+			.tiles article.sticker-slide-article {
+				position: relative !important;
+			}
+			
 			.tiles article.sticker-slide-article .image {
+				position: absolute !important;
+				top: 0 !important;
+				left: 0 !important;
+				width: 100% !important;
+				height: 100% !important;
 				overflow: hidden !important;
+				z-index: 1 !important;
 			}
 			
 			.tiles article.sticker-slide-article .image img {
 				animation: slideBackAndForth 8s ease-in-out infinite !important;
-				animation-play-state: running !important;
 				width: 125% !important;
-				max-width: 125% !important;
-				min-width: 125% !important;
 				height: 100% !important;
 				object-fit: cover !important;
 				display: block !important;
-				will-change: transform !important;
-				transform: translateX(0);
 			}
 			
-			/* Test to verify CSS is loading */
-			.sticker-slide-article {
-				border: 3px solid red !important;
+			.tiles article.sticker-slide-article .image::after {
+				content: '' !important;
+				position: absolute !important;
+				top: 0 !important;
+				left: 0 !important;
+				width: 100% !important;
+				height: 100% !important;
+				background: rgba(114, 88, 163, 0.5) !important;
+				z-index: 2 !important;
+			}
+			
+			.tiles article.sticker-slide-article header.major {
+				position: relative !important;
+				z-index: 3 !important;
 			}
 		</style>
 	</head>
