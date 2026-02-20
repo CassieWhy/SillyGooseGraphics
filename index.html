@@ -113,36 +113,26 @@
 				}
 			}
 			
-			/* Simple opacity test animation */
-			@keyframes opacityTest {
+			/* Sticker slide animation */
+			@keyframes slideBackAndForth {
 				0% {
-					opacity: 1;
+					transform: translateX(0%);
 				}
 				50% {
-					opacity: 0.3;
+					transform: translateX(-30%);
 				}
 				100% {
-					opacity: 1;
+					transform: translateX(0%);
 				}
-			}
-			
-			.tiles article.sticker-slide-article {
-				position: relative !important;
 			}
 			
 			.tiles article.sticker-slide-article .image {
-				position: absolute !important;
-				top: 0 !important;
-				left: 0 !important;
-				width: 100% !important;
-				height: 100% !important;
 				overflow: hidden !important;
-				z-index: 1 !important;
 			}
 			
 			.tiles article.sticker-slide-article .image img {
-				animation: opacityTest 2s ease-in-out infinite !important;
-				width: 100% !important;
+				animation: slideBackAndForth 8s ease-in-out infinite !important;
+				width: 130% !important;
 				height: 100% !important;
 				object-fit: cover !important;
 				display: block !important;
