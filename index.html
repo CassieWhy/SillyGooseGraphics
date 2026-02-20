@@ -113,16 +113,16 @@
 				}
 			}
 			
-			/* Sticker slide animation - TEST WITH ROTATION */
-			@keyframes slideBackAndForth {
+			/* Simple opacity test animation */
+			@keyframes opacityTest {
 				0% {
-					transform: translateX(0%) rotate(0deg);
+					opacity: 1;
 				}
 				50% {
-					transform: translateX(-25%) rotate(5deg);
+					opacity: 0.3;
 				}
 				100% {
-					transform: translateX(0%) rotate(0deg);
+					opacity: 1;
 				}
 			}
 			
@@ -141,13 +141,11 @@
 			}
 			
 			.tiles article.sticker-slide-article .image img {
-				animation: slideBackAndForth 4s ease-in-out infinite !important;
-				animation-fill-mode: both !important;
-				width: 125% !important;
+				animation: opacityTest 2s ease-in-out infinite !important;
+				width: 100% !important;
 				height: 100% !important;
 				object-fit: cover !important;
 				display: block !important;
-				transform-origin: center center !important;
 			}
 			
 			.tiles article.sticker-slide-article .image::after {
