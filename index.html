@@ -116,27 +116,22 @@
 			/* Sticker slide animation */
 			@keyframes slideBackAndForth {
 				0%, 100% {
-					transform: translateX(0%);
+					background-position: 0% center;
 				}
 				50% {
-					transform: translateX(-30%);
+					background-position: 100% center;
 				}
 			}
 			
-			.sticker-slide-container {
-				overflow: hidden !important;
-				position: relative !important;
-				width: 100% !important;
-				height: 100% !important;
-				display: block !important;
+			article.sticker-slide-article .image {
+				background-image: url('images/Stickers/StickerSlide.jpg') !important;
+				background-size: cover !important;
+				background-position: center !important;
+				animation: slideBackAndForth 12s ease-in-out infinite !important;
 			}
 			
-			.sticker-slide {
-				animation: slideBackAndForth 8s ease-in-out infinite !important;
-				width: 130% !important;
-				height: 100% !important;
-				object-fit: cover !important;
-				display: block !important;
+			article.sticker-slide-article .image img {
+				opacity: 0 !important;
 			}
 		</style>
 	</head>
@@ -199,9 +194,9 @@
 										<p>Nuit Blanch by The Cube</p>
 									</header>
 								</article>
-								<article>
-								<span class="image sticker-slide-container">
-									<img src="images/Stickers/StickerSlide.jpg" alt="" class="sticker-slide" />
+							<article class="sticker-slide-article">
+								<span class="image">
+									<img src="images/Stickers/StickerSlide.jpg" alt="" />
 								</span>
 								<header class="major">
 									<h3><a href="project1.html" class="link">Stickers</a></h3>
