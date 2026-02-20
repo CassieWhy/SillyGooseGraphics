@@ -113,16 +113,16 @@
 				}
 			}
 			
-			/* Sticker slide animation */
+			/* Sticker slide animation - TEST WITH ROTATION */
 			@keyframes slideBackAndForth {
 				0% {
-					transform: translateX(0%);
+					transform: translateX(0%) rotate(0deg);
 				}
 				50% {
-					transform: translateX(-25%);
+					transform: translateX(-25%) rotate(5deg);
 				}
 				100% {
-					transform: translateX(0%);
+					transform: translateX(0%) rotate(0deg);
 				}
 			}
 			
@@ -141,11 +141,13 @@
 			}
 			
 			.tiles article.sticker-slide-article .image img {
-				animation: slideBackAndForth 8s ease-in-out infinite !important;
+				animation: slideBackAndForth 4s ease-in-out infinite !important;
+				animation-fill-mode: both !important;
 				width: 125% !important;
 				height: 100% !important;
 				object-fit: cover !important;
 				display: block !important;
+				transform-origin: center center !important;
 			}
 			
 			.tiles article.sticker-slide-article .image::after {
@@ -226,7 +228,7 @@
 								</article>
 							<article class="sticker-slide-article">
 								<span class="image">
-									<img src="images/Stickers/StickerSlide.jpg" alt="" style="animation: slideBackAndForth 8s ease-in-out infinite; width: 125%; height: 100%; object-fit: cover;" />
+									<img src="images/Stickers/StickerSlide.jpg" alt="" />
 								</span>
 								<header class="major">
 									<h3><a href="project1.html" class="link">Stickers</a></h3>
