@@ -126,18 +126,26 @@
 				}
 			}
 			
-			section.tiles article.sticker-slide-article .image {
+			.tiles article.sticker-slide-article .image {
 				overflow: hidden !important;
 			}
 			
-			section.tiles article.sticker-slide-article .image img {
+			.tiles article.sticker-slide-article .image img {
 				animation: slideBackAndForth 8s ease-in-out infinite !important;
+				animation-play-state: running !important;
 				width: 125% !important;
 				max-width: 125% !important;
+				min-width: 125% !important;
 				height: 100% !important;
 				object-fit: cover !important;
 				display: block !important;
 				will-change: transform !important;
+				transform: translateX(0);
+			}
+			
+			/* Test to verify CSS is loading */
+			.sticker-slide-article {
+				border: 3px solid red !important;
 			}
 		</style>
 	</head>
