@@ -6,12 +6,30 @@
 -->
 <html>
 	<head>
-		<title>TOBA Mural - Silly Goose Graphics</title>
+		<title>TOBA Sculpture Painting - Silly Goose Graphics</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
+			#one .toba-intro header.major {
+				width: 100%;
+			}
+
+			#one .toba-intro header.major > :first-child {
+				width: 100%;
+			}
+
+			#one .toba-intro header.major > :first-child:after {
+				max-width: 100%;
+			}
+
+			#one .toba-intro video {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
+
 			/* Mobile optimizations */
 			@media screen and (max-width: 980px) {
 				/* Reduce header logo padding on tablets */
@@ -132,10 +150,8 @@
 					<nav id="menu">
 						<ul class="links">
 							<li><a href="index.html">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
-							<li><a href="#contact">Contact Me</a></li>
+							<li><a href="About_Me.html">About Me</a></li>
+														<li><a href="#contact">Contact Me</a></li>
 						</ul>
 						<ul class="actions stacked">
 							<li><a href="#" class="button primary fit">Get Started</a></li>
@@ -150,7 +166,7 @@
 								<img src="images/TOBA/Bison_Main.JPG" alt="" />
 							</span>
 							<header class="major">
-								<h1>TOBA Mural</h1>
+								<h1>TOBA Sculpture Painting</h1>
 							</header>
 							<div class="content">
 								<p>Nuit Blanch by The Cube</p>
@@ -163,16 +179,16 @@
 
 						<!-- One -->
 							<section id="one">
-								<div class="inner">
+								<div class="inner toba-intro">
 								<header class="major">
 									<h2>Excitement Returns, Nuit Blanch by The Cube</h2>
 								</header>
 								<div class="row gtr-50 gtr-uniform">
-									<div class="col-8">
+									<div class="col-6">
 										<p>This design was inspired by my experience at The Cube during Nuit Blanch 2024. It was the first time since the pandemic that I truly felt Winnipeg coming back to life. The vibrant colours and the incredible atmosphere of the crowd were unreal, and it made me feel incredibly proud to be a Winnipegger.</p>
 									</div>
-									<div class="col-4">
-										<video controls style="width: 100%; max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+									<div class="col-6">
+										<video id="toba-feature-video" autoplay muted loop playsinline preload="auto" style="width: 100%; max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
 											<source src="images/TOBA/TOBA Quick Vid.mp4" type="video/mp4">
 											Your browser does not support the video tag.
 										</video>
@@ -208,6 +224,18 @@
 											</div>
 										</div>
 									</div>
+								</div>
+							</section>
+
+							<section id="video-bottom">
+								<div class="inner">
+									<header class="major">
+										<h2>Timelapse Video</h2>
+									</header>
+									<video controls preload="metadata" style="width: 100%; max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+										<source src="images/TOBA/BisonTimelapse.mp4" type="video/mp4">
+										Your browser does not support the video tag.
+									</video>
 								</div>
 							</section>
 

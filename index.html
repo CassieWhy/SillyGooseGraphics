@@ -113,53 +113,24 @@
 				}
 			}
 			
-			/* Sticker slide animation - VERY OBVIOUS VERSION */
-			@keyframes slideBackAndForth {
+			/* Sticker tile background slide animation */
+			@keyframes stickerSlideBackAndForth {
 				0% {
-					transform: translateX(0px);
+					background-position: 0% 50%;
 				}
 				50% {
-					transform: translateX(-200px);
+					background-position: 100% 50%;
 				}
 				100% {
-					transform: translateX(0px);
+					background-position: 0% 50%;
 				}
 			}
-			
-			.tiles article.sticker-slide-article .image {
-				overflow: hidden !important;
-				position: relative !important;
-			}
-			
-			.tiles article.sticker-slide-article .image img {
-				animation: slideBackAndForth 3s linear infinite !important;
-				width: 150% !important;
-				height: 100% !important;
-				object-fit: cover !important;
-				display: block !important;
-				position: relative !important;
-			}
-			
-			/* Also test the header visibility */
-			.tiles article.sticker-slide-article header.major {
-				background: rgba(255, 0, 0, 0.8) !important;
-				padding: 20px !important;
-			}
-			
-			.tiles article.sticker-slide-article .image::after {
-				content: '' !important;
-				position: absolute !important;
-				top: 0 !important;
-				left: 0 !important;
-				width: 100% !important;
-				height: 100% !important;
-				background: rgba(114, 88, 163, 0.5) !important;
-				z-index: 2 !important;
-			}
-			
-			.tiles article.sticker-slide-article header.major {
-				position: relative !important;
-				z-index: 3 !important;
+
+			.tiles article.sticker-slide-article {
+				background-size: cover !important;
+				background-repeat: no-repeat;
+				background-position: 0% 50%;
+				animation: stickerSlideBackAndForth 28s ease-in-out infinite;
 			}
 		</style>
 	</head>
@@ -181,10 +152,8 @@
 					<nav id="menu">
 						<ul class="links">
 							<li><a href="index.html">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
-							<li><a href="#contact">Contact Me</a></li>
+							<li><a href="About_Me.html">About Me</a></li>
+														<li><a href="#contact">Contact Me</a></li>
 						</ul>
 						<ul class="actions stacked">
 							<li><a href="#" class="button primary fit">Get Started</a></li>
@@ -224,19 +193,19 @@
 								</article>
 							<article class="sticker-slide-article">
 								<span class="image">
-									<img src="images/Stickers/StickerSlide.jpg" alt="" />
+									<img src="images/Stickers/StickerSlide.png" alt="" />
 								</span>
 								<header class="major">
-									<h3><a href="project1.html" class="link">Stickers</a></h3>
+									<h3><a href="stickers.html" class="link">Stickers</a></h3>
 									<p>CUSTOM MADE FOR ANY APPLICATION</p>
 									</header>
 								</article>
 								<article>
 									<span class="image">
-										<img src="images/pic03.jpg" alt="" />
+										<img src="images/Murals/pic03.jpg" alt="" />
 									</span>
 									<header class="major">
-									<h3><a href="project2.html" class="link">Magna</a></h3>
+									<h3><a href="murals.html" class="link">Murals</a></h3>
 										<p>Lorem etiam nullam</p>
 									</header>
 								</article>

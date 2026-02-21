@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>About Me - Silly Goose Graphics</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			#one.about-me-hero {
+				position: relative;
+				overflow: hidden;
+			}
+
+			#one.about-me-hero .about-bg-slideshow {
+				position: absolute;
+				inset: 0;
+				z-index: 1;
+			}
+
+			#one.about-me-hero .about-bg-slide {
+				position: absolute;
+				inset: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				opacity: 0;
+				transition: opacity 0.9s ease;
+			}
+
+			#one.about-me-hero .about-bg-slide.is-active {
+				opacity: 1;
+			}
+
+			#one.about-me-hero .about-bg-overlay {
+				position: absolute;
+				inset: 0;
+				background: rgba(0, 0, 0, 0.9);
+			}
+
+			#one.about-me-hero .inner {
+				position: relative;
+				z-index: 2;
+			}
+
+			/* Mobile optimizations */
+			@media screen and (max-width: 980px) {
+				/* Reduce header logo padding on tablets */
+				#header .logo strong {
+					padding: 0 15px !important;
+				}
+			}
+			
+			@media screen and (max-width: 736px) {
+				/* Reorganize header for mobile */
+				#header {
+					display: flex !important;
+					flex-direction: column !important;
+					align-items: flex-start !important;
+					padding: 0.75em 1em !important;
+					background-color: #000000 !important;
+				}
+				
+				/* Line break in welcome text on mobile only */
+				.welcome-line {
+					display: block !important;
+				}
+				
+			/* Left align banner text on mobile */
+			#banner .content {
+				text-align: left !important;
+			}
+			
+			#header .logo {
+				width: 100% !important;
+				margin-bottom: 0.25em !important;
+				text-align: center !important;
+			}
+			
+			#header .logo strong {
+				padding: 0 !important;
+				font-size: 1.3em !important;
+				display: block !important;
+			}
+			
+			/* Hide "by Cassie Fennell" on mobile */
+			#header .logo span {
+				display: none !important;
+			}
+			
+				
+				/* Navigation below logo */
+				#header nav {
+					width: 100% !important;
+					display: flex !important;
+					justify-content: space-between !important;
+					align-items: center !important;
+					background-color: rgba(0, 0, 0, 0.95) !important;
+					padding: 0.5em 1em !important;
+					border-radius: 4px !important;
+				}
+				
+				#header nav a[href="#contact"] {
+					margin-right: 0 !important;
+					font-size: 0.85em !important;
+				}
+				
+				#header nav a[href="#menu"] {
+					font-size: 0.85em !important;
+				}
+				
+				/* Ensure images don't overflow */
+				.image img {
+					max-width: 100%;
+					height: auto;
+				}
+			}
+			
+			@media screen and (max-width: 480px) {
+				/* Even more compact on very small screens */
+				#header {
+					padding: 0.5em 0.75em !important;
+				}
+				
+				#header .logo strong {
+					font-size: 0.95em !important;
+				}
+				
+				#header nav a[href="#contact"],
+				#header nav a[href="#menu"] {
+					font-size: 0.75em !important;
+				}
+			}
+			
+			@media screen and (max-width: 360px) {
+				/* Extra small screens */
+				#header .logo strong {
+					font-size: 0.85em !important;
+				}
+				
+				#header nav a[href="#contact"],
+				#header nav a[href="#menu"] {
+					font-size: 0.7em !important;
+				}
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
+						<nav>
+						<a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="About_Me.html">About Me</a></li>
+														<li><a href="#contact">Contact Me</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Get Started</a></li>
+
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one" class="about-me-hero">
+								<div class="about-bg-slideshow" aria-hidden="true">
+									<img class="about-bg-slide is-active" src="images/CassiePics/CassieFennell.jpg" alt="" />
+									<img class="about-bg-slide" src="images/CassiePics/CampSelfie.jpg" alt="" />
+									<img class="about-bg-slide" src="images/CassiePics/Heart.jpeg" alt="" />
+									<div class="about-bg-overlay"></div>
+								</div>
+								<div class="inner">
+									<header class="major">
+										<h1>About Me</h1>
+									</header>
+									<p>I’ve always believed that being an artist is about more than just what you create—it’s about how you create, why you create, and the experience you give to the people who trust you with their vision.</p>
+									<p>My journey as an artist didn’t happen overnight. It’s been shaped by years of learning, experimenting, refining my skills, and showing up consistently—even when growth felt slow. Over time, what started as passion evolved into a craft, and that craft grew into a career. Each project, each client, and each challenge pushed me to level up not just technically, but creatively and professionally.</p>
+									<p>As an artist, I’m constantly evolving. I don’t believe in staying comfortable or repeating myself just because something “works.” I’m always learning—new techniques, new perspectives, new ways to communicate emotion and story through my work. My style has matured alongside my confidence, and today I create with intention, clarity, and a strong sense of identity while still staying open to collaboration and new ideas.</p>
+									<p>Working with clients is one of my favorite parts of what I do. I take pride in being someone people can trust—not just to deliver quality work, but to listen, communicate clearly, and care about the outcome as much as they do. Whether someone comes to me with a fully formed vision or just a rough idea, I make it a priority to meet them where they are and guide the process in a way that feels smooth, respectful, and enjoyable.</p>
+									<p>I treat every project like it matters—because it does. Deadlines aren’t suggestions, details aren’t optional, and professionalism isn’t something I switch on and off. I believe great art and great service should go hand in hand. My goal is always for clients to walk away not only happy with the final result, but excited they chose to work with me.</p>
+									<p>At the end of the day, I’m someone who genuinely loves what I do. I care deeply about growth, creativity, and building lasting relationships with the people I work with. If you’re looking for an artist who brings skill, heart, reliability, and a collaborative spirit to the table—you’re in the right place.</p>
+									<p>Let’s make something you’re proud of.</p>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section>
+								<form method="post" action="https://formspree.io/f/xojnlkqg">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="6"></textarea>
+									</div>
+									<div class="field" style="margin-bottom: 2em;">
+										<label for="files">Attach Files</label>
+										<input type="file" name="files" id="files" multiple />
+									</div>
+								</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" style="color: #000000 !important;" onmouseover="this.style.color='#0066ff'" onmouseout="this.style.color='#000000'" /></li>
+										<li><input type="reset" value="Clear" /></li>
+									</ul>
+								</form>
+							</section>
+							<section class="split">
+								<section>
+									<div class="contact-method">
+										<span class="icon solid alt fa-envelope"></span>
+										<h3>Email</h3>
+										<a href="mailto:cassie@sillygoosegraphics.ca">cassie@sillygoosegraphics.ca</a>
+									</div>
+								</section>
+								<section>
+									<div class="contact-method">
+
+										<span class="icon solid alt fa-home"></span>
+										<h3>Winnipeg MB Canada</h3>
+									</div>
+								</section>
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				(function () {
+					var slides = document.querySelectorAll('#one.about-me-hero .about-bg-slide');
+					var index = 0;
+
+					if (!slides.length) {
+						return;
+					}
+
+					function showNextSlide() {
+						slides[index].classList.remove('is-active');
+						index = (index + 1) % slides.length;
+						slides[index].classList.add('is-active');
+					}
+
+					window.setInterval(showNextSlide, 5000);
+				})();
+			</script>
+
+	</body>
+</html>
