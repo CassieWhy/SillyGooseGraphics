@@ -51,7 +51,7 @@
 				display: flex;
 				width: max-content;
 				height: 100%;
-				animation: homeBannerSlide 34s linear infinite;
+				animation: homeBannerSlide 64s linear infinite;
 			}
 
 			.home-banner-track img {
@@ -196,7 +196,7 @@
 				width: max-content;
 				z-index: 1;
 				transform: translateX(0);
-				animation: logosBgSlide 28s linear infinite;
+				animation: logosBgSlide 56s linear infinite;
 				will-change: transform;
 			}
 
@@ -256,16 +256,12 @@
 				text-decoration: none;
 				cursor: pointer;
 				min-height: 210px;
-				border: 3px solid rgba(255, 255, 255, 0.35);
-				border-radius: 8px;
+				border: 0;
+				border-radius: 0;
 				padding: 2em;
+				width: 100%;
+				margin: 0;
 				background: #000 url('images/CassiePics/AboutMe.jpg') center center / cover no-repeat;
-				transition: border-color 0.35s ease;
-			}
-
-			.about-me-cta:hover,
-			.about-me-cta:focus-visible {
-				border-color: rgba(255, 255, 255, 0.12);
 			}
 
 			.about-me-cta:before {
@@ -283,13 +279,16 @@
 				opacity: 0;
 			}
 
+			#two {
+				margin: 0 !important;
+				padding: 0 !important;
+			}
+
 			#two .inner {
 				max-width: 100% !important;
 				width: 100%;
-				padding-top: 0.75em;
-				padding-bottom: 0.75em;
-				padding-left: 1.25em;
-				padding-right: 1.25em;
+				margin: 0 !important;
+				padding: 0 !important;
 			}
 
 			.about-me-button {
@@ -321,10 +320,7 @@
 				}
 
 				#two .inner {
-					padding-top: 0.5em;
-					padding-bottom: 0.5em;
-					padding-left: 0.75em;
-					padding-right: 0.75em;
+					padding: 0 !important;
 				}
 
 			}
