@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <!--
 	Forty by HTML5 UP
 	html5up.net | @ajlkn
@@ -6,14 +6,45 @@
 -->
 <html>
 	<head>
-		<title>Murals - Silly Goose Graphics</title>
+		<title>Murals &amp; Painting - Silly Goose Graphics</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/png" href="images/Goose-Favicon.png" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 			#banner.no-parallax {
 				background-position: center center !important;
+			}
+
+			.fairy-barrel-02-crop {
+				overflow: hidden;
+				background-image: url('images/Murals/DogBarrel_02.jpg');
+				background-repeat: no-repeat;
+				background-size: 124% 100%;
+				background-position: center center;
+			}
+
+			.fairy-barrel-card {
+				height: 27em;
+				overflow: hidden;
+				position: relative;
+			}
+
+			.fairy-barrel-card img {
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: auto;
+				bottom: auto;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.fairy-barrel-02-crop img {
+				display: none;
 			}
 
 			/* Mobile optimizations */
@@ -125,7 +156,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
+						<a href="home.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
 						<nav>
 						<a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
 							<a href="#menu">Menu</a>
@@ -135,7 +166,7 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
-							<li><a href="index.html">Home</a></li>
+							<li><a href="home.html">Home</a></li>
 							<li><a href="About_Me.html">About Me</a></li>
 														<li><a href="#contact">Contact Me</a></li>
 						</ul>
@@ -152,7 +183,7 @@
 								<img src="images/Murals/DogBarrel_01.jpg" alt="" />
 							</span>
 							<header class="major">
-								<h1>Murals</h1>
+								<h1>Murals &amp; Painting</h1>
 							</header>
 							<div class="content">
 								<p>Hand-painted murals and large-format artwork.</p>
@@ -173,10 +204,10 @@
 									<div class="box alt">
 										<div class="row gtr-50 gtr-uniform">
 											<div class="col-6">
-												<span class="image fit"><img src="images/Murals/DogBarrel_01.jpg" alt="Dog Barrel Mural 1" /></span>
+												<span class="image fit fairy-barrel-card"><img src="images/Murals/DogBarrel_01.jpg" alt="Fairy Barrel 01" /></span>
 											</div>
 											<div class="col-6">
-												<span class="image fit"><img src="images/Murals/DogBarrel_02.jpg" alt="Dog Barrel Mural 2" /></span>
+												<span class="image fit fairy-barrel-card fairy-barrel-02-crop"><img src="images/Murals/DogBarrel_02.jpg" alt="Fairy Barrel 02" /></span>
 											</div>
 											<div class="col-12">
 												<span class="image fit"><img src="images/Murals/UnderTheSea_Mural.jpg" alt="Under The Sea Mural" /></span>
@@ -249,3 +280,6 @@
 
 	</body>
 </html>
+
+
+

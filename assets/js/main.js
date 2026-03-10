@@ -237,13 +237,23 @@
 
 			var path = window.location.pathname.toLowerCase(),
 				isIndex = (path === '/' || path.endsWith('/index.html')),
-				images = document.querySelectorAll('#main .box.alt .image.fit img'),
+				images = document.querySelectorAll([
+					'#main .box.alt .image.fit img',
+					'#main .cube-gallery .cube-item img',
+					'#main .gallery-columns .cube-item img',
+					'#main .media-gallery .media-card img',
+					'#main .toba-gallery-grid img'
+				].join(',')),
 				overlay,
 				stage,
 				lightboxImage,
 				caption;
 
 			if (isIndex || !images.length)
+				return;
+
+			if (document.body.classList.contains('disable-global-gallery-lightbox')
+			&& !document.body.classList.contains('use-global-gallery-lightbox'))
 				return;
 
 			overlay = document.createElement('div');

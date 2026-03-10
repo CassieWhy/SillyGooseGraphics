@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <!--
 	Forty by HTML5 UP
 	html5up.net | @ajlkn
@@ -9,32 +9,68 @@
 		<title>Stickers - Silly Goose Graphics</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/png" href="images/Goose-Favicon.png" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			@keyframes stickerSlideBackAndForth {
+			@keyframes stickerBannerSlide {
 				0% {
-					background-position: 0% 58%;
-				}
-				50% {
-					background-position: 100% 58%;
+					transform: translateX(0);
 				}
 				100% {
-					background-position: 0% 58%;
+					transform: translateX(-50%);
 				}
 			}
 
 			#banner.sticker-slide-banner {
-				background-size: auto 100% !important;
-				background-repeat: no-repeat;
-				background-position: 0% 58%;
-				animation: stickerSlideBackAndForth 28s ease-in-out infinite !important;
-				background-attachment: scroll !important;
+				position: relative;
+				overflow: hidden;
 				height: 52vh;
 				max-height: 28em;
 				min-height: 18em;
 				top: 0 !important;
 				margin-bottom: 0;
+			}
+
+			#banner .inner {
+				position: relative;
+				z-index: 2;
+			}
+
+			.stickers-banner-bg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				z-index: 1;
+				opacity: 0.45;
+				pointer-events: none;
+			}
+
+			.stickers-banner-track {
+				position: absolute;
+				inset: 0 auto 0 0;
+				display: flex;
+				width: max-content;
+				height: 100%;
+				animation: stickerBannerSlide 28s linear infinite;
+			}
+
+			.stickers-banner-track img {
+				width: 26vw;
+				min-width: 220px;
+				height: 100%;
+				object-fit: cover;
+				flex: 0 0 auto;
+			}
+
+			#banner .inner > .image,
+			#banner .inner > .major,
+			#banner .inner > .content {
+				position: relative;
+				z-index: 3;
 			}
 
 			/* Mobile optimizations */
@@ -146,7 +182,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
+						<a href="home.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
 						<nav>
 						<a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
 							<a href="#menu">Menu</a>
@@ -156,7 +192,7 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
-							<li><a href="index.html">Home</a></li>
+							<li><a href="home.html">Home</a></li>
 							<li><a href="About_Me.html">About Me</a></li>
 														<li><a href="#contact">Contact Me</a></li>
 						</ul>
@@ -168,9 +204,21 @@
 				<!-- Banner -->
 				<!-- Note: The "styleN" class below should match that of the header element. -->
 					<section id="banner" class="style2 sticker-slide-banner">
+						<div class="stickers-banner-bg" aria-hidden="true">
+							<div class="stickers-banner-track">
+								<img src="images/Stickers/FrozzySticker.png" alt="" />
+								<img src="images/Stickers/OwlSticker.png" alt="" />
+								<img src="images/Stickers/MajorBotelho.png" alt="" />
+								<img src="images/Stickers/Goose_Sticker.png" alt="" />
+								<img src="images/Stickers/MushWordsSticker.png" alt="" />
+								<img src="images/Stickers/OwlSticker.png" alt="" />
+								<img src="images/Stickers/MajorBotelho.png" alt="" />
+								<img src="images/Stickers/Goose_Sticker.png" alt="" />
+							</div>
+						</div>
 						<div class="inner">
 							<span class="image">
-								<img src="images/Stickers/StickerSlide.jpg?v=20260220" alt="" />
+								<img src="images/Stickers/FrozzySticker.png" alt="" />
 							</span>
 							<header class="major">
 								<h1>Stickers</h1>
@@ -205,6 +253,9 @@
 										<div class="col-6">
 											<span class="image fit"><img src="images/Stickers/MushWordsSticker.png" alt="Words Mush Sticker" /></span>
 											</div>
+										<div class="col-6">
+											<span class="image fit"><img src="images/Stickers/Goose_Sticker.png" alt="Goose Sticker" /></span>
+										</div>
 										</div>
 									</div>
 								</div>
@@ -273,3 +324,6 @@
 
 	</body>
 </html>
+
+
+

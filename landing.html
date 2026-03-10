@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <!--
 	Forty by HTML5 UP
 	html5up.net | @ajlkn
@@ -9,9 +9,65 @@
 		<title>About Me - Silly Goose Graphics</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/png" href="images/Goose-Favicon.png" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
+			@keyframes landingBannerSlide {
+				0% {
+					transform: translateX(0);
+				}
+				100% {
+					transform: translateX(-50%);
+				}
+			}
+
+			#banner {
+				position: relative;
+				overflow: hidden;
+			}
+
+			#banner .inner {
+				position: relative;
+				z-index: 2;
+			}
+
+			.landing-banner-bg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				z-index: 1;
+				opacity: 0.45;
+				pointer-events: none;
+			}
+
+			.landing-banner-track {
+				position: absolute;
+				inset: 0 auto 0 0;
+				display: flex;
+				width: max-content;
+				height: 100%;
+				animation: landingBannerSlide 28s linear infinite;
+			}
+
+			.landing-banner-track img {
+				width: 26vw;
+				min-width: 220px;
+				height: 100%;
+				object-fit: cover;
+				flex: 0 0 auto;
+			}
+
+			#banner .inner > .image,
+			#banner .inner > .major,
+			#banner .inner > .content {
+				position: relative;
+				z-index: 3;
+			}
+
 			/* Mobile optimizations */
 			@media screen and (max-width: 980px) {
 				/* Reduce header logo padding on tablets */
@@ -121,7 +177,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
+						<a href="home.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
 						<nav>
 						<a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
 							<a href="#menu">Menu</a>
@@ -131,7 +187,7 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
-							<li><a href="index.html">Home</a></li>
+							<li><a href="home.html">Home</a></li>
 							<li><a href="landing.html">About Me</a></li>
 														<li><a href="#contact">Contact Me</a></li>
 						</ul>
@@ -143,6 +199,18 @@
 				<!-- Banner -->
 				<!-- Note: The "styleN" class below should match that of the header element. -->
 					<section id="banner" class="style2">
+						<div class="landing-banner-bg" aria-hidden="true">
+							<div class="landing-banner-track">
+								<img src="images/pic07.jpg" alt="" />
+								<img src="images/pic08.jpg" alt="" />
+								<img src="images/pic09.jpg" alt="" />
+								<img src="images/pic10.jpg" alt="" />
+								<img src="images/pic07.jpg" alt="" />
+								<img src="images/pic08.jpg" alt="" />
+								<img src="images/pic09.jpg" alt="" />
+								<img src="images/pic10.jpg" alt="" />
+							</div>
+						</div>
 						<div class="inner">
 							<span class="image">
 								<img src="images/pic07.jpg" alt="" />
@@ -162,7 +230,7 @@
 									<header class="major">
 										<h2>Sed amet aliquam</h2>
 									</header>
-									<p>About Me<br />I am a locally grown Winnipeg graphic designer and artist. I graduated from Red River College's Graphic Design program in 2018, and spent the next several years working in the printing, marketing, and signage industries. I've worked directly with local companies like BDI, Thom Brokerage, and Wolseley Strata, as well as numerous other local businesses—including larger organizations like Cancer Care, IntouchCX, and the Royal Canadian Mint. More recently, I've been working as a muralist, and my work with The TOBA Centre Bison Statues can still be viewed around the city. If you're interested in getting anything designed—be it on paper, bags, shirts, signage, vinyl stickers, backdrops, pamphlets, or anything else—just let me know and I'd be happy to give you a hand!</p>
+									<p>About Me<br />I am a locally grown Winnipeg graphic designer and artist. I graduated from Red River College's Graphic Design program in 2018, and spent the next several years working in the printing, marketing, and signage industries. I've worked directly with local companies like BDI, Thom Brokerage, and Wolseley Strata, as well as numerous other local businessesâ€”including larger organizations like Cancer Care, IntouchCX, and the Royal Canadian Mint. More recently, I've been working as a muralist, and my work with The TOBA Centre Bison Statues can still be viewed around the city. If you're interested in getting anything designedâ€”be it on paper, bags, shirts, signage, vinyl stickers, backdrops, pamphlets, or anything elseâ€”just let me know and I'd be happy to give you a hand!</p>
 								</div>
 							</section>
 
@@ -310,3 +378,5 @@
 
 	</body>
 </html>
+
+

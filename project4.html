@@ -23,6 +23,21 @@
 				margin-bottom: 2.25em;
 			}
 
+			.gallery-columns {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2em;
+				align-items: start;
+			}
+
+			.gallery-column .major {
+				margin-bottom: 0.75em;
+			}
+
+			.gallery-column .cube-gallery {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+
 			.cube-item {
 				position: relative;
 				display: block;
@@ -285,6 +300,11 @@
 
 			/* Mobile optimizations */
 			@media screen and (max-width: 980px) {
+				.gallery-columns {
+					grid-template-columns: 1fr;
+					gap: 1.25em;
+				}
+
 				.cube-gallery {
 					grid-template-columns: repeat(3, minmax(0, 1fr));
 				}
@@ -469,10 +489,12 @@
 						<!-- One -->
 							<section id="one">
 								<div class="inner">
-									<header class="major">
+									<p class="slideshow-subtitle">A showcase of logo, branding, and design pieces for a range of clients.</p>
+									<div class="gallery-columns">
+										<div class="gallery-column">
+											<header class="major">
 												<h2>Logo's &amp; Designs</h2>
-									</header>
-											<p class="slideshow-subtitle">A showcase of logo, branding, and design pieces for a range of clients.</p>
+											</header>
 											<div class="cube-gallery">
 												<a class="cube-item" href="images/Logos&Designs/BlazingStars.jpg"><img src="images/Logos&Designs/BlazingStars.jpg" alt="Blazing Stars design" loading="lazy" /></a>
 												<a class="cube-item" href="images/Logos&Designs/ComedyClub.jpg"><img src="images/Logos&Designs/ComedyClub.jpg" alt="Comedy Club design" loading="lazy" /></a>
@@ -480,14 +502,14 @@
 												<a class="cube-item" href="images/Logos&Designs/Lightning.gif"><img src="images/Logos&Designs/Lightning.gif" alt="Lightning animation" loading="lazy" /></a>
 												<a class="cube-item" href="images/Logos&Designs/Popsicle.gif"><img src="images/Logos&Designs/Popsicle.gif" alt="Popsicle animation" loading="lazy" /></a>
 												<a class="cube-item" href="images/Logos&Designs/Riptide01.jpg"><img src="images/Logos&Designs/Riptide01.jpg" alt="Riptide design one" loading="lazy" /></a>
-												<a class="cube-item" href="images/Logos&Designs/Riptide02.jpg"><img src="images/Logos&Designs/Riptide02.jpg" alt="Riptide design two" loading="lazy" /></a>
 												<a class="cube-item" href="images/Logos&Designs/RocketShirt.jpg"><img src="images/Logos&Designs/RocketShirt.jpg" alt="Rocket shirt design" loading="lazy" /></a>
-												<a class="cube-item" href="images/Logos&Designs/RocketTicket.png"><img src="images/Logos&Designs/RocketTicket.png" alt="Rocket ticket design" loading="lazy" /></a>
+												<a class="cube-item" href="images/Logos&Designs/RocketTicket.jpg"><img src="images/Logos&Designs/RocketTicket.jpg" alt="Rocket ticket design" loading="lazy" /></a>
 												<a class="cube-item" href="images/Logos&Designs/RRC_Retro.jpg"><img src="images/Logos&Designs/RRC_Retro.jpg" alt="RRC retro design" loading="lazy" /></a>
 												<a class="cube-item" href="images/Logos&Designs/Wayfinding.jpg"><img src="images/Logos&Designs/Wayfinding.jpg" alt="Wayfinding design" loading="lazy" /></a>
 												<a class="cube-item" href="images/Logos&Designs/Wedding__SeatingChart.jpg"><img src="images/Logos&Designs/Wedding__SeatingChart.jpg" alt="Wedding seating chart design" loading="lazy" /></a>
 											</div>
-
+										</div>
+										<div class="gallery-column">
 											<header class="major">
 												<h2>Illustrations</h2>
 											</header>
@@ -498,12 +520,14 @@
 												<a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/Calendar Mess.jpg"><img src="images/Logos&Designs/Cute_Illustrations/Calendar Mess.jpg" alt="Calendar illustration" loading="lazy" /></a>
 												<a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/cat witch.jpg"><img src="images/Logos&Designs/Cute_Illustrations/cat witch.jpg" alt="Cat witch illustration" loading="lazy" /></a>
 												<a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/cat.jpg"><img src="images/Logos&Designs/Cute_Illustrations/cat.jpg" alt="Cat illustration" loading="lazy" /></a>
-												<a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/manatee.jpg"><img src="images/Logos&Designs/Cute_Illustrations/manatee.jpg" alt="Manatee illustration" loading="lazy" /></a>
+												<a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/StreetSign.jpg"><img src="images/Logos&Designs/Cute_Illustrations/StreetSign.jpg" alt="Street sign illustration" loading="lazy" /></a>
 												<a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/sand.jpg"><img src="images/Logos&Designs/Cute_Illustrations/sand.jpg" alt="Sand illustration" loading="lazy" /></a>
 												<a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/School.jpg"><img src="images/Logos&Designs/Cute_Illustrations/School.jpg" alt="School illustration" loading="lazy" /></a>
 												<a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/turkey.jpg"><img src="images/Logos&Designs/Cute_Illustrations/turkey.jpg" alt="Turkey illustration" loading="lazy" /></a>
 												<a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/xmas.jpg"><img src="images/Logos&Designs/Cute_Illustrations/xmas.jpg" alt="Holiday illustration" loading="lazy" /></a>
 											</div>
+										</div>
+									</div>
 								</div>
 							</section>
 

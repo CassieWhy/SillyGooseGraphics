@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <!--
 	Forty by HTML5 UP
 	html5up.net | @ajlkn
@@ -9,9 +9,66 @@
 		<title>TOBA Sculpture Painting - Silly Goose Graphics</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/png" href="images/Goose-Favicon.png" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
+			@keyframes tobaBannerSlide {
+				0% {
+					transform: translateX(0);
+				}
+				100% {
+					transform: translateX(-50%);
+				}
+			}
+
+			#banner {
+				position: relative;
+				overflow: hidden;
+				background-image: none !important;
+			}
+
+			#banner .inner {
+				position: relative;
+				z-index: 2;
+			}
+
+			.toba-banner-bg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				z-index: 1;
+				opacity: 0.45;
+				pointer-events: none;
+			}
+
+			.toba-banner-track {
+				position: absolute;
+				inset: 0 auto 0 0;
+				display: flex;
+				width: max-content;
+				height: 100%;
+				animation: tobaBannerSlide 28s linear infinite;
+			}
+
+			.toba-banner-track img {
+				width: 26vw;
+				min-width: 220px;
+				height: 100%;
+				object-fit: cover;
+				flex: 0 0 auto;
+			}
+
+			#banner .inner > .image,
+			#banner .inner > .major,
+			#banner .inner > .content {
+				position: relative;
+				z-index: 3;
+			}
+
 			#one .toba-intro header.major {
 				width: 100%;
 			}
@@ -101,6 +158,7 @@
 					max-width: 100%;
 					height: auto;
 				}
+
 			}
 			
 			@media screen and (max-width: 480px) {
@@ -139,7 +197,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
+						<a href="home.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
 						<nav>
 						<a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
 							<a href="#menu">Menu</a>
@@ -149,7 +207,7 @@
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">
-							<li><a href="index.html">Home</a></li>
+							<li><a href="home.html">Home</a></li>
 							<li><a href="About_Me.html">About Me</a></li>
 														<li><a href="#contact">Contact Me</a></li>
 						</ul>
@@ -161,10 +219,19 @@
 				<!-- Banner -->
 				<!-- Note: The "styleN" class below should match that of the header element. -->
 					<section id="banner" class="style2">
-						<div class="inner">
-							<span class="image">
+						<div class="toba-banner-bg" aria-hidden="true">
+							<div class="toba-banner-track">
 								<img src="images/TOBA/Bison_Main.JPG" alt="" />
-							</span>
+								<img src="images/TOBA/TOBA_Design CUBE.jpg" alt="" />
+								<img src="images/TOBA/Bison_Ride.jpg" alt="" />
+								<img src="images/TOBA/Bison_Zoo.jpg" alt="" />
+								<img src="images/TOBA/Bison_Main.JPG" alt="" />
+								<img src="images/TOBA/TOBA_Design CUBE.jpg" alt="" />
+								<img src="images/TOBA/Bison_Ride.jpg" alt="" />
+								<img src="images/TOBA/Bison_Zoo.jpg" alt="" />
+							</div>
+						</div>
+						<div class="inner">
 							<header class="major">
 								<h1>TOBA Sculpture Painting</h1>
 							</header>
@@ -302,3 +369,6 @@
 
 	</body>
 </html>
+
+
+
