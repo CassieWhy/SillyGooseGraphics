@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <!--
 	Forty by HTML5 UP
 	html5up.net | @ajlkn
@@ -14,12 +14,8 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 			@keyframes threedBannerSlide {
-				0% {
-					transform: translateX(0);
-				}
-				100% {
-					transform: translateX(-50%);
-				}
+				0% { transform: translateX(0); }
+				100% { transform: translateX(-50%); }
 			}
 
 			#banner {
@@ -92,278 +88,154 @@
 			.media-card video {
 				display: block;
 				width: 100%;
+			}
+
+			.media-card img {
 				height: 100%;
 				object-fit: cover;
 			}
 
-			.loop-video {
-				aspect-ratio: 4 / 5;
+			.media-card video {
+				height: auto;
+				object-fit: cover;
+				background: #000000;
 			}
 
-			/* Mobile optimizations */
-			@media screen and (max-width: 980px) {
-				/* Reduce header logo padding on tablets */
-				#header .logo strong {
-					padding: 0 15px !important;
-				}
+			.photo-card {
+				aspect-ratio: 1 / 1;
 			}
-			
-			@media screen and (max-width: 736px) {
-				/* Reorganize header for mobile */
-				#header {
-					display: flex !important;
-					flex-direction: column !important;
-					align-items: flex-start !important;
-					padding: 0.75em 1em !important;
-					background-color: #000000 !important;
-				}
-				
-				/* Line break in welcome text on mobile only */
-				.welcome-line {
-					display: block !important;
-				}
-				
-			/* Left align banner text on mobile */
-			#banner .content {
-				text-align: left !important;
+
+			.video-card {
+				height: clamp(295px, 36vw, 450px);
+				background: transparent;
+				box-shadow: none;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 			}
-			
-			#header .logo {
-				width: 100% !important;
-				margin-bottom: 0.25em !important;
-				text-align: center !important;
+
+			.video-row {
+				display: flex;
+				gap: 0.75em;
+				align-items: flex-start;
+				justify-content: center;
+				overflow-x: hidden;
 			}
-			
-			#header .logo strong {
-				padding: 0 !important;
-				font-size: 1.3em !important;
-				display: block !important;
+
+			.video-row .video-card {
+				flex: 0 0 auto;
 			}
-			
-			/* Hide "by Cassie Fennell" on mobile */
-			#header .logo span {
-				display: none !important;
-			}
-			
-				
-				/* Navigation below logo */
-				#header nav {
-					width: 100% !important;
-					display: flex !important;
-					justify-content: space-between !important;
-					align-items: center !important;
-					background-color: rgba(0, 0, 0, 0.95) !important;
-					padding: 0.5em 1em !important;
-					border-radius: 4px !important;
-				}
-				
-				#header nav a[href="#contact"] {
-					margin-right: 0 !important;
-					font-size: 0.85em !important;
-				}
-				
-				#header nav a[href="#menu"] {
-					font-size: 0.85em !important;
-				}
-				
-				/* Ensure images don't overflow */
-				.image img {
-					max-width: 100%;
-					height: auto;
-				}
-			}
-			
-			@media screen and (max-width: 480px) {
-				/* Even more compact on very small screens */
-				#header {
-					padding: 0.5em 0.75em !important;
-				}
-				
-				#header .logo strong {
-					font-size: 0.95em !important;
-				}
-				
-				#header nav a[href="#contact"],
-				#header nav a[href="#menu"] {
-					font-size: 0.75em !important;
-				}
-			}
-			
-			@media screen and (max-width: 360px) {
-				/* Extra small screens */
-				#header .logo strong {
-					font-size: 0.85em !important;
-				}
-				
-				#header nav a[href="#contact"],
-				#header nav a[href="#menu"] {
-					font-size: 0.7em !important;
-				}
+
+			.media-card video.loop-video {
+				width: auto;
+				height: 100%;
+				object-fit: contain;
+				background: transparent;
 			}
 		</style>
 	</head>
 	<body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<a href="home.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
-						<nav>
-						<a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+			<header id="header">
+				<a href="home.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
+				<nav>
+					<a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
 
-				<!-- Menu -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="home.html">Home</a></li>
-							<li><a href="About_Me.html">About Me</a></li>
-														<li><a href="#contact">Contact Me</a></li>
-						</ul>
-						<ul class="actions stacked">
-							<li><a href="#" class="button primary fit">Get Started</a></li>
-						</ul>
-					</nav>
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="home.html">Home</a></li>
+					<li><a href="About_Me.html">About Me</a></li>
+					<li><a href="#contact">Contact Me</a></li>
+				</ul>
+				<ul class="actions stacked">
+					<li><a href="#" class="button primary fit">Get Started</a></li>
+				</ul>
+			</nav>
 
-				<!-- Banner -->
-				<!-- Note: The "styleN" class below should match that of the header element. -->
-					<section id="banner" class="style2">
-						<div class="threed-banner-bg" aria-hidden="true">
-							<div class="threed-banner-track">
-								<img src="images/3D_Prints/20260227_101938.jpg" alt="" />
-								<img src="images/3D_Prints/20260227_101945.jpg" alt="" />
-								<img src="images/3D_Prints/20260227_102003.jpg" alt="" />
-								<img src="images/3D_Prints/20260227_102013.jpg" alt="" />
-								<img src="images/3D_Prints/20260227_101938.jpg" alt="" />
-								<img src="images/3D_Prints/20260227_101945.jpg" alt="" />
-								<img src="images/3D_Prints/20260227_102003.jpg" alt="" />
-								<img src="images/3D_Prints/20260227_102013.jpg" alt="" />
-							</div>
-						</div>
-						<div class="inner">
-							<header class="major">
-								<h1>3D Creations</h1>
-							</header>
-							<div class="content">
-								<p>Built with blender, printed with Bambu, &amp; painted by hand</p>
-							</div>
-						</div>
-					</section>
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- One -->
-							<section id="one">
-								<div class="inner">
-									<header class="major">
-										<h2>3D Project Details</h2>
-									</header>
-									<p>Designed in Blender, produced with Bambu printing, and finished with hand painting.</p>
-									<div class="box alt media-gallery">
-										<h3 class="media-title">Photos</h3>
-										<div class="row gtr-50 gtr-uniform">
-											<div class="col-6">
-												<span class="image fit media-card"><img src="images/3D_Prints/20260227_102003.jpg" alt="3D Goose Creation 01" /></span>
-											</div>
-											<div class="col-6">
-												<span class="image fit media-card"><img src="images/3D_Prints/20260227_102013.jpg" alt="3D Goose Creation 02" /></span>
-											</div>
-										</div>
-										<h3 class="media-title" style="margin-top: 1.5em;">Looping Videos</h3>
-										<div class="row gtr-50 gtr-uniform">
-											<div class="col-4">
-												<div class="media-card">
-													<video class="loop-video" autoplay muted loop playsinline preload="metadata" aria-label="3D print video loop 1">
-														<source src="images/3D_Prints/Goose3D.mp4" type="video/mp4" />
-													</video>
-												</div>
-											</div>
-											<div class="col-4">
-												<div class="media-card">
-													<video class="loop-video" autoplay muted loop playsinline preload="metadata" aria-label="3D print video loop 2">
-														<source src="images/3D_Prints/GirlGoose.mp4" type="video/mp4" />
-													</video>
-												</div>
-											</div>
-											<div class="col-4">
-												<div class="media-card">
-													<video class="loop-video" autoplay muted loop playsinline preload="metadata" aria-label="3D print video loop 3">
-														<source src="images/3D_Prints/BootsGoose.mp4" type="video/mp4" />
-													</video>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</section>
-
+			<section id="banner" class="style2">
+				<div class="threed-banner-bg" aria-hidden="true">
+					<div class="threed-banner-track">
+						<img src="images/3D_Prints/Goose1.jpg" alt="" />
+						<img src="images/3D_Prints/Goose2.jpg" alt="" />
+						<img src="images/3D_Prints/XMas_01.jpg" alt="" />
+						<img src="images/3D_Prints/XMas_02.jpg" alt="" />
+						<img src="images/3D_Prints/Goose1.jpg" alt="" />
+						<img src="images/3D_Prints/Goose2.jpg" alt="" />
+						<img src="images/3D_Prints/XMas_01.jpg" alt="" />
+						<img src="images/3D_Prints/XMas_02.jpg" alt="" />
 					</div>
+				</div>
+				<div class="inner">
+					<header class="major"><h1>3D Creations</h1></header>
+					<div class="content"><p>Built with blender, printed with Bambu, &amp; painted by hand</p></div>
+				</div>
+			</section>
 
-				<!-- Contact -->
-					<section id="contact">
-						<div class="inner">
-							<section>
-								<form method="post" action="https://formspree.io/f/xojnlkqg">
-									<div class="fields">
-										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="6"></textarea>
-									</div>
-									<div class="field" style="margin-bottom: 2em;">
-										<label for="files">Attach Files</label>
-										<input type="file" name="files" id="files" multiple />
-									</div>
-								</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" style="color: #000000 !important;" onmouseover="this.style.color='#0066ff'" onmouseout="this.style.color='#000000'" /></li>
-										<li><input type="reset" value="Clear" /></li>
-									</ul>
-								</form>
-							</section>
-							<section class="split">
-								<section>
-									<div class="contact-method">
-										<span class="icon solid alt fa-envelope"></span>
-										<h3>Email</h3>
-										<a href="mailto:cassie@sillygoosegraphics.ca">cassie@sillygoosegraphics.ca</a>
-									</div>
-								</section>
-								<section>
-									<div class="contact-method">
-
-										<span class="icon solid alt fa-home"></span>
-										<h3>Winnipeg MB Canada</h3>
-									</div>
-								</section>
-							</section>
+			<div id="main">
+				<section id="one">
+					<div class="inner">
+						<header class="major"><h2>3D Project Details</h2></header>
+						<p>Designed in Blender, produced with Bambu printing, and finished with hand painting.</p>
+						<div class="box alt media-gallery">
+							<h3 class="media-title">Looping Videos</h3>
+							<div class="video-row">
+								<div class="media-card video-card"><video class="loop-video" autoplay muted loop playsinline preload="metadata" aria-label="3D print video loop 1"><source src="images/3D_Prints/House.mkv" type="video/x-matroska" /></video></div>
+								<div class="media-card video-card"><video class="loop-video" autoplay muted loop playsinline preload="metadata" aria-label="3D print video loop 2"><source src="images/3D_Prints/Goose_Dance.mkv" type="video/x-matroska" /></video></div>
+								<div class="media-card video-card"><video class="loop-video" autoplay muted loop playsinline preload="metadata" aria-label="3D print video loop 3"><source src="images/3D_Prints/Frog.mkv" type="video/x-matroska" /></video></div>
+							</div>
+							<h3 class="media-title" style="margin-top: 1.5em;">Photos</h3>
+							<div class="row gtr-50 gtr-uniform">
+								<div class="col-4"><span class="image fit media-card photo-card"><img src="images/3D_Prints/Goose1.jpg" alt="3D Goose Creation 01" /></span></div>
+								<div class="col-4"><span class="image fit media-card photo-card"><img src="images/3D_Prints/Goose2.jpg" alt="3D Goose Creation 02" /></span></div>
+								<div class="col-4"><span class="image fit media-card photo-card"><img src="images/3D_Prints/Goose_Pair.jpg" alt="3D Goose Creation 03" /></span></div>
+								<div class="col-4"><span class="image fit media-card photo-card"><img src="images/3D_Prints/Goose_Pair02.jpg" alt="3D Goose Creation 04" /></span></div>
+								<div class="col-4"><span class="image fit media-card photo-card"><img src="images/3D_Prints/XMas_01.jpg" alt="3D Goose Creation 05" /></span></div>
+								<div class="col-4"><span class="image fit media-card photo-card"><img src="images/3D_Prints/XMas_02.jpg" alt="3D Goose Creation 06" /></span></div>
+								<div class="col-4"><span class="image fit media-card photo-card"><img src="images/3D_Prints/XMas_03.jpg" alt="3D Goose Creation 07" /></span></div>
+								<div class="col-4"><span class="image fit media-card photo-card"><img src="images/3D_Prints/Frog-Duck_1.jpg" alt="3D Goose Creation 08" /></span></div>
+								<div class="col-4"><span class="image fit media-card photo-card"><img src="images/3D_Prints/Frog-Duck_2.jpg" alt="3D Goose Creation 09" /></span></div>
+							</div>
 						</div>
-					</section>
-
+					</div>
+				</section>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<section id="contact">
+				<div class="inner">
+					<section>
+						<form method="post" action="https://formspree.io/f/xojnlkqg">
+							<div class="fields">
+								<div class="field half"><label for="name">Name</label><input type="text" name="name" id="name" /></div>
+								<div class="field half"><label for="email">Email</label><input type="text" name="email" id="email" /></div>
+								<div class="field"><label for="message">Message</label><textarea name="message" id="message" rows="6"></textarea></div>
+								<div class="field" style="margin-bottom: 2em;"><label for="files">Attach Files</label><input type="file" name="files" id="files" multiple /></div>
+							</div>
+							<ul class="actions">
+								<li><input type="submit" value="Send Message" class="primary" style="color: #000000 !important;" onmouseover="this.style.color='#0066ff'" onmouseout="this.style.color='#000000'" /></li>
+								<li><input type="reset" value="Clear" /></li>
+							</ul>
+						</form>
+					</section>
+					<section class="split">
+						<section><div class="contact-method"><span class="icon solid alt fa-envelope"></span><h3>Email</h3><a href="mailto:cassie@sillygoosegraphics.ca">cassie@sillygoosegraphics.ca</a></div></section>
+						<section><div class="contact-method"><span class="icon solid alt fa-home"></span><h3>Winnipeg MB Canada</h3></div></section>
+					</section>
+				</div>
+			</section>
 
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 	</body>
 </html>
-
-
-
