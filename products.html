@@ -18,17 +18,37 @@
 			}
 
 			.products-grid .image.fit {
-				height: 18em;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				background: rgba(255, 255, 255, 0.04);
+				aspect-ratio: 1 / 1;
+				display: block;
 				overflow: hidden;
+				border-bottom: 0;
+				border: 0;
+				background: #000000;
+				border-radius: 10px;
+				box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+				position: relative;
+			}
+
+			.products-grid .image.fit:before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				border: 2px solid #ffffff;
+				border-radius: 10px;
+				z-index: 3;
+				pointer-events: none;
 			}
 
 			.products-grid .image.fit img {
-				width: 100%;
+				width: auto;
 				height: 100%;
+				max-width: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
 				object-fit: contain;
 				padding: 0.6em;
 			}
