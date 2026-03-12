@@ -322,10 +322,41 @@
 				opacity: 0.7;
 			}
 
+			.products-slide-cta {
+				background: #000000 !important;
+				background-image: none !important;
+			}
+
+			.products-bg-track {
+				position: absolute;
+				inset: 0;
+				display: flex;
+				width: max-content;
+				z-index: 1;
+				animation: logosBgSlide 48s linear infinite;
+				will-change: transform;
+			}
+
+			.products-bg-track img {
+				width: 22vw;
+				min-width: 190px;
+				height: 100%;
+				object-fit: contain;
+				background: #000000;
+				opacity: 1;
+				padding: 0.35em;
+				flex: 0 0 auto;
+			}
+
 			@media screen and (max-width: 736px) {
 				.about-me-cta {
 					min-height: 150px;
 					padding: 1.25em;
+				}
+
+				.products-bg-track img {
+					width: 36vw;
+					min-width: 150px;
 				}
 
 				.about-me-button {
@@ -405,7 +436,23 @@
 						<!-- Products CTA -->
 							<section id="products-cta">
 								<div class="inner">
-									<a href="products.html" class="about-me-cta" style="background-color: #000; background-image: url('images/Products/Productgroup_website.png'); background-repeat: no-repeat; background-position: 50% 50%; background-size: 100% auto;">
+									<a href="products.html" class="about-me-cta products-slide-cta">
+										<div class="products-bg-track" aria-hidden="true">
+											<img src="images/Products/slider/cards_slider.png" alt="" />
+											<img src="images/Products/slider/coaster_slider.png" alt="" />
+											<img src="images/Products/slider/key_slider.png" alt="" />
+											<img src="images/Products/slider/mugs_slider.png" alt="" />
+											<img src="images/Products/slider/shirt_slider.png" alt="" />
+											<img src="images/Products/slider/stickers_slider.png" alt="" />
+											<img src="images/Products/slider/tent_slider.png" alt="" />
+											<img src="images/Products/slider/cards_slider.png" alt="" />
+											<img src="images/Products/slider/coaster_slider.png" alt="" />
+											<img src="images/Products/slider/key_slider.png" alt="" />
+											<img src="images/Products/slider/mugs_slider.png" alt="" />
+											<img src="images/Products/slider/shirt_slider.png" alt="" />
+											<img src="images/Products/slider/stickers_slider.png" alt="" />
+											<img src="images/Products/slider/tent_slider.png" alt="" />
+										</div>
 										<div class="about-me-button">
 											<span class="button primary large">Products</span>
 										</div>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 8944.58 1449.32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-2);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="4472.29" y1="1119.88" x2="4472.29" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#85878a"/>
+      <stop offset="0" stop-color="#898b8e"/>
+      <stop offset=".04" stop-color="#a8aaac"/>
+      <stop offset=".09" stop-color="#c3c4c6"/>
+      <stop offset=".14" stop-color="#d9dadb"/>
+      <stop offset=".2" stop-color="#eaeaeb"/>
+      <stop offset=".27" stop-color="#f6f6f6"/>
+      <stop offset=".37" stop-color="#fdfdfd"/>
+      <stop offset=".65" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="4472.29" y1="1449.32" x2="4472.29" y2="1119.88" gradientUnits="userSpaceOnUse">
+      <stop offset=".4" stop-color="#fff"/>
+      <stop offset=".66" stop-color="#fdfdfd"/>
+      <stop offset=".75" stop-color="#f6f6f6"/>
+      <stop offset=".82" stop-color="#eaeaeb"/>
+      <stop offset=".87" stop-color="#d9dadb"/>
+      <stop offset=".92" stop-color="#c3c4c6"/>
+      <stop offset=".96" stop-color="#a8aaac"/>
+      <stop offset="1" stop-color="#898b8e"/>
+      <stop offset="1" stop-color="#85878a"/>
+    </linearGradient>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <rect class="cls-1" y="0" width="8944.58" height="1119.88"/>
+      <rect class="cls-2" x="0" y="1119.88" width="8944.58" height="329.44"/>
+    </g>
+  </g>
+</svg>
