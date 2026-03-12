@@ -327,14 +327,26 @@
 				background-image: none !important;
 			}
 
+			@keyframes productsCtaSlide {
+				0% {
+					transform: translateX(0);
+				}
+				100% {
+					transform: translateX(-50%);
+				}
+			}
+
 			.products-bg-track {
 				position: absolute;
 				inset: 0;
+				height: 100%;
 				display: flex;
+				gap: 20px;
 				width: max-content;
 				z-index: 1;
-				animation: logosBgSlide 48s linear infinite;
+				animation: productsCtaSlide 22s linear infinite;
 				will-change: transform;
+				pointer-events: none;
 			}
 
 			.products-bg-track img {
@@ -344,7 +356,7 @@
 				object-fit: contain;
 				background: #000000;
 				opacity: 1;
-				padding: 0.35em;
+				padding: 0;
 				flex: 0 0 auto;
 			}
 
