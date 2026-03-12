@@ -52,6 +52,21 @@
 				padding: 0.2em;
 			}
 
+			/* Ensure tent images are sized the same as all other product images */
+			.tent-img img {
+				width: auto;
+				height: 60%;
+				max-width: 80%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				object-fit: contain;
+				padding: 0.2em;
+			}
+
 			/* Mobile optimizations */
 			@media screen and (max-width: 980px) {
 				#header .logo strong {
@@ -220,8 +235,8 @@
 										<!-- Stand Parts (unpaired) -->
 										<div class="col-6"><span class="image fit"><img src="images/Products/Large-Scale/Blade-Lite-retractable-banner-stand_parts.png" alt="Blade Lite Stand Parts" /></span></div>
 									</div>
-										<div class="col-6"><span class="image fit"><img src="images/Products/Large-Scale/Zoom-standard-10-popup-tent_canopy-top.png" alt="Popup Tent Canopy Top" /></span></div>
-										<div class="col-6"><span class="image fit"><img src="images/Products/Large-Scale/Zoom-standard-10-popup-tent_canopy-walls-left.png" alt="Popup Tent Walls" /></span></div>
+										<div class="col-6"><span class="image fit tent-img"><img src="images/Products/Large-Scale/Zoom-standard-10-popup-tent_canopy-top.png" alt="Popup Tent Canopy Top" /></span></div>
+										<div class="col-6"><span class="image fit tent-img"><img src="images/Products/Large-Scale/Zoom-standard-10-popup-tent_canopy-walls-left.png" alt="Popup Tent Walls" /></span></div>
 									</div>
 								</div>
 							</div>
