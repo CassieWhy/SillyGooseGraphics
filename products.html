@@ -33,8 +33,8 @@
 				content: '';
 				position: absolute;
 				inset: 0;
-				border: 2px solid #ffffff;
-				border-radius: 10px;
+				border: 1px solid #ffffff;
+				border-radius: 8px;
 				z-index: 3;
 				pointer-events: none;
 			}
@@ -143,6 +143,12 @@
 					font-size: 0.7em !important;
 				}
 			}
+
+			.products-row-4 {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 1em;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -196,7 +202,7 @@
 								</header>
 								<p>Display systems, banners, backwalls, table throws, and tents.</p>
 								<div class="box alt products-grid">
-									<div class="row gtr-50 gtr-uniform">
+									<div class="products-row-4">
 										<!-- Pair Blade Lite 800 Front & Left -->
 										<div class="col-6"><span class="image fit"><img src="images/Products/Large-Scale/Blade-Lite-800-retractable-banner-stand_fron.png" alt="Blade Lite 800 Front" /></span></div>
 										<div class="col-6"><span class="image fit"><img src="images/Products/Large-Scale/Blade-Lite-800-retractable-banner-stand_left-1.png" alt="Blade Lite 800 Left" /></span></div>
