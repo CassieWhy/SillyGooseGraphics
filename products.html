@@ -1,3 +1,4 @@
+            
 <!DOCTYPE HTML>
 <!--
 	Forty by HTML5 UP
@@ -17,54 +18,60 @@
 				background-position: center center !important;
 			}
 
+
 			.image.fit {
 				aspect-ratio: 1 / 1;
-				display: block;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				overflow: hidden;
-				border: 0;
-				background: #000000;
-				border-radius: 8px;
-				box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+				background: transparent;
+				border: none;
+				border-radius: 0;
+				box-shadow: none;
 				position: relative;
+				margin: 0;
+				padding: 0;
 			}
 
 			.image.fit:before {
-				content: '';
-				position: absolute;
-				inset: 0;
-				border: 1px solid #ffffff;
-				border-radius: 8px;
-				z-index: 3;
-				pointer-events: none;
+				display: none;
 			}
 
 			.image.fit img {
-				width: auto;
-				height: 60%;
-				max-width: 80%;
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				margin: auto;
+				width: 100%;
+				height: 100%;
+				max-width: 100%;
+				max-height: 100%;
+				position: static;
+				margin: 0;
 				object-fit: contain;
-				padding: 0.2em;
+				padding: 0;
+				border: none;
+				border-radius: 0;
+				box-shadow: none;
 			}
 
-			/* Ensure tent images are sized the same as all other product images */
-			.tent-img img {
-				width: auto;
-				height: 60%;
-				max-width: 80%;
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				margin: auto;
-				object-fit: contain;
-				padding: 0.2em;
+			.products-row-4 {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 1em;
+			}
+
+
+			/* Force tent images to match other product images */
+			.image.fit img[src*="zoom-tent"],
+			.image.fit img[src*="Zoom-standard-10-popup-tent"] {
+				width: 100%;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+				object-fit: cover;
+				margin: 0;
+				border: none;
+				border-radius: 0;
+				box-shadow: none;
+				padding: 0;
 			}
 
 			/* Mobile optimizations */
@@ -171,12 +178,13 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header">
-						<a href="home.html" class="logo"><strong style="padding: 0 40px;">Silly Goose Graphics</strong> <strong style="padding: 0 15px;"></strong><span>by Cassie Fennell</span></a>
-						<nav>
-						<a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
-							<a href="#menu">Menu</a>
-						</nav>
+					<header id="header" style="display: flex; align-items: center; justify-content: space-between;">
+					    <div style="flex: 1;"></div>
+					    <a href="home.html" class="logo" style="flex: 0 0 auto; text-align: center; margin: 7px auto 0 auto;"><strong style="padding: 0 40px; font-size: 1.5em; letter-spacing: 5px;">Silly Goose Graphics</strong></a>
+					    <nav style="flex: 1; display: flex; justify-content: flex-end;">
+					        <a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
+					        <a href="#menu">Menu</a>
+					    </nav>
 					</header>
 
 				<!-- Menu -->
@@ -234,7 +242,7 @@
 										<div><span class="image fit"><img src="images/Products/Large-Scale/BLZ-W-0603-ORBUS1-B-Left-View.png" alt="BLZ ORBUS Left View" /></span></div>
 										<!-- Stand Parts (unpaired) -->
 										<div><span class="image fit"><img src="images/Products/Large-Scale/Blade-Lite-retractable-banner-stand_parts.png" alt="Blade Lite Stand Parts" /></span></div>
-									</div>
+										<!-- Zoom Tent Images (now inside grid) -->
 										<div><span class="image fit"><img src="images/Products/Large-Scale/Zoom-standard-10-popup-tent_canopy-top.png" alt="Popup Tent Canopy Top" /></span></div>
 										<div><span class="image fit"><img src="images/Products/Large-Scale/zoom-tent-top.png" alt="Popup Tent Canopy Top" /></span></div>
 										<div><span class="image fit"><img src="images/Products/Large-Scale/zoom-tent.png" alt="Popup Tent Walls" /></span></div>
