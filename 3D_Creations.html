@@ -24,6 +24,20 @@
 				background-image: none !important;
 			}
 
+			#banner:after,
+			#banner.style1:after,
+			#banner.style2:after,
+			#banner.style3:after,
+			#banner.style4:after,
+			#banner.style5:after,
+			#banner.style6:after {
+				background: transparent !important;
+				background-color: transparent !important;
+				opacity: 0 !important;
+				content: none !important;
+				display: none !important;
+			}
+
 			#banner .inner {
 				position: relative;
 				z-index: 2;
@@ -38,6 +52,7 @@
 				overflow: hidden;
 				z-index: 1;
 				opacity: 0.45;
+				filter: blur(5px);
 				pointer-events: none;
 			}
 
@@ -151,6 +166,9 @@
 				<ul class="links">
 					<li><a href="home.html">Home</a></li>
 					<li><a href="About_Me.html">About Me</a></li>
+					<li><a href="design.html">DESIGN</a></li>
+					<li><a href="illustrations.html">ILLUSTRATION</a></li>
+					<li><a href="3D_Creations.html">3D CREATIONS</a></li>
 					<li><a href="#contact">Contact Me</a></li>
 				</ul>
 				<ul class="actions stacked">
@@ -183,6 +201,11 @@
 						<header class="major"><h2>3D Project Details</h2></header>
 						<p>Designed in Blender, produced with Bambu printing, and finished with hand painting.</p>
 						<div class="box alt media-gallery">
+							<div style="margin: 50px 0 80px 0; text-align: center;">
+								<a href="#contact" onclick="event.preventDefault(); document.getElementById('message').value='I\'m interested it knowing more about getting a 3D print'; document.getElementById('contact').scrollIntoView({behavior:'smooth'});" style="display: block; width: 100%; border-bottom: none; text-decoration: none; font-size: 1.2em; font-weight: 700; letter-spacing: 0.03em; padding: 0.3em 0.55em; background: #ffffff; color: #000000 !important; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.22); border-radius: 4px;">
+									INTERESTED IN A CUSTOM 3D PRINT?
+								</a>
+							</div>
 							<h3 class="media-title">Looping Videos</h3>
 							<div class="video-row">
 								<div class="media-card video-card"><video class="loop-video" autoplay muted loop playsinline preload="metadata" aria-label="3D print video loop 1"><source src="images/3D_Prints/House.mkv" type="video/x-matroska" /></video></div>

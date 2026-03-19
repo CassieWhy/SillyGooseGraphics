@@ -21,43 +21,49 @@
                 <style>
         body { background: #000 !important; color: #fff !important; }
         .box.alt .row.gtr-50.gtr-uniform {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 -0.5em;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            row-gap: 0.5em !important;
+            column-gap: 0.5em !important;
+            margin: 0 !important;
+        }
+        .box.alt .row.gtr-50.gtr-uniform > * {
+            margin: 0 !important;
+            padding: 0 !important;
         }
         .box.alt .col-5 {
-            width: 20%;
-            padding: 1em 0.5em;
+            width: auto !important;
+            padding: 0 !important;
             box-sizing: border-box;
         }
         @media (max-width: 1200px) {
-            .box.alt .col-5 { width: 25%; }
+            .box.alt .row.gtr-50.gtr-uniform { grid-template-columns: repeat(4, minmax(0, 1fr)); }
         }
         @media (max-width: 900px) {
-            .box.alt .col-5 { width: 33.3333%; }
+            .box.alt .row.gtr-50.gtr-uniform { grid-template-columns: repeat(4, minmax(0, 1fr)); }
         }
         @media (max-width: 700px) {
-            .box.alt .col-5 { width: 50%; }
+            .box.alt .row.gtr-50.gtr-uniform { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
         @media (max-width: 500px) {
-            .box.alt .col-5 { width: 100%; }
+            .box.alt .row.gtr-50.gtr-uniform { grid-template-columns: 1fr; }
         }
         .box.alt .image.fit {
             display: block;
             background: none !important;
             border: none !important;
-            margin: 0;
+            margin: 0 !important;
             padding: 0;
         }
         .box.alt .image.fit img {
             width: 100%;
-            height: auto;
-            max-height: 340px;
-            object-fit: contain;
+            height: 100%;
+            max-height: none;
+            object-fit: cover;
             background: none;
             border: none;
             display: block;
-            margin: 0 auto;
+            margin: 0 !important;
         }
                                             @media (max-width: 1200px) {
                                                 .box.alt .row.gtr-50.gtr-uniform {
@@ -208,6 +214,9 @@
                 <ul class="links">
                     <li><a href="home.html">Home</a></li>
                     <li><a href="About_Me.html">About Me</a></li>
+                    <li><a href="design.html">DESIGN</a></li>
+                    <li><a href="illustrations.html">ILLUSTRATION</a></li>
+                    <li><a href="3D_Creations.html">3D CREATIONS</a></li>
                     <li><a href="#contact">Contact Me</a></li>
                 </ul>
                 <ul class="actions stacked">
@@ -302,10 +311,6 @@
                 </section>
                 <section id="one">
                     <div class="inner">
-                        <header class="major">
-                            <h2>Design Gallery</h2>
-                        </header>
-                        <p>A selection of design and branding work from recent projects.</p>
                         <div class="box alt">
                             <div class="row gtr-50 gtr-uniform">
                                 <div class="col-5"><span class="image fit"><img src="images/DESIGN/BearRepair.jpg" alt="Bear Repair" /></span></div>
@@ -366,6 +371,67 @@
         <!-- Removed script that toggles gallery-lightbox classes -->
     <style>
         body { background: #181818; color: #fff; font-family: Montserrat, Arial, sans-serif; }
+        #main .cube-gallery .cube-item {
+            display: block;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+        #main .gallery-columns {
+            display: block;
+        }
+        #main .gallery-column + .gallery-column {
+            margin-top: 0.5em;
+        }
+        #main .cube-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            row-gap: 0.5em !important;
+            column-gap: 0.5em !important;
+        }
+        #main .cube-gallery .cube-item {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        @media (max-width: 1200px) {
+            #main .cube-gallery {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 900px) {
+            #main .cube-gallery {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 700px) {
+            #main .cube-gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 500px) {
+            #main .cube-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+        #main .cube-gallery .cube-item img {
+            width: 100% !important;
+            height: 100% !important;
+            max-height: none !important;
+            object-fit: cover !important;
+            display: block;
+            margin: 0 !important;
+        }
+        #main .box.alt .image.fit {
+            display: block;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+        #main .box.alt .image.fit img {
+            width: 100% !important;
+            height: 100% !important;
+            max-height: none !important;
+            object-fit: cover !important;
+            display: block;
+        }
         .gallery-container { max-width: 1200px; margin: 0 auto; padding: 2em 1em; }
         h1 { text-align: center; margin-bottom: 0.5em; }
         .design-gallery {
@@ -487,7 +553,8 @@
 
                                             window.__designShowcaseLightboxInitialized = true;
 
-                                            var showcaseLightbox = createShowcaseLightbox();
+                                            var disableDesignShowcaseLightbox = /(^|\/)design(?:\.html)?$/i.test(window.location.pathname);
+                                            var showcaseLightbox = disableDesignShowcaseLightbox ? { open: function () {} } : createShowcaseLightbox();
 
                                             function initCubeGallery(selector) {
                                                 var links = Array.prototype.slice.call(document.querySelectorAll(selector));
@@ -615,15 +682,41 @@
                                             resetTimer();
                                         }
 
-                                        initCubeGallery('#one .cube-gallery:first-of-type .cube-item');
-                                        initCubeGallery('#one .cube-gallery:last-of-type .cube-item');
+                                        if (!document.body.classList.contains('use-global-gallery-lightbox') && !/(^|\/)design(?:\.html)?$/i.test(window.location.pathname)) {
+                                            initCubeGallery('#one .cube-gallery:first-of-type .cube-item');
+                                            initCubeGallery('#one .cube-gallery:last-of-type .cube-item');
+                                        }
                                     })();
                                 </script>
                         </body>
             </html>
         </style>
     </head>
-    <body class="is-preload disable-global-gallery-lightbox">
+    <body class="is-preload use-global-gallery-lightbox">
+        <style>
+            /* Final active-page override: force 4-across design gallery */
+            #one .box.alt .row.gtr-50.gtr-uniform {
+                display: grid !important;
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+                gap: 0.5em !important;
+                margin: 0 !important;
+            }
+            #one .box.alt .row.gtr-50.gtr-uniform > * {
+                width: auto !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            @media (max-width: 700px) {
+                #one .box.alt .row.gtr-50.gtr-uniform {
+                    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                }
+            }
+            @media (max-width: 500px) {
+                #one .box.alt .row.gtr-50.gtr-uniform {
+                    grid-template-columns: 1fr !important;
+                }
+            }
+        </style>
         <!-- Wrapper -->
         <div id="wrapper">
             <!-- Header -->
@@ -632,6 +725,9 @@
                 <ul class="links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="About_Me.html">About Me</a></li>
+                    <li><a href="design.html">DESIGN</a></li>
+                    <li><a href="illustrations.html">ILLUSTRATION</a></li>
+                    <li><a href="3D_Creations.html">3D CREATIONS</a></li>
                     <li><a href="#contact">Contact Me</a></li>
                 </ul>
                 <ul class="actions stacked">
@@ -688,45 +784,31 @@
             <div id="main">
                 <section id="one">
                     <div class="inner">
-                        <p class="slideshow-subtitle">A showcase of logo, branding, and design pieces for a range of clients.</p>
-                        <div class="gallery-columns">
-                            <div class="gallery-column">
-                                <header class="major">
-                                    <h2>Logo's & Designs</h2>
-                                </header>
-                                <div class="cube-gallery">
-                                    
-                                    <a class="cube-item" href="images/Logos&Designs/ComedyClub.jpg"><img src="images/Logos&Designs/ComedyClub.jpg" alt="Comedy Club design" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/CopyrightVisualization.jpg"><img src="images/Logos&Designs/CopyrightVisualization.jpg" alt="Copyright visualization" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/BusinesesCards_RattlingJ_Square.jpg"><img src="images/Logos&Designs/BusinesesCards_RattlingJ_Square.jpg" alt="Rattling J business cards design" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/HuntingShirt.jpg"><img src="images/Logos&Designs/HuntingShirt.jpg" alt="Hunting shirt design" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Lightning.gif"><img src="images/Logos&Designs/Lightning.gif" alt="Lightning animation" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Popsicle.gif"><img src="images/Logos&Designs/Popsicle.gif" alt="Popsicle animation" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Riptide01.jpg"><img src="images/Logos&Designs/Riptide01.jpg" alt="Riptide design one" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/RocketShirt.jpg"><img src="images/Logos&Designs/RocketShirt.jpg" alt="Rocket shirt design" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/RocketTicket.jpg"><img src="images/Logos&Designs/RocketTicket.jpg" alt="Rocket ticket design" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/RRC_Retro.jpg"><img src="images/Logos&Designs/RRC_Retro.jpg" alt="RRC retro design" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Wayfinding.jpg"><img src="images/Logos&Designs/Wayfinding.jpg" alt="Wayfinding design" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Wedding__SeatingChart.jpg"><img src="images/Logos&Designs/Wedding__SeatingChart.jpg" alt="Wedding seating chart design" loading="lazy" /></a>
-                                </div>
-                            </div>
-                            <div class="gallery-column">
-                                <header class="major">
-                                    <h2>Illustrations</h2>
-                                </header>
-                                <div class="cube-gallery">
-                                    <a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/9LivesLogo.jpg"><img src="images/Logos&Designs/Cute_Illustrations/9LivesLogo.jpg" alt="9 Lives logo illustration" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/bear.jpg"><img src="images/Logos&Designs/Cute_Illustrations/bear.jpg" alt="Bear illustration" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/BirdPainting.jpg"><img src="images/Logos&Designs/Cute_Illustrations/BirdPainting.jpg" alt="Bird painting illustration" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/Calendar Mess.jpg"><img src="images/Logos&Designs/Cute_Illustrations/Calendar Mess.jpg" alt="Calendar illustration" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/cat witch.jpg"><img src="images/Logos&Designs/Cute_Illustrations/cat witch.jpg" alt="Cat witch illustration" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/cat.jpg"><img src="images/Logos&Designs/Cute_Illustrations/cat.jpg" alt="Cat illustration" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/StreetSign.jpg"><img src="images/Logos&Designs/Cute_Illustrations/StreetSign.jpg" alt="Street sign illustration" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/sand.jpg"><img src="images/Logos&Designs/Cute_Illustrations/sand.jpg" alt="Sand illustration" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/School.jpg"><img src="images/Logos&Designs/Cute_Illustrations/School.jpg" alt="School illustration" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/turkey.jpg"><img src="images/Logos&Designs/Cute_Illustrations/turkey.jpg" alt="Turkey illustration" loading="lazy" /></a>
-                                    <a class="cube-item" href="images/Logos&Designs/Cute_Illustrations/xmas.jpg"><img src="images/Logos&Designs/Cute_Illustrations/xmas.jpg" alt="Holiday illustration" loading="lazy" /></a>
-                                </div>
+                        <div class="box alt">
+                            <div class="row gtr-50 gtr-uniform">
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/ComedyClub.jpg"><img src="images/Logos&Designs/ComedyClub.jpg" alt="Comedy Club design" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/CopyrightVisualization.jpg"><img src="images/Logos&Designs/CopyrightVisualization.jpg" alt="Copyright visualization" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/BusinesesCards_RattlingJ_Square.jpg"><img src="images/Logos&Designs/BusinesesCards_RattlingJ_Square.jpg" alt="Rattling J business cards design" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/HuntingShirt.jpg"><img src="images/Logos&Designs/HuntingShirt.jpg" alt="Hunting shirt design" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Lightning.gif"><img src="images/Logos&Designs/Lightning.gif" alt="Lightning animation" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Popsicle.gif"><img src="images/Logos&Designs/Popsicle.gif" alt="Popsicle animation" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Riptide01.jpg"><img src="images/Logos&Designs/Riptide01.jpg" alt="Riptide design one" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/RocketShirt.jpg"><img src="images/Logos&Designs/RocketShirt.jpg" alt="Rocket shirt design" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/RocketTicket.jpg"><img src="images/Logos&Designs/RocketTicket.jpg" alt="Rocket ticket design" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/RRC_Retro.jpg"><img src="images/Logos&Designs/RRC_Retro.jpg" alt="RRC retro design" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Wayfinding.jpg"><img src="images/Logos&Designs/Wayfinding.jpg" alt="Wayfinding design" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Wedding__SeatingChart.jpg"><img src="images/Logos&Designs/Wedding__SeatingChart.jpg" alt="Wedding seating chart design" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Cute_Illustrations/9LivesLogo.jpg"><img src="images/Logos&Designs/Cute_Illustrations/9LivesLogo.jpg" alt="9 Lives logo illustration" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Cute_Illustrations/bear.jpg"><img src="images/Logos&Designs/Cute_Illustrations/bear.jpg" alt="Bear illustration" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Cute_Illustrations/BirdPainting.jpg"><img src="images/Logos&Designs/Cute_Illustrations/BirdPainting.jpg" alt="Bird painting illustration" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Cute_Illustrations/Calendar Mess.jpg"><img src="images/Logos&Designs/Cute_Illustrations/Calendar Mess.jpg" alt="Calendar illustration" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Cute_Illustrations/cat witch.jpg"><img src="images/Logos&Designs/Cute_Illustrations/cat witch.jpg" alt="Cat witch illustration" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Cute_Illustrations/cat.jpg"><img src="images/Logos&Designs/Cute_Illustrations/cat.jpg" alt="Cat illustration" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Cute_Illustrations/StreetSign.jpg"><img src="images/Logos&Designs/Cute_Illustrations/StreetSign.jpg" alt="Street sign illustration" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Cute_Illustrations/sand.jpg"><img src="images/Logos&Designs/Cute_Illustrations/sand.jpg" alt="Sand illustration" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Cute_Illustrations/School.jpg"><img src="images/Logos&Designs/Cute_Illustrations/School.jpg" alt="School illustration" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Cute_Illustrations/turkey.jpg"><img src="images/Logos&Designs/Cute_Illustrations/turkey.jpg" alt="Turkey illustration" loading="lazy" /></a></div>
+                                <div class="col-5"><a class="image fit" href="images/Logos&Designs/Cute_Illustrations/xmas.jpg"><img src="images/Logos&Designs/Cute_Illustrations/xmas.jpg" alt="Holiday illustration" loading="lazy" /></a></div>
                             </div>
                         </div>
                     </div>
@@ -820,8 +902,10 @@
                     renderUpcoming();
                     resetTimer();
                 }
-                initCubeGallery('#one .cube-gallery:first-of-type .cube-item');
-                initCubeGallery('#one .cube-gallery:last-of-type .cube-item');
+                if (!document.body.classList.contains('use-global-gallery-lightbox') && !/(^|\/)design(?:\.html)?$/i.test(window.location.pathname)) {
+                    initCubeGallery('#one .cube-gallery:first-of-type .cube-item');
+                    initCubeGallery('#one .cube-gallery:last-of-type .cube-item');
+                }
             })();
         </script>
     </body>

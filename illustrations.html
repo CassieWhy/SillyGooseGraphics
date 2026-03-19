@@ -9,32 +9,38 @@
     <style>
         body { background: #000 !important; color: #fff !important; }
         .box.alt .row.gtr-50.gtr-uniform {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 -0.5em;
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            row-gap: 0.5em !important;
+            column-gap: 0.5em !important;
+            margin: 0 !important;
+        }
+        .box.alt .row.gtr-50.gtr-uniform > * {
+            margin: 0 !important;
+            padding: 0 !important;
         }
         .box.alt .col-5 {
-            width: 20%;
-            padding: 1em 0.5em;
+            width: auto !important;
+            padding: 0 !important;
             box-sizing: border-box;
         }
         @media (max-width: 1200px) {
-            .box.alt .col-5 { width: 25%; }
+            .box.alt .row.gtr-50.gtr-uniform { grid-template-columns: repeat(4, minmax(0, 1fr)); }
         }
         @media (max-width: 900px) {
-            .box.alt .col-5 { width: 33.3333%; }
+            .box.alt .row.gtr-50.gtr-uniform { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         }
         @media (max-width: 700px) {
-            .box.alt .col-5 { width: 50%; }
+            .box.alt .row.gtr-50.gtr-uniform { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
         @media (max-width: 500px) {
-            .box.alt .col-5 { width: 100%; }
+            .box.alt .row.gtr-50.gtr-uniform { grid-template-columns: 1fr; }
         }
         .box.alt .image.fit {
             display: block;
             background: none !important;
             border: none !important;
-            margin: 0;
+            margin: 0 !important;
             padding: 0;
         }
         .box.alt .image.fit img {
@@ -45,7 +51,7 @@
             background: none;
             border: none;
             display: block;
-            margin: 0 auto;
+            margin: 0 !important;
         }
         #main, .inner, .box.alt, .row.gtr-50.gtr-uniform, .col-6, .col-12 {
             background: transparent !important;
@@ -137,6 +143,9 @@
             <ul class="links">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="About_Me.html">About Me</a></li>
+                <li><a href="design.html">DESIGN</a></li>
+                <li><a href="illustrations.html">ILLUSTRATION</a></li>
+                <li><a href="3D_Creations.html">3D CREATIONS</a></li>
                 <li><a href="#contact">Contact Me</a></li>
             </ul>
             <ul class="actions stacked">

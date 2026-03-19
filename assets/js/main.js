@@ -235,6 +235,10 @@
 	// Gallery lightbox (non-index pages).
 		(function() {
 
+			if (window.__globalGalleryLightboxInitialized)
+				return;
+			window.__globalGalleryLightboxInitialized = true;
+
 			var path = window.location.pathname.toLowerCase(),
 				isIndex = (path === '/' || path.endsWith('/index.html')),
 				images = document.querySelectorAll([
@@ -248,9 +252,6 @@
 				stage,
 				lightboxImage,
 				caption;
-
-			if (path.endsWith('/design.html') || path.endsWith('/design'))
-				return;
 
 			if (isIndex || !images.length)
 				return;
