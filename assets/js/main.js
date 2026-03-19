@@ -249,6 +249,9 @@
 				lightboxImage,
 				caption;
 
+			if (path.endsWith('/design.html') || path.endsWith('/design'))
+				return;
+
 			if (isIndex || !images.length)
 				return;
 

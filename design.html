@@ -482,6 +482,11 @@
                                                 };
                                             }
 
+                                            if (window.__designShowcaseLightboxInitialized)
+                                                return;
+
+                                            window.__designShowcaseLightboxInitialized = true;
+
                                             var showcaseLightbox = createShowcaseLightbox();
 
                                             function initCubeGallery(selector) {
@@ -618,7 +623,7 @@
             </html>
         </style>
     </head>
-    <body class="is-preload use-global-gallery-lightbox">
+    <body class="is-preload disable-global-gallery-lightbox">
         <!-- Wrapper -->
         <div id="wrapper">
             <!-- Header -->

@@ -14,64 +14,137 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			#banner.no-parallax {
-				background-position: center center !important;
-			}
-
-
-			.image.fit {
-				aspect-ratio: 1 / 1;
+			body { background: #000 !important; color: #fff !important; }
+			.box.alt .row.gtr-50.gtr-uniform {
 				display: flex;
-				align-items: center;
-				justify-content: center;
-				overflow: hidden;
-				background: transparent;
-				border: none;
-				border-radius: 0;
-				box-shadow: none;
-				position: relative;
+				flex-wrap: wrap;
+				margin: 0 -0.5em;
+			}
+			.box.alt .col-5 {
+				width: 20%;
+				padding: 1em 0.5em;
+				box-sizing: border-box;
+			}
+			@media (max-width: 1200px) {
+				.box.alt .col-5 { width: 25%; }
+			}
+			@media (max-width: 900px) {
+				.box.alt .col-5 { width: 33.3333%; }
+			}
+			@media (max-width: 700px) {
+				.box.alt .col-5 { width: 50%; }
+			}
+			@media (max-width: 500px) {
+				.box.alt .col-5 { width: 100%; }
+			}
+			.box.alt .image.fit {
+				display: block;
+				background: none !important;
+				border: none !important;
 				margin: 0;
 				padding: 0;
 			}
-
-			.image.fit:before {
-				display: none;
-			}
-
-			.image.fit img {
-				width: 100%;
-				height: 100%;
-				max-width: 100%;
-				max-height: 100%;
-				position: static;
-				margin: 0;
-				object-fit: contain;
-				padding: 0;
-				border: none;
-				border-radius: 0;
-				box-shadow: none;
-			}
-
-			.products-row-4 {
-				display: grid;
-				grid-template-columns: repeat(4, 1fr);
-				gap: 1em;
-			}
-
-
-			/* Force tent images to match other product images */
-			.image.fit img[src*="zoom-tent"],
-			.image.fit img[src*="Zoom-standard-10-popup-tent"] {
+			.box.alt .image.fit img {
 				width: 100%;
 				height: auto;
-				max-width: 100%;
-				max-height: 100%;
-				object-fit: cover;
-				margin: 0;
+				max-height: 340px;
+				object-fit: contain;
+				background: none;
 				border: none;
-				border-radius: 0;
-				box-shadow: none;
-				padding: 0;
+				display: block;
+				margin: 0 auto;
+			}
+
+			.group-png-row {
+				margin: 0 !important;
+			}
+
+			.group-png-row > div {
+				width: 100% !important;
+				padding: 0 !important;
+			}
+
+			.group-png-row .image.fit img {
+				max-height: none !important;
+				width: 100% !important;
+				object-fit: fill !important;
+			}
+
+			#main, .inner, .box.alt, .row.gtr-50.gtr-uniform, .col-6, .col-12 {
+				background: transparent !important;
+				color: #fff !important;
+			}
+
+			h1, h2, h3, h4, h5, h6, p, label, .content, .major {
+				color: #fff !important;
+				font-family: 'Montserrat', Arial, sans-serif !important;
+			}
+
+			a, a:visited {
+				color: #fff !important;
+			}
+
+			@keyframes designBannerSlide {
+				0% { transform: translateX(0); }
+				100% { transform: translateX(-50%); }
+			}
+
+			#banner {
+				position: relative !important;
+				overflow: hidden !important;
+				background-image: none !important;
+			}
+
+			#banner .inner {
+				position: relative !important;
+				z-index: 10 !important;
+			}
+
+			.design-banner-bg {
+				position: absolute !important;
+				top: 0 !important;
+				left: 0 !important;
+				width: 100% !important;
+				height: 100% !important;
+				overflow: hidden !important;
+				z-index: 3 !important;
+				opacity: 0.45 !important;
+				pointer-events: none !important;
+			}
+
+			.design-banner-track {
+				position: absolute !important;
+				top: 0 !important;
+				left: 0 !important;
+				right: auto !important;
+				bottom: 0 !important;
+				display: flex !important;
+				width: max-content !important;
+				height: 100% !important;
+				z-index: 3 !important;
+				animation: designBannerSlide 28s linear infinite !important;
+				gap: 0 !important;
+				margin: 0 !important;
+				padding: 0 !important;
+			}
+
+			.design-banner-track img {
+				width: auto !important;
+				height: 100% !important;
+				min-width: 0 !important;
+				min-height: 0 !important;
+				object-fit: contain !important;
+				flex: 0 0 auto !important;
+				margin: 0 !important;
+				padding: 0 !important;
+				border: none !important;
+				box-sizing: border-box !important;
+			}
+
+			#banner:after {
+				background: transparent !important;
+				background-color: transparent !important;
+				opacity: 0 !important;
 			}
 
 			/* Mobile optimizations */
@@ -165,11 +238,6 @@
 				}
 			}
 
-			.products-row-4 {
-				display: grid;
-				grid-template-columns: repeat(4, 1fr);
-				gap: 1em;
-			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -200,76 +268,84 @@
 					</nav>
 
 				<!-- Banner -->
-					<section id="banner" class="style2 no-parallax">
-						<div class="inner">
-							<span class="image">
-								<img src="images/Products/Large-Scale/Formulate-Essential-10ft-straight-fabric-backwall_left-1.png" alt="Products Banner" />
-							</span>
-							<header class="major">
-								<h1>Products</h1>
-							</header>
-							<div class="content">
-								<p>Large-scale displays and smaller print-ready products for your business.</p>
+					<section id="banner" class="style2 no-parallax" style="position: relative;">
+						<div class="design-banner-bg" aria-hidden="true" style="z-index: 1; position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+							<div style="filter: blur(8px); width: 100%; height: 100%; position: relative;">
+								<div class="design-banner-track">
+									<img src="images/Products/slider/cards_slider.png" alt="Business Cards" />
+									<img src="images/Products/slider/coaster_slider.png" alt="Coasters" />
+									<img src="images/Products/slider/key_slider.png" alt="Keychains" />
+									<img src="images/Products/slider/mugs_slider.png" alt="Mugs" />
+									<img src="images/Products/slider/shirt_slider.png" alt="Shirts" />
+									<img src="images/Products/slider/stickers_slider.png" alt="Stickers" />
+									<img src="images/Products/slider/tent_slider.png" alt="Tent" />
+									<img src="images/Products/slider/cards_slider.png" alt="Business Cards" />
+									<img src="images/Products/slider/coaster_slider.png" alt="Coasters" />
+									<img src="images/Products/slider/key_slider.png" alt="Keychains" />
+									<img src="images/Products/slider/mugs_slider.png" alt="Mugs" />
+									<img src="images/Products/slider/shirt_slider.png" alt="Shirts" />
+									<img src="images/Products/slider/stickers_slider.png" alt="Stickers" />
+									<img src="images/Products/slider/tent_slider.png" alt="Tent" />
+								</div>
 							</div>
+						</div>
+						<div class="inner" style="z-index: 100 !important; position: relative !important; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; height: 100%; width: 100%; opacity: 1 !important; pointer-events: auto !important; background: none; filter: none !important;">
+							<h1 style="font-family: 'Montserrat', Arial, sans-serif; font-size: 3.25em; font-weight: 700; letter-spacing: 0.08em; color: #fff; margin: 0 0 0.3em 0; text-align: left; background: none; filter: none !important;">PRODUCTS</h1>
+							<hr style="width: 80px; border: 2px solid #fff; margin: 0.5em 0 0.5em 0; opacity: 0.8; background: none; filter: none !important;">
+							<div style="font-size: 1.3em; letter-spacing: 0.13em; color: #fff; text-align: left; background: none; filter: none !important;">LARGE SCALE AND SMALLER PRINT PRODUCTS</div>
 						</div>
 					</section>
 
 				<!-- Main -->
 					<div id="main">
 
+							<!-- PNG Product Showcase (like illustrations page) -->
+							<section id="png-products-showcase" style="margin-bottom: 2.5em;">
+								<div class="inner">
+									<!-- 1st: Image left, text right -->
+									<a href="#contact" onclick="event.preventDefault(); document.getElementById('message').value='I\'m interested in your large scale products. Can you send me more information?'; document.getElementById('contact').scrollIntoView({behavior:'smooth'});" style="text-decoration: none; border-bottom: none; cursor: pointer; display: block;">
+									<div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+										<img src="images/Products/Product_PNG's/LargeScale.png" alt="Large Scale Products" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px;" />
+										<div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-start;">
+											<div style="width: 100%;">
+												<div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">LARGE SCALE</div>
+												<p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">Trade show booths, tents, backwalls, banners, and display systems built to stand out in high-traffic spaces.</p>
+												<span style="font-size: 0.85em; opacity: 0.7; font-style: italic;">Click to get in touch &rarr;</span>
+											</div>
+										</div>
+									</div>
+									</a>
+
+									<!-- 2nd: Text left, image right -->
+									<a href="#contact" onclick="event.preventDefault(); document.getElementById('message').value='I\'m interested in your smaller print products. Can you send me more information?'; document.getElementById('contact').scrollIntoView({behavior:'smooth'});" style="text-decoration: none; border-bottom: none; cursor: pointer; display: block;">
+									<div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em; flex-direction: row-reverse; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+										<img src="images/Products/Product_PNG's/SmallScale.png" alt="Smaller Print Products" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px;" />
+										<div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-end; text-align: right;">
+											<div style="width: 100%;">
+												<div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">SMALLER PRINT PRODUCTS</div>
+												<p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">Business cards, coasters, keychains, tote bags, and other custom print products for everyday brand visibility.</p>
+												<span style="font-size: 0.85em; opacity: 0.7; font-style: italic;">Click to get in touch &rarr;</span>
+											</div>
+										</div>
+									</div>
+									</a>
+								</div>
+							</section>
+
 						<section id="one">
 							<div class="inner">
-								<header class="major">
-									<h2>Large-Scale Products</h2>
-								</header>
-								<p>Display systems, banners, backwalls, table throws, and tents.</p>
-								<div class="box alt products-grid">
-									<div class="products-row-4">
-										<!-- Pair Blade Lite 800 Front & Left -->
-										<div><span class="image fit"><img src="images/Products/Large-Scale/Blade-Lite-800-retractable-banner-stand_fron.png" alt="Blade Lite 800 Front" /></span></div>
-										<div><span class="image fit"><img src="images/Products/Large-Scale/Blade-Lite-800-retractable-banner-stand_left-1.png" alt="Blade Lite 800 Left" /></span></div>
-										<!-- Pair Formulate Essential Backwall Left & Right -->
-										<div><span class="image fit"><img src="images/Products/Large-Scale/Formulate-Essential-10ft-straight-fabric-backwall_left-1.png" alt="10ft Fabric Backwall Left" /></span></div>
-										<div><span class="image fit"><img src="images/Products/Large-Scale/Formulate-Essential-10ft-straight-fabric-backwall_right-blank.png" alt="10ft Fabric Backwall Right" /></span></div>
-										<!-- Pair Hopup Frame & Front Graphic -->
-										<div><span class="image fit"><img src="images/Products/Large-Scale/Hopup-8ft-curved-full-height-tension-fabric-display_frame-left.png" alt="Hopup Frame" /></span></div>
-										<div><span class="image fit"><img src="images/Products/Large-Scale/Hopup-8ft-curved-full-height-tension-fabric-display_front-graphic-front.png" alt="Hopup Front Graphic" /></span></div>
-										<!-- Pair Hopup Top Graphic & Table Throw -->
-										<div><span class="image fit"><img src="images/Products/Large-Scale/Hopup-8ft-curved-full-height-tension-fabric-display_front-graphic-top.png" alt="Hopup Top Graphic" /></span></div>
-										<div><span class="image fit"><img src="images/Products/Large-Scale/Fully-printed-premium-dye-sub-table-throw-8ft_left.png" alt="8ft Table Throw" /></span></div>
-										<!-- Pair BLZ Left View & BLZ ORBUS Left View -->
-										<div><span class="image fit"><img src="images/Products/Large-Scale/BLZ-W-0603-Left-View.png" alt="BLZ Left View" /></span></div>
-										<div><span class="image fit"><img src="images/Products/Large-Scale/BLZ-W-0603-ORBUS1-B-Left-View.png" alt="BLZ ORBUS Left View" /></span></div>
-										<!-- Stand Parts (unpaired) -->
-										<div><span class="image fit"><img src="images/Products/Large-Scale/Blade-Lite-retractable-banner-stand_parts.png" alt="Blade Lite Stand Parts" /></span></div>
-										<!-- Zoom Tent Images (now inside grid) -->
-										<div><span class="image fit"><img src="images/Products/Large-Scale/Zoom-standard-10-popup-tent_canopy-top.png" alt="Popup Tent Canopy Top" /></span></div>
-										<div><span class="image fit"><img src="images/Products/Large-Scale/zoom-tent-top.png" alt="Popup Tent Canopy Top" /></span></div>
-										<div><span class="image fit"><img src="images/Products/Large-Scale/zoom-tent.png" alt="Popup Tent Walls" /></span></div>
-									</div>
-								</div>
-							</div>
-						</section>
 
-						<section id="two">
-							<div class="inner">
-								<header class="major">
-									<h2>Smaller Print Products</h2>
-								</header>
-								<p>Everyday printed and promotional items ready for custom branding.</p>
 								<div class="box alt products-grid">
-									<div class="products-row-4">
-										<div class="col-4"><span class="image fit"><img src="images/Products/Smaller_Print_Products/Business_Cards.jpg" alt="Business Cards" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="images/Products/Smaller_Print_Products/Coasters_website.svg" alt="Coasters" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="images/Products/Smaller_Print_Products/KeyChains_website.svg" alt="Keychains" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="images/Products/Smaller_Print_Products/MasonJars_website.svg" alt="Mason Jars" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="images/Products/Smaller_Print_Products/MousePads_website.svg" alt="Mousepads" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="images/Products/Smaller_Print_Products/PhotoPanels_website.svg" alt="Photo Panels" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="images/Products/Smaller_Print_Products/Promotional_Products_website.svg" alt="Promotional Products" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="images/Products/Smaller_Print_Products/Puzzels_website.svg" alt="Puzzles" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="images/Products/Smaller_Print_Products/StretchedCanvas_website.svg" alt="Stretched Canvas" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="images/Products/Smaller_Print_Products/T-Shirts.jpg" alt="T-Shirts" /></span></div>
-										<div class="col-4"><span class="image fit"><img src="images/Products/Smaller_Print_Products/ToteBags_website.svg" alt="Tote Bags" /></span></div>
+									<div class="row gtr-50 gtr-uniform group-png-row">
+										<div class="col-12"><span class="image fit"><img src="images/Products/Smaller_Print_Products/ProductGroup__ALL.png" alt="Product Group" /></span></div>
+									</div>
+									<div class="row gtr-50 gtr-uniform">
+										<div class="col-5"><span class="image fit"><img src="images/Products/Smaller_Print_Products/cards_smallproducts.png" alt="Cards" /></span></div>
+										<div class="col-5"><span class="image fit"><img src="images/Products/Smaller_Print_Products/coasters_smallproducts.png" alt="Coasters" /></span></div>
+										<div class="col-5"><span class="image fit"><img src="images/Products/Smaller_Print_Products/cups_smallproducts.png" alt="Cups" /></span></div>
+										<div class="col-5"><span class="image fit"><img src="images/Products/Smaller_Print_Products/key_smallproducts.png" alt="Keychains" /></span></div>
+										<div class="col-5"><span class="image fit"><img src="images/Products/Smaller_Print_Products/shirt_smallproducts.png" alt="Shirts" /></span></div>
+										<div class="col-5"><span class="image fit"><img src="images/Products/Smaller_Print_Products/stickers_smallproducts.png" alt="Stickers" /></span></div>
 									</div>
 								</div>
 							</div>

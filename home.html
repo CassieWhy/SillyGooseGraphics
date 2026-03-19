@@ -14,24 +14,27 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-									/* Aggressive enforcement for DESIGN tile Popsicle gif */
-									.tiles article .image img[src$="Popsicle.gif"] {
-										width: 50px !important;
-										height: 50px !important;
-										max-width: 50px !important;
-										max-height: 50px !important;
-										display: block !important;
-										margin: 0 auto !important;
-										padding: 0 !important;
-										object-fit: contain !important;
-									}
-						/* Force DESIGN tile Popsicle gif size */
-						.tiles article .image img[src$="Popsicle.gif"] {
-							max-width: 50px !important;
-							width: 50px !important;
-							max-height: 50px !important;
-							height: 50px !important;
-						}
+			.tiles article.design-tile {
+				background-image: url('images/Logos&Designs/popsicle_button.gif') !important;
+				background-repeat: no-repeat !important;
+				background-size: auto 100% !important;
+				background-position: right center !important;
+			}
+
+			.tiles article.design-tile .image {
+				display: none !important;
+			}
+
+			.tiles article.illustration-tile {
+				background-image: url('images/ILLUSTRATION/Illustration_Button_BG.jpg') !important;
+				background-repeat: no-repeat !important;
+				background-size: cover !important;
+				background-position: center center !important;
+			}
+
+			.tiles article.illustration-tile .image {
+				display: none !important;
+			}
 			@keyframes homeBannerSlide {
 				0% {
 					transform: translateX(0);
@@ -254,6 +257,15 @@
 				background-position: center 18% !important;
 			}
 
+			.tiles article.design-tile,
+			.tiles article.illustration-tile {
+				width: 50% !important;
+			}
+
+			.tiles article.threed-full-width {
+				width: 100% !important;
+			}
+
 			.tiles article.sticker-slide-article {
 				background: #000000 !important;
 				background-image: none !important;
@@ -339,6 +351,14 @@
 				padding: 0 !important;
 			}
 
+			.products-group-cta {
+				background-image: url('images/Products/Product_Button.png'), url('images/Products/Product_ButtonGB.jpg') !important;
+				background-repeat: no-repeat, no-repeat !important;
+				background-size: auto 100%, cover !important;
+				background-position: center center, center center !important;
+				background-color: #000 !important;
+			}
+
 
 			.about-me-button {
 				position: relative;
@@ -358,90 +378,11 @@
 				opacity: 0.7;
 			}
 
-			.products-slide-cta {
-				background: #000000 !important;
-				background-image: none !important;
-			}
-
-			@keyframes productsCtaSlide {
-				0% {
-					transform: translateX(0);
-				}
-				100% {
-					transform: translateX(-50%);
-				}
-			}
-
-			.products-bg-track {
-				position: absolute;
-				inset: 0;
-				height: 100%;
-				display: flex;
-				gap: 0;
-				width: max-content;
-				z-index: 1;
-				animation: productsCtaSlide 42s linear infinite;
-				will-change: transform;
-				pointer-events: none;
-			}
-
-			.products-bg-track img {
-				width: 22vw;
-				min-width: 190px;
-				height: 100%;
-				object-fit: contain;
-				background: #000000;
-				opacity: 1;
-				padding: 0;
-				margin-right: -120px;
-				flex: 0 0 auto;
-			}
-
-			/* Animated background for products button */
-			.products-animated-bg {
-				position: absolute;
-				top: 0; left: 0; width: 100%; height: 100%;
-				z-index: 0;
-				overflow: hidden;
-				pointer-events: none;
-			}
-			.products-animated-bg .shape {
-				position: absolute;
-				border-radius: 50%;
-				opacity: 0.55;
-				animation: floatShape 8s linear infinite alternate;
-			}
-			.products-animated-bg .shape1 {
-				width: 90px; height: 90px; background: #ff6f91;
-				left: 10%; top: 20%; animation-delay: 0s;
-			}
-			.products-animated-bg .shape2 {
-				width: 60px; height: 60px; background: #6fc3df;
-				left: 60%; top: 40%; animation-delay: 2s;
-			}
-			.products-animated-bg .shape3 {
-				width: 70px; height: 70px; background: #f9f871;
-				left: 35%; top: 65%; animation-delay: 4s;
-			}
-			.products-animated-bg .shape4 {
-				width: 50px; height: 50px; background: #b388ff;
-				left: 80%; top: 10%; animation-delay: 1s;
-			}
-			@keyframes floatShape {
-				0% { transform: translateY(0) scale(1); opacity: 0.55; }
-				100% { transform: translateY(-30px) scale(1.15); opacity: 0.75; }
-			}
 
 			@media screen and (max-width: 736px) {
 				.about-me-cta {
 					min-height: 150px;
 					padding: 1.25em;
-				}
-
-				.products-bg-track img {
-					width: 36vw;
-					min-width: 150px;
-					margin-right: -80px;
 				}
 
 				.about-me-button {
@@ -510,32 +451,29 @@
 				<!-- Main -->
 					<div id="main" style="background-color: #000000;">
 
-						<!-- Products CTA -->
-							<section id="products-cta">
+						<!-- About Me -->
+							<section id="two">
 								<div class="inner">
-									<a href="products.html" class="about-me-cta products-group-cta" style="background: #000000; background-image: url('images/Products/Productgroup_website.png'); background-size: cover; background-position: center;">
-										<div class="products-bg-track" aria-hidden="true">
-											<!-- Slider images removed -->
-										</div>
+									<a href="About_Me.html" class="about-me-cta">
 										<div class="about-me-button">
-											<span class="button primary large">Products</span>
+											<span class="button primary large">About Me</span>
 										</div>
 									</a>
-								</div>
-							</section>
+							</div>
+						</section>
 
 						<!-- One -->
 							<section id="one" class="tiles">
-								<article>
+								<article class="design-tile">
 									<span class="image">
-										<img src="images/Logos&Designs/popsicle_button.gif" alt="Popsicle button animation" style="width: 90px !important; height: 90px !important; display: block !important; margin: 0 auto !important; object-fit: contain !important; padding: 0 !important;" />
+										<img src="images/Logos&Designs/popsicle_button.gif" alt="Popsicle button animation" />
 									</span>
 									<header class="major">
 									<h3><a href="design.html" class="link">DESIGN</a></h3>
-									<p>creations for various clients</p>
+									<p>LOGOS, BRANDING, SIGNAGE, PRINT ADVERTISING, STICKERS, WEB DESIGN, ETC</p>
 									</header>
 								</article>
-								<article class="local-static-article">
+								<article class="local-static-article illustration-tile">
 									<span class="image" style="position: relative;">
 										<img src="images/ILLUSTRATION/PNGs_Illustrations/DigitalArt.png" alt="Digital Art" />
 									</span>
@@ -544,44 +482,7 @@
 										<p>Murals, Paintings, & Digital Art</p>
 									</header>
 								</article>
-								<article>
-									<span class="image">
-										<img src="images/TOBA/Bison_Main.JPG" alt="" />
-									</span>
-									<header class="major">
-									<h3><a href="toba-mural.html" class="link">TOBA Centre Bison Mural</a></h3>
-										<p>Nuit Blanch by The Cube</p>
-									</header>
-								</article>
-							<article class="slide-article sticker-slide-article">
-								<div class="tile-bg-track sticker-bg-track" aria-hidden="true">
-									<img src="images/Stickers/FrozzySticker.png" alt="" />
-									<img src="images/Stickers/OwlSticker.png" alt="" />
-									<img src="images/Stickers/MajorBotelho.png" alt="" />
-									<img src="images/Stickers/Goose_Sticker.png" alt="" />
-									<img src="images/Stickers/MushWordsSticker.png" alt="" />
-									<img src="images/Stickers/OwlSticker.png" alt="" />
-									<img src="images/Stickers/MajorBotelho.png" alt="" />
-									<img src="images/Stickers/Goose_Sticker.png" alt="" />
-								</div>
-								<span class="image">
-									<img src="images/Stickers/FrozzySticker.png" alt="" />
-								</span>
-								<header class="major">
-									<h3><a href="stickers.html" class="link">Stickers</a></h3>
-									<p>CUSTOM MADE FOR ANY APPLICATION</p>
-									</header>
-								</article>
-								<article class="murals-static-article">
-									<span class="image">
-										<img src="images/Murals/UnderTheSea_Mural.jpg" alt="" />
-									</span>
-									<header class="major">
-									<h3><a href="murals&paintings.html" class="link">Murals &amp; Painting</a></h3>
-										<p>Custom Designs and Paintings</p>
-									</header>
-								</article>
-								<article class="slide-article threed-slide-article">
+								<article class="slide-article threed-slide-article threed-full-width">
 									<div class="tile-bg-track threed-bg-track" aria-hidden="true">
 										<img src="images/3D_Prints/Goose1.jpg" alt="" />
 										<img src="images/3D_Prints/Goose2.jpg" alt="" />
@@ -602,16 +503,16 @@
 								</article>
 							</section>
 
-						<!-- Two -->
-							<section id="two">
+						<!-- Products CTA -->
+							<section id="products-cta">
 								<div class="inner">
-									<a href="About_Me.html" class="about-me-cta">
+									<a href="products.html" class="about-me-cta products-group-cta">
 										<div class="about-me-button">
-											<span class="button primary large">About Me</span>
+											<span class="button primary large">Products</span>
 										</div>
 									</a>
-							</div>
-						</section>
+								</div>
+							</section>
 
 				<!-- Contact -->
 					<section id="contact">
