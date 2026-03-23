@@ -173,6 +173,95 @@
 					font-size: 0.7em !important;
 				}
 			}
+
+			/* === Mobile nav: HOME | CONTACT ME | MENU === */
+			@media screen and (max-width: 736px) {
+				#header {
+					display: flex !important;
+					flex-direction: column !important;
+					align-items: flex-start !important;
+					padding: 0.75em 1em !important;
+					background-color: #000000 !important;
+				}
+				#header > div,
+				#header .logo { display: none !important; }
+				#header nav {
+					width: 100% !important;
+					display: flex !important;
+					justify-content: center !important;
+					align-items: center !important;
+					background-color: rgba(0, 0, 0, 0.95) !important;
+					padding: 0.35em 0 !important;
+					padding-left: 0 !important;
+					padding-right: 0 !important;
+					border-radius: 4px !important;
+					position: relative;
+					min-height: 44px;
+				}
+				#header nav .mobile-home-nav {
+					display: inline-flex !important;
+					position: absolute !important;
+					left: 30px !important;
+					right: auto !important;
+					top: 50% !important;
+					transform: translateY(-50%) !important;
+					margin: 0 !important;
+					padding-left: 0 !important;
+					padding-right: 0 !important;
+				}
+				#header nav a {
+					display: inline-flex !important;
+					align-items: center !important;
+					justify-content: center !important;
+					min-height: 44px;
+					padding: 0 0.65em !important;
+					line-height: 1 !important;
+					font-size: calc(0.95em + 5px) !important;
+					text-align: center;
+				}
+				#header nav a[href="#contact"] {
+					display: inline-flex !important;
+					position: absolute !important;
+					left: 50% !important;
+					top: 50% !important;
+					transform: translate(-50%, -50%) !important;
+					margin-right: 0 !important;
+				}
+				#header nav a[href="#menu"] {
+					position: absolute !important;
+					left: auto !important;
+					right: 30px !important;
+					top: 50% !important;
+					transform: translateY(-50%) !important;
+					margin: 0 !important;
+					padding-right: 0 !important;
+					padding-left: 0 !important;
+				}
+				#header nav a[href="#menu"]:last-child {
+					padding-right: 0 !important;
+					padding-left: 0 !important;
+				}
+				#header nav a[href="#menu"]:before,
+				#header nav a[href="#menu"]:after {
+					display: none !important;
+					content: none !important;
+				}
+			}
+			@media screen and (max-width: 480px) {
+				#header nav a[href="#contact"],
+				#header nav a[href="#menu"],
+				#header nav .mobile-home-nav {
+					font-size: 0.88em !important;
+				}
+			}
+			@media screen and (max-width: 360px) {
+				#header nav a[href="#contact"],
+				#header nav a[href="#menu"],
+				#header nav .mobile-home-nav {
+					font-size: 0.78em !important;
+					padding: 0 0.5em !important;
+				}
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -184,8 +273,7 @@
 					<header id="header" style="display: flex; align-items: center; justify-content: space-between;">
 						<div style="flex: 1;"></div>
 						<a href="home.html" class="logo" style="flex: 0 0 auto; text-align: center; margin: 7px auto 0 auto;"><strong style="padding: 0 40px; font-size: 1.5em; letter-spacing: 5px;">Silly Goose Graphics</strong></a>
-						<nav style="flex: 1; display: flex; justify-content: flex-end;">
-							<a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
+						<nav style="flex: 1; display: flex; justify-content: flex-end;">						<a href="home.html" class="mobile-home-nav" style="display: none;">HOME</a>							<a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
 							<a href="#menu">Menu</a>
 						</nav>
 					</header>

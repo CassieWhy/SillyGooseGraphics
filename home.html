@@ -118,6 +118,11 @@
 					padding: 0.75em 1em !important;
 					background-color: #000000 !important;
 				}
+
+				/* Leave room for fixed nav at top on phone screens */
+				#banner.major {
+					padding-top: 9.25em !important;
+				}
 				
 				/* Line break in welcome text on mobile only */
 				.welcome-line {
@@ -171,12 +176,21 @@
 					max-width: 100%;
 					height: auto;
 				}
+
+				/* Hide tile subheads on phone mode */
+				#one.tiles article header.major p {
+					display: none !important;
+				}
 			}
 			
 			@media screen and (max-width: 480px) {
 				/* Even more compact on very small screens */
 				#header {
 					padding: 0.5em 0.75em !important;
+				}
+
+				#banner.major {
+					padding-top: 8.5em !important;
 				}
 				
 				#header .logo strong {
@@ -405,6 +419,82 @@
 				}
 
 			}
+
+			/* === Mobile nav: CONTACT ME | MENU === */
+			@media screen and (max-width: 736px) {
+				#header {
+					display: flex !important;
+					flex-direction: column !important;
+					align-items: flex-start !important;
+					padding: 0.75em 1em !important;
+					background-color: #000000 !important;
+				}
+				#header > div,
+				#header .logo { display: none !important; }
+				#header nav {
+					width: 100% !important;
+					display: flex !important;
+					justify-content: center !important;
+					align-items: center !important;
+					background-color: rgba(0, 0, 0, 0.95) !important;
+					padding: 0.35em 0 !important;
+					padding-left: 0 !important;
+					padding-right: 0 !important;
+					border-radius: 4px !important;
+					position: relative;
+					min-height: 44px;
+				}
+				#header nav a {
+					display: inline-flex !important;
+					align-items: center !important;
+					justify-content: center !important;
+					min-height: 44px;
+					padding: 0 0.65em !important;
+					line-height: 1 !important;
+					font-size: calc(0.95em + 5px) !important;
+					text-align: center;
+				}
+				#header nav a[href="#contact"] {
+					display: inline-flex !important;
+					position: absolute !important;
+					left: 50% !important;
+					top: 50% !important;
+					transform: translate(-50%, -50%) !important;
+					margin-right: 0 !important;
+				}
+				#header nav a[href="#menu"] {
+					position: absolute !important;
+					left: auto !important;
+					right: 30px !important;
+					top: 50% !important;
+					transform: translateY(-50%) !important;
+					margin: 0 !important;
+					padding-right: 0 !important;
+					padding-left: 0 !important;
+				}
+				#header nav a[href="#menu"]:last-child {
+					padding-right: 0 !important;
+					padding-left: 0 !important;
+				}
+				#header nav a[href="#menu"]:before,
+				#header nav a[href="#menu"]:after {
+					display: none !important;
+					content: none !important;
+				}
+			}
+			@media screen and (max-width: 480px) {
+				#header nav a[href="#contact"],
+				#header nav a[href="#menu"] {
+					font-size: 0.88em !important;
+				}
+			}
+			@media screen and (max-width: 360px) {
+				#header nav a[href="#contact"],
+				#header nav a[href="#menu"] {
+					font-size: 0.78em !important;
+					padding: 0 0.5em !important;
+				}
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -413,8 +503,8 @@
 			<div id="wrapper">
 
 				<!-- Header: only logo removed for home page -->
-				<header id="header" class="alt">
-					<nav>
+				<header id="header" class="alt" style="display: flex; align-items: center; justify-content: space-between;">
+					<nav style="flex: 1; display: flex; justify-content: flex-end;">
 						<a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
 						<a href="#menu">Menu</a>
 					</nav>

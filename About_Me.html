@@ -22,6 +22,11 @@
 				position: relative;
 			}
 
+			.about-me-photo-row {
+				display: block;
+				position: relative;
+			}
+
 			.about-me-top:after {
 				content: "";
 				position: absolute;
@@ -48,6 +53,19 @@
 
 			.about-me-top .major > :first-child:after {
 				display: none;
+			}
+
+			.mobile-home-nav {
+				display: none;
+			}
+
+			.about-me-title-rule {
+				display: block;
+				height: 2px;
+				width: min(16em, 100%);
+				background-color: #ffffff;
+				margin-top: -40px;
+				margin-bottom: 1.2em;
 			}
 
 			.about-me-profile {
@@ -101,6 +119,10 @@
 					padding: 0.75em 1em !important;
 					background-color: #000000 !important;
 				}
+
+				.about-me-hero {
+					margin-top: calc(3.6em - 30px) !important;
+				}
 				
 				/* Line break in welcome text on mobile only */
 				.welcome-line {
@@ -113,15 +135,11 @@
 			}
 			
 			#header .logo {
-				width: 100% !important;
-				margin-bottom: 0.25em !important;
-				text-align: center !important;
+					display: none !important;
 			}
 			
 			#header .logo strong {
-				padding: 0 !important;
-				font-size: 1.3em !important;
-				display: block !important;
+					display: none !important;
 			}
 			
 			/* Hide "by Cassie Fennell" on mobile */
@@ -134,20 +152,68 @@
 				#header nav {
 					width: 100% !important;
 					display: flex !important;
-					justify-content: space-between !important;
+					justify-content: center !important;
 					align-items: center !important;
 					background-color: rgba(0, 0, 0, 0.95) !important;
-					padding: 0.5em 1em !important;
+					padding: 0.35em 0 !important;
+					padding-left: 0 !important;
+					padding-right: 0 !important;
 					border-radius: 4px !important;
+					position: relative;
+					min-height: 44px;
+				}
+
+				#header nav .mobile-home-nav {
+					display: inline-flex !important;
+					position: absolute !important;
+					left: 30px !important;
+					right: auto !important;
+					top: 50% !important;
+					transform: translateY(-50%) !important;
+					margin: 0 !important;
+					padding-left: 0 !important;
+					padding-right: 0 !important;
+				}
+
+				#header nav a {
+					display: inline-flex !important;
+					align-items: center !important;
+					justify-content: center !important;
+					min-height: 44px;
+					padding: 0 0.65em !important;
+					line-height: 1 !important;
+					font-size: calc(0.95em + 5px) !important;
+					text-align: center;
 				}
 				
 				#header nav a[href="#contact"] {
+					position: absolute !important;
+					left: 50% !important;
+					top: 50% !important;
+					transform: translate(-50%, -50%) !important;
 					margin-right: 0 !important;
-					font-size: 0.85em !important;
 				}
 				
 				#header nav a[href="#menu"] {
-					font-size: 0.85em !important;
+					position: absolute !important;
+					left: auto !important;
+					right: 30px !important;
+					top: 50% !important;
+					transform: translateY(-50%) !important;
+					margin: 0 !important;
+					padding-right: 0 !important;
+					padding-left: 0 !important;
+				}
+
+				#header nav a[href="#menu"]:last-child {
+					padding-right: 0 !important;
+					padding-left: 0 !important;
+				}
+
+				#header nav a[href="#menu"]:before,
+				#header nav a[href="#menu"]:after {
+					display: none !important;
+					content: none !important;
 				}
 				
 				/* Ensure images don't overflow */
@@ -159,16 +225,42 @@
 				.about-me-top {
 					flex-direction: column;
 					align-items: flex-start;
-					gap: 0.8em;
+					gap: 34px;
+					width: 100%;
+					margin-bottom: 0.5em;
+				}
+
+				.about-me-photo-row {
+					width: 100%;
+					height: clamp(110px, 34vw, 150px);
+					background-image: url('images/Bee.jpg');
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-position: center 68%;
+					border: none;
+					border-radius: 0;
+					box-shadow: none;
+					padding: 0;
+					display: flex;
+					align-items: center;
+					overflow: hidden;
+					margin-left: -1.5em;
+					margin-right: -1.5em;
+					width: calc(100% + 3em);
 				}
 
 				.about-me-top:after {
 					display: none;
 				}
 
+				.about-me-title-rule {
+					width: 100%;
+				}
+
 				.about-me-profile {
 					width: clamp(110px, 34vw, 150px);
-					margin-bottom: 0.5em;
+					height: clamp(110px, 34vw, 150px);
+					margin: 0 0 0 20px;
 				}
 
 				.about-me-hero .inner {
@@ -178,6 +270,10 @@
 				.about-me-hero .inner > p {
 					margin-left: 0;
 				}
+
+				.about-me-hero .inner > p:first-of-type {
+					margin-top: 0;
+				}
 			}
 			
 			@media screen and (max-width: 480px) {
@@ -185,14 +281,19 @@
 				#header {
 					padding: 0.5em 0.75em !important;
 				}
+
+				.about-me-hero {
+					margin-top: calc(3.2em - 30px) !important;
+				}
 				
 				#header .logo strong {
 					font-size: 0.95em !important;
 				}
 				
 				#header nav a[href="#contact"],
-				#header nav a[href="#menu"] {
-					font-size: 0.75em !important;
+				#header nav a[href="#menu"],
+				#header nav .mobile-home-nav {
+					font-size: 0.88em !important;
 				}
 			}
 			
@@ -203,8 +304,10 @@
 				}
 				
 				#header nav a[href="#contact"],
-				#header nav a[href="#menu"] {
-					font-size: 0.7em !important;
+				#header nav a[href="#menu"],
+				#header nav .mobile-home-nav {
+					font-size: 0.78em !important;
+					padding: 0 0.5em !important;
 				}
 			}
 		</style>
@@ -219,6 +322,7 @@
 					    <div style="flex: 1;"></div>
 					    <a href="home.html" class="logo" style="flex: 0 0 auto; text-align: center; margin: 7px auto 0 auto;"><strong style="padding: 0 40px; font-size: 1.5em; letter-spacing: 5px;">Silly Goose Graphics</strong></a>
 					    <nav style="flex: 1; display: flex; justify-content: flex-end;">
+					        <a href="home.html" class="mobile-home-nav">HOME</a>
 					        <a href="#contact" style="margin-right: 1.5em;">&nbsp;&nbsp;CONTACT ME</a>
 					        <a href="#menu">Menu</a>
 					    </nav>
@@ -247,12 +351,15 @@
 							<section id="one" class="about-me-hero">
 								<div class="inner">
 									<div class="about-me-top">
-										<span class="about-me-profile image" aria-hidden="true">
-											<img src="images/CassiePics/cassie_circle.png" alt="" />
-										</span>
+										<div class="about-me-photo-row" aria-hidden="true">
+											<span class="about-me-profile image">
+												<img src="images/CassiePics/cassie_circle.png" alt="" />
+											</span>
+										</div>
 										<header class="major">
 											<h1>About Me</h1>
 										</header>
+										<span class="about-me-title-rule" aria-hidden="true"></span>
 									</div>
 									<p>I&rsquo;ve always believed that being an artist is about more than what you create, it&rsquo;s about how, why, and the experience you give the people who trust you with their vision.</p>
 									<p>My journey didn&rsquo;t happen overnight. Years of learning, experimenting, and showing up consistently turned passion into craft, and craft into a career. Each project and challenge has pushed me to grow technically, creatively, and professionally.</p>
