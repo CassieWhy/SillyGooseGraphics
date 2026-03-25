@@ -28,7 +28,14 @@
 			}
 
 			.about-me-top:after {
-				display: none;
+				content: "";
+				position: absolute;
+				left: 1.4em;
+				right: 0;
+				top: calc(50% + 1.18em - 3px);
+				height: 2px;
+				background-color: #ffffff;
+				z-index: 0;
 			}
 
 			.about-me-top .major {
@@ -53,12 +60,7 @@
 			}
 
 			.about-me-title-rule {
-				display: block;
-				height: 2px;
-				width: min(16em, 100%);
-				background-color: #ffffff;
-				margin-top: -43px;
-				margin-bottom: 1.2em;
+				display: none;
 			}
 
 			.about-me-profile {
