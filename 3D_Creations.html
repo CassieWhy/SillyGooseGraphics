@@ -174,13 +174,7 @@
 
 			.video-row .video-card {
 				flex: 0 0 auto;
-				width: 280px;
-				min-width: 280px;
 				scroll-snap-align: start;
-			}
-
-			.video-row .house-video-card video.loop-video {
-				width: 100% !important;
 			}
 
 			.media-card video.loop-video {
@@ -231,7 +225,7 @@
 				#header nav .mobile-home-nav {
 					display: inline-flex !important;
 					position: absolute !important;
-					left: 30px !important;
+					left: 20px !important;
 					right: auto !important;
 					top: 50% !important;
 					transform: translateY(-50%) !important;
@@ -400,7 +394,7 @@
 							</div>
 							<h3 class="media-title">Looping Videos</h3>
 							<div class="video-row">
-								<div class="media-card video-card house-video-card"><video class="loop-video" autoplay muted loop playsinline preload="metadata" poster="images/3D_Prints/Goose1.jpg" aria-label="3D print video loop 1"><source src="images/3D_Prints/House_mobile_baseline.mp4" type="video/mp4" /></video></div>
+								<div class="media-card video-card"><video class="loop-video" autoplay muted loop playsinline preload="metadata" aria-label="3D print video loop 1"><source src="images/3D_Prints/House.mp4" type="video/mp4" /><source src="images/3D_Prints/House.mkv" type="video/x-matroska" /></video></div>
 								<div class="media-card video-card"><video class="loop-video" autoplay muted loop playsinline preload="metadata" aria-label="3D print video loop 2"><source src="images/3D_Prints/Goose_Dance.mp4" type="video/mp4" /><source src="images/3D_Prints/Goose_Dance.mkv" type="video/x-matroska" /></video></div>
 								<div class="media-card video-card"><video class="loop-video" autoplay muted loop playsinline preload="metadata" aria-label="3D print video loop 3"><source src="images/3D_Prints/Frog.mp4" type="video/mp4" /><source src="images/3D_Prints/Frog.mkv" type="video/x-matroska" /></video></div>
 							</div>
@@ -451,21 +445,6 @@
 		<script src="assets/js/jquery.scrollex.min.js"></script>
 		<script src="assets/js/browser.min.js"></script>
 		<script src="assets/js/breakpoints.min.js"></script>
-		<script>
-			window.addEventListener('load', function () {
-				if (!window.matchMedia('(max-width: 736px)').matches)
-					return;
-
-				var row = document.querySelector('.video-row');
-				if (!row)
-					return;
-
-				// Force initial mobile position to the first (House) card.
-				row.scrollLeft = 0;
-				setTimeout(function () { row.scrollLeft = 0; }, 120);
-				setTimeout(function () { row.scrollLeft = 0; }, 400);
-			});
-		</script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 	</body>
