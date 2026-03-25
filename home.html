@@ -450,6 +450,12 @@
 
 			}
 
+			#header .icon.alt:before {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
 			</style>
 	</head>
 	<body class="is-preload">
@@ -459,7 +465,10 @@
 
 				<!-- Header: only logo removed for home page -->
 				<header id="header" class="alt" style="display: flex; align-items: center; justify-content: space-between;">
-					<div style="flex: 1;"></div>
+					<div style="flex: 1; display: flex; align-items: center; gap: 30px; padding-left: 30px;">
+						<a href="https://www.instagram.com/sillygoosegraphics_/" target="_blank" rel="noopener" class="icon brands alt fa-instagram" style="font-size: 1.1em;"><span class="label">Instagram</span></a>
+						<a href="https://www.linkedin.com/in/cassandra-fennell" target="_blank" rel="noopener" class="icon brands alt fa-linkedin-in" style="font-size: 1.1em;"><span class="label">LinkedIn</span></a>
+					</div>
 					<a href="home.html" class="logo" style="flex: 0 0 auto; text-align: center; margin: 7px auto 0 auto;"><strong style="padding: 0 40px; font-size: 1.5em; letter-spacing: 5px;">Silly Goose Graphics</strong></a>
 					<nav style="flex: 1; display: flex; justify-content: flex-end;">
 						<a href="home.html" class="mobile-home-nav" style="display: none;">HOME</a>
