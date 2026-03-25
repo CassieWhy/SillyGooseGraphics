@@ -232,6 +232,64 @@
 
 		});
 
+	// Performance: defer non-critical media work.
+		(function() {
+
+			// Lazy-load non-banner images by default.
+			document.querySelectorAll('img').forEach(function(img) {
+
+				if (img.closest('#banner'))
+					return;
+
+				if (!img.hasAttribute('loading'))
+					img.setAttribute('loading', 'lazy');
+
+				if (!img.hasAttribute('decoding'))
+					img.setAttribute('decoding', 'async');
+
+				if (!img.hasAttribute('fetchpriority'))
+					img.setAttribute('fetchpriority', 'low');
+
+			});
+
+			// Keep videos from preloading aggressively.
+			document.querySelectorAll('video').forEach(function(video) {
+				if (!video.hasAttribute('preload') || video.getAttribute('preload') !== 'none')
+					video.setAttribute('preload', 'none');
+			});
+
+			// Pause autoplay loops when offscreen; play when visible.
+			if ('IntersectionObserver' in window) {
+
+				var videoObserver = new IntersectionObserver(function(entries) {
+					entries.forEach(function(entry) {
+						var video = entry.target;
+
+						if (entry.isIntersecting) {
+							if (video.paused) {
+								var promise = video.play();
+								if (promise && promise.catch)
+									promise.catch(function() {});
+							}
+						}
+						else {
+							video.pause();
+						}
+					});
+				}, {
+					root: null,
+					rootMargin: '150px 0px',
+					threshold: 0.01
+				});
+
+				document.querySelectorAll('video[autoplay]').forEach(function(video) {
+					videoObserver.observe(video);
+				});
+
+			}
+
+		})();
+
 	// Gallery lightbox (non-index pages).
 		(function() {
 
