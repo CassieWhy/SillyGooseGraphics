@@ -305,6 +305,23 @@
 					padding: 0 0.5em !important;
 				}
 			}
+
+			#header-social-icons a {
+				border-bottom: none;
+				text-decoration: none;
+			}
+
+			#header-social-icons a img {
+				height: 2.2em;
+				width: auto;
+				display: block;
+				transition: opacity 0.2s ease, filter 0.2s ease;
+				filter: drop-shadow(0 0 5px rgba(255,255,255,0.75));
+			}
+
+			#header-social-icons a:hover img {
+				opacity: 0.75;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -314,7 +331,10 @@
 
 				<!-- Header -->
 					<header id="header" style="display: flex; align-items: center; justify-content: space-between;">
-					    <div style="flex: 1;"></div>
+					    <div id="header-social-icons" style="flex: 1; display: flex; align-items: center; gap: 30px; padding-left: 30px;">
+					        <a href="https://www.instagram.com/sillygoosegraphics_/" target="_blank" rel="noopener"><img src="images/insta_social.png" alt="Instagram" /></a>
+					        <a href="https://www.linkedin.com/in/cassandra-fennell" target="_blank" rel="noopener"><img src="images/indeed_social.png" alt="LinkedIn" /></a>
+					    </div>
 					    <a href="home.html" class="logo" style="flex: 0 0 auto; text-align: center; margin: 7px auto 0 auto;"><strong style="padding: 0 40px; font-size: 1.5em; letter-spacing: 5px;">Silly Goose Graphics</strong></a>
 					    <nav style="flex: 1; display: flex; justify-content: flex-end;">
 					        <a href="home.html" class="mobile-home-nav">HOME</a>
