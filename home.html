@@ -123,6 +123,11 @@
 				#banner.major {
 					padding-top: 9.25em !important;
 				}
+
+				/* Move logo lower so it sits centered in the mobile slider area */
+				#banner.major header.major img {
+					top: 30px !important;
+				}
 				
 				/* Line break in welcome text on mobile only */
 				.welcome-line {
@@ -180,6 +185,22 @@
 				/* Hide tile subheads on phone mode */
 				#one.tiles article header.major p {
 					display: none !important;
+				}
+
+				/* Remove dark overlay boxes and keep full image coverage on mobile tiles */
+				#one.tiles article.design-tile:before,
+				#one.tiles article.design-tile:after,
+				#one.tiles article.illustration-tile:before,
+				#one.tiles article.illustration-tile:after {
+					opacity: 0 !important;
+					background: transparent !important;
+					background-color: transparent !important;
+				}
+
+				#one.tiles article.design-tile,
+				#one.tiles article.illustration-tile {
+					background-size: cover !important;
+					background-position: center center !important;
 				}
 			}
 			
