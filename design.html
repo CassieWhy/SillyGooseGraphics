@@ -65,6 +65,11 @@
                 color: #fff !important;
             }
 
+            @keyframes designBannerSlide {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+
             #banner {
                 position: relative;
                 overflow: hidden;
@@ -102,6 +107,9 @@
                 display: flex;
                 width: max-content;
                 height: 100%;
+                animation: designBannerSlide 28s linear infinite;
+                -webkit-animation: designBannerSlide 28s linear infinite;
+                -moz-animation: designBannerSlide 28s linear infinite;
                 gap: 0 !important;
                 margin: 0 !important;
                 padding: 0 !important;
