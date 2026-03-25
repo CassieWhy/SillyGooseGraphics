@@ -110,25 +110,6 @@
 			}
 			
 			@media screen and (max-width: 736px) {
-				/* Reorganize header for mobile */
-				#header {
-					display: flex !important;
-					flex-direction: column !important;
-					align-items: flex-start !important;
-					padding: 0.75em 1em !important;
-					background-color: #000000 !important;
-				}
-
-				/* Leave room for fixed nav at top on phone screens */
-				#banner.major {
-					padding-top: 9.25em !important;
-				}
-
-				/* Move logo up slightly in mobile slider area */
-				#banner.major header.major img {
-					top: 20px !important;
-				}
-				
 				/* Line break in welcome text on mobile only */
 				.welcome-line {
 					display: block !important;
@@ -138,23 +119,22 @@
 				#banner .content {
 					text-align: left !important;
 				}
-				
-				#header .logo {
-					width: 100% !important;
-					margin-bottom: 0.25em !important;
-					text-align: center !important;
+
+				#header {
+					padding: 0.75em 1em !important;
+					position: absolute !important;
+					top: 0 !important;
+					left: 0 !important;
+					right: 0 !important;
 				}
-				
-				#header .logo strong {
-					padding: 0 !important;
-					font-size: 1.3em !important;
-					display: block !important;
+
+				#header.reveal,
+				#header.alt {
+					position: absolute !important;
 				}
-				
-				/* Hide "by Cassie Fennell" on mobile */
-				#header .logo span {
-					display: none !important;
-				}
+
+				#header > div,
+				#header .logo { display: none !important; }
 				
 				#header nav {
 					width: calc(100% - 20px) !important;
@@ -255,22 +235,10 @@
 			}
 			
 			@media screen and (max-width: 480px) {
-				/* Even more compact on very small screens */
-				#header {
-					padding: 0.5em 0.75em !important;
-				}
-
-				#banner.major {
-					padding-top: 8.5em !important;
-				}
-				
-				#header .logo strong {
-					font-size: 0.95em !important;
-				}
-				
 				#header nav a[href="#contact"],
-				#header nav a[href="#menu"] {
-					font-size: 0.75em !important;
+				#header nav a[href="#menu"],
+				#header nav .mobile-home-nav {
+					font-size: 0.88em !important;
 				}
 				
 				#one.tiles article.design-tile {
@@ -279,14 +247,11 @@
 			}
 			
 			@media screen and (max-width: 360px) {
-				/* Extra small screens */
-				#header .logo strong {
-					font-size: 0.85em !important;
-				}
-				
 				#header nav a[href="#contact"],
-				#header nav a[href="#menu"] {
-					font-size: 0.7em !important;
+				#header nav a[href="#menu"],
+				#header nav .mobile-home-nav {
+					font-size: 0.78em !important;
+					padding: 0 0.5em !important;
 				}
 			}
 			
