@@ -64,6 +64,146 @@
         a, a:visited {
             color: #fff !important;
         }
+        .digital-art-modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.88);
+            z-index: 10050;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .digital-art-modal-panel {
+            width: min(1200px, 100%);
+            max-height: 90vh;
+            background: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .digital-art-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.9rem 1.1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .digital-art-modal-close {
+            border: none;
+            background: transparent;
+            color: #fff;
+            border-radius: 6px;
+            padding: 0 0.65rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            line-height: 1;
+            min-height: 2.8rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .digital-art-modal-close-label {
+            position: static;
+            display: inline-block;
+        }
+        .digital-art-modal-close:hover {
+            color: #8fc8ff;
+        }
+        .digital-art-modal-grid {
+            padding: 1rem;
+            overflow: auto;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.7rem;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(143, 200, 255, 0.7) rgba(255, 255, 255, 0.08);
+        }
+        .digital-art-modal-grid::-webkit-scrollbar {
+            width: 10px;
+        }
+        .digital-art-modal-grid::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+        }
+        .digital-art-modal-grid::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, rgba(143, 200, 255, 0.9), rgba(106, 168, 255, 0.85));
+            border-radius: 999px;
+            border: 2px solid rgba(0, 0, 0, 0.25);
+        }
+        .digital-art-modal-grid::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, rgba(173, 220, 255, 0.95), rgba(123, 182, 255, 0.9));
+        }
+        .digital-art-thumb {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: zoom-in;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: #101010;
+        }
+        .digital-art-zoom-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 10060;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem;
+        }
+        .digital-art-zoom-image {
+            max-width: min(1200px, 95vw);
+            max-height: 92vh;
+            width: auto;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            background: #000;
+        }
+        @media (max-width: 960px) {
+            .digital-art-modal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        @media (max-width: 700px) {
+            .digital-art-modal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        #png-illustration-showcase {
+            position: relative;
+            z-index: 200;
+            isolation: isolate;
+        }
+        #png-illustration-showcase .folder-grid-trigger {
+            position: relative;
+            z-index: 202;
+            cursor: pointer !important;
+            pointer-events: auto !important;
+            width: 100% !important;
+            max-width: 640px;
+        }
+        #png-illustration-showcase .folder-grid-trigger img {
+            width: 100% !important;
+            cursor: pointer !important;
+            pointer-events: auto !important;
+        }
+        #digitalArtTrigger,
+        #digitalArtImageTrigger,
+        #paintingsImageTrigger,
+        #muralsImageTrigger,
+        #tobaImageTrigger {
+            position: relative !important;
+            z-index: 2147483000 !important;
+            pointer-events: auto !important;
+            cursor: pointer !important;
+        }
+        #one {
+            position: relative;
+            z-index: 1;
+            margin-top: 1.5rem;
+        }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/glightbox.min.css" />
     <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/glightbox.min.js"></script>
@@ -402,7 +542,9 @@
                 <div class="inner">
                     <!-- 1st: Image left, text right -->
                     <div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em;">
-                        <img src="images/ILLUSTRATION/PNGs_Illustrations/DigitalArt.png" alt="Digital Art" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px;" />
+                        <div id="digitalArtTrigger" class="folder-grid-trigger" data-folder="digital-art" onclick="return (window.openFolderGrid ? window.openFolderGrid('digital-art') : window.openFolderGridFallback('digital-art'));" style="max-width: 640px; width: 100%; display: block; border-bottom: none; cursor: pointer;">
+                            <img id="digitalArtImageTrigger" src="images/ILLUSTRATION/PNGs_Illustrations/DigitalArt.png" alt="Digital Art" onclick="return (window.openFolderGrid ? window.openFolderGrid('digital-art') : window.openFolderGridFallback('digital-art'));" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px; cursor: pointer;" />
+                        </div>
                         <div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-start;">
                             <div style="width: 100%;">
                                 <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">DIGITAL ART</div>
@@ -412,7 +554,7 @@
                     </div>
                     <!-- 2nd: Text left, image right -->
                     <div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em; flex-direction: row-reverse;">
-                        <img src="images/ILLUSTRATION/PNGs_Illustrations/Paintings.png" alt="Paintings" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px;" />
+                        <img id="paintingsImageTrigger" src="images/ILLUSTRATION/PNGs_Illustrations/Paintings.png" alt="Paintings" onclick="return (window.openFolderGrid ? window.openFolderGrid('paintings') : window.openFolderGridFallback('paintings'));" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px; cursor: pointer;" />
                         <div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-end; text-align: right;">
                             <div style="width: 100%;">
                                 <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">PAINTINGS</div>
@@ -422,7 +564,7 @@
                     </div>
                     <!-- 3rd: Image left, text right -->
                     <div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em;">
-                        <img src="images/ILLUSTRATION/PNGs_Illustrations/murals.png" alt="Murals" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px;" />
+                        <img id="muralsImageTrigger" src="images/ILLUSTRATION/PNGs_Illustrations/murals.png" alt="Murals" onclick="return (window.openFolderGrid ? window.openFolderGrid('murals') : window.openFolderGridFallback('murals'));" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px; cursor: pointer;" />
                         <div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-start;">
                             <div style="width: 100%;">
                                 <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">MURALS</div>
@@ -433,7 +575,7 @@
                     </div>
                     <!-- 4th: Text left, image right -->
                     <div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em; flex-direction: row-reverse;">
-                        <img src="images/ILLUSTRATION/PNGs_Illustrations/TOBA.png" alt="TOBA" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px;" />
+                        <img id="tobaImageTrigger" src="images/ILLUSTRATION/PNGs_Illustrations/TOBA.png" alt="TOBA" onclick="return (window.openFolderGrid ? window.openFolderGrid('toba') : window.openFolderGridFallback('toba'));" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px; cursor: pointer;" />
                         <div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-end; text-align: right;">
                             <div style="width: 100%;">
                                 <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">TOBA PROJECT</div>
@@ -450,23 +592,25 @@
                     </header>
                     <div class="box alt">
                         <div class="row gtr-50 gtr-uniform">
-                            <!-- Gallery Section - Digital Art is clickable --><!-- Main illustrations -->
+                            <!-- Gallery with Digital Art popup -->
+                            <!-- Main illustrations -->
                             <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/DigitalArt/9LivesLogo.jpg" alt="9 Lives Logo" /></span></div>
                             <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/Paintings/Camping.jpg" alt="Camping" /></span></div>
                             <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/Paintings/MajoraMask.png" alt="Majora's Mask" /></span></div>
                             <!-- Digital Art & Doodles -->
+                            <a href="images/ILLUSTRATION/DigitalArt/9LivesLogo.jpg" class="glightbox" data-gallery="digital-art" style="grid-column: 1;"><div class="col-5" style="position: relative;"><span class="image fit"><img src="images/ILLUSTRATION/DigitalArt/9LivesLogo.jpg" alt="Digital Art" style="cursor: pointer;" /><div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.7); color: #fff; font-weight: bold; opacity: 0; transition: opacity 0.3s; font-size: 14px;">Digital Art Gallery</div></span></div></a>
                             <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/9LivesLogo.jpg" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/9LivesLogo.jpg" alt="9 Lives Logo" style="cursor: pointer;" /></a></span></div>
                             <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/BirdPainting.jpg" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/BirdPainting.jpg" alt="Bird Painting" style="cursor: pointer;" /></a></span></div>
                             <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/Calendar Mess.jpg" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/Calendar Mess.jpg" alt="Calendar Mess" style="cursor: pointer;" /></a></span></div>
                             <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/TaiChi_SillyGooseGraphics.jpg" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/TaiChi_SillyGooseGraphics.jpg" alt="TaiChi Silly Goose Graphics" style="cursor: pointer;" /></a></span></div>
-                            <!-- Hidden gallery items for lightbox (not displayed in main gallery) -->
-                            <a href="images/ILLUSTRATION/DigitalArt/StreetSign.jpg" class="glightbox" data-gallery="digital-art" style="display: none;"><img src="images/ILLUSTRATION/DigitalArt/StreetSign.jpg" alt="Street Sign" /></a>
                             <!-- Murals -->
                             <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/Murals/DogBarrel_01.jpg" alt="Dog Barrel 1" /></span></div>
                             <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/Murals/DogBarrel_02.jpg" alt="Dog Barrel 2" /></span></div>
                             <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/Murals/UnderTheSea_Mural.jpg" alt="Under The Sea Mural" /></span></div>
                             <!-- Murals/Forest -->
                             <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/Murals/Forest/Final_Forest.jpg" alt="Final Forest" /></span></div>
+                            <!-- Hidden gallery items for lightbox (not displayed in main gallery) -->
+                            <a href="images/ILLUSTRATION/DigitalArt/StreetSign.jpg" class="glightbox" data-gallery="digital-art" style="display: none;"><img src="images/ILLUSTRATION/DigitalArt/StreetSign.jpg" alt="Street Sign" /></a>
                             <!-- Stickers from Digital Art -->
                             <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/FrozzySticker.png" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/FrozzySticker.png" alt="Frozzy Sticker" style="cursor: pointer;" /></a></span></div>
                             <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/Goose_Sticker.png" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/Goose_Sticker.png" alt="Goose Sticker" style="cursor: pointer;" /></a></span></div>
@@ -485,6 +629,21 @@
                     </div>
                 </div>
             </section>
+
+            <div id="digitalArtGridModal" class="digital-art-modal-backdrop" aria-hidden="true">
+                <div class="digital-art-modal-panel" role="dialog" aria-label="Digital Art Gallery" aria-modal="true">
+                    <div class="digital-art-modal-header">
+                        <h3 id="folderGridTitle" style="margin: 0; color: #fff;">Digital Art Gallery</h3>
+                        <button type="button" id="closeDigitalArtGrid" class="digital-art-modal-close" onclick="var m=document.getElementById('digitalArtGridModal'); if(m){m.style.display='none'; m.setAttribute('aria-hidden','true');}"><span class="digital-art-modal-close-label">Close</span></button>
+                    </div>
+                    <div id="digitalArtGrid" class="digital-art-modal-grid"></div>
+                </div>
+            </div>
+
+            <div id="digitalArtZoomModal" class="digital-art-zoom-backdrop" aria-hidden="true">
+                <img id="digitalArtZoomImage" class="digital-art-zoom-image" alt="Digital Art full size" />
+            </div>
+
         </div>
 
         <div style="height: 4rem;"></div>
@@ -576,12 +735,203 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-        // Initialize GLightbox for Digital Art gallery
-        const lightbox = GLightbox({
-            selector: '.glightbox',
-            touchNavigation: true,
-            loop: true
-        });
+        // Initialize GLightbox if available; custom modal does not depend on it.
+        if (typeof GLightbox === 'function') {
+            GLightbox({
+                selector: '.glightbox',
+                touchNavigation: true,
+                loop: true
+            });
+        }
+
+        (function () {
+            const gallerySets = {
+                'digital-art': {
+                    title: 'Digital Art Gallery',
+                    images: [
+                        'images/ILLUSTRATION/DigitalArt/9LivesLogo.jpg',
+                        'images/ILLUSTRATION/DigitalArt/BirdPainting.jpg',
+                        'images/ILLUSTRATION/DigitalArt/Calendar Mess.jpg',
+                        'images/ILLUSTRATION/DigitalArt/TaiChi_SillyGooseGraphics.jpg',
+                        'images/ILLUSTRATION/DigitalArt/StreetSign.jpg',
+                        'images/ILLUSTRATION/DigitalArt/FrozzySticker.png',
+                        'images/ILLUSTRATION/DigitalArt/Goose_Sticker.png',
+                        'images/ILLUSTRATION/DigitalArt/MajorBotelho.png',
+                        'images/ILLUSTRATION/DigitalArt/MushWordsSticker.png',
+                        'images/ILLUSTRATION/DigitalArt/OwlSticker.png'
+                    ]
+                },
+                'paintings': {
+                    title: 'Paintings Gallery',
+                    images: [
+                        'images/ILLUSTRATION/Paintings/Camping.jpg',
+                        'images/ILLUSTRATION/Paintings/MajoraMask.png'
+                    ]
+                },
+                'murals': {
+                    title: 'Murals Gallery',
+                    images: [
+                        'images/ILLUSTRATION/Murals/DogBarrel_01.jpg',
+                        'images/ILLUSTRATION/Murals/DogBarrel_02.jpg',
+                        'images/ILLUSTRATION/Murals/UnderTheSea_Mural.jpg',
+                        'images/ILLUSTRATION/Murals/Forest/Final_Forest.jpg'
+                    ]
+                },
+                'toba': {
+                    title: 'TOBA Gallery',
+                    images: [
+                        'images/ILLUSTRATION/TOBA/Bison01.jpg',
+                        'images/ILLUSTRATION/TOBA/Bison02.jpg',
+                        'images/ILLUSTRATION/TOBA/Bison_Main.JPG',
+                        'images/ILLUSTRATION/TOBA/Bison_Ride.jpg',
+                        'images/ILLUSTRATION/TOBA/Bison_Top.jpg',
+                        'images/ILLUSTRATION/TOBA/Bison_Zoo.jpg',
+                        'images/ILLUSTRATION/TOBA/TOBA_Design CUBE.jpg'
+                    ]
+                }
+            };
+
+            const gridModal = document.getElementById('digitalArtGridModal');
+            const titleEl = document.getElementById('folderGridTitle');
+            const closeGrid = document.getElementById('closeDigitalArtGrid');
+            const grid = document.getElementById('digitalArtGrid');
+            const zoomModal = document.getElementById('digitalArtZoomModal');
+            const zoomImage = document.getElementById('digitalArtZoomImage');
+
+            if (!gridModal || !titleEl || !closeGrid || !grid || !zoomModal || !zoomImage) return;
+
+            const setModalOpen = (isOpen) => {
+                gridModal.style.display = isOpen ? 'flex' : 'none';
+                gridModal.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+            };
+
+            const setZoomOpen = (isOpen, src) => {
+                if (isOpen) {
+                    zoomImage.src = src || '';
+                } else {
+                    zoomImage.src = '';
+                }
+                zoomModal.style.display = isOpen ? 'flex' : 'none';
+                zoomModal.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+            };
+
+            const mapPngSrcToFolder = (src) => {
+                if (!src) return null;
+                const cleanSrc = src.toLowerCase();
+                if (cleanSrc.includes('/digitalart.png')) return 'digital-art';
+                if (cleanSrc.includes('/paintings.png')) return 'paintings';
+                if (cleanSrc.includes('/murals.png')) return 'murals';
+                if (cleanSrc.includes('/toba.png')) return 'toba';
+                return null;
+            };
+
+            window.openFolderGrid = function (folderName) {
+                const selected = gallerySets[folderName];
+                if (!selected) {
+                    return false;
+                }
+
+                titleEl.textContent = selected.title;
+                grid.innerHTML = selected.images
+                    .map((src) => '<img src="' + src + '" alt="' + selected.title + ' thumbnail" class="digital-art-thumb" />')
+                    .join('');
+                setModalOpen(true);
+                return false;
+            };
+
+            // Keep compatibility with existing inline onclick fallbacks.
+            window.openFolderGridFallback = window.openFolderGrid;
+
+            // Setup all folder grid triggers
+            const setupTriggers = () => {
+                const triggers = document.querySelectorAll('.folder-grid-trigger[data-folder]');
+                triggers.forEach((trigger) => {
+                    trigger.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const folder = trigger.getAttribute('data-folder');
+                        window.openFolderGrid(folder);
+                    });
+                });
+            };
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupTriggers);
+            } else {
+                setupTriggers();
+            }
+
+            document.addEventListener('click', (event) => {
+                const thumb = event.target.closest('#digitalArtGrid .digital-art-thumb');
+                if (thumb) {
+                    event.preventDefault();
+                    setZoomOpen(true, thumb.getAttribute('src'));
+                    return;
+                }
+
+                const pngImage = event.target.closest('img[src*="/PNGs_Illustrations/"]');
+                if (pngImage) {
+                    const folder = mapPngSrcToFolder(pngImage.getAttribute('src'));
+                    if (folder) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        window.openFolderGrid(folder);
+                    }
+                }
+            });
+
+            // Ensure all PNG showcase cards are clickable
+            const setupPngImages = () => {
+                const pngShowcaseImages = document.querySelectorAll('img[src*="/PNGs_Illustrations/"]');
+                pngShowcaseImages.forEach((img) => {
+                    img.style.cursor = 'pointer';
+                    img.addEventListener('click', (e) => {
+                        const folder = mapPngSrcToFolder(img.getAttribute('src'));
+                        if (folder) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            window.openFolderGrid(folder);
+                        }
+                    });
+                });
+            };
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupPngImages);
+            } else {
+                setupPngImages();
+            }
+
+            const bindDirectTrigger = (id, folderName) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                el.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    window.openFolderGrid(folderName);
+                });
+            };
+
+            bindDirectTrigger('digitalArtTrigger', 'digital-art');
+            bindDirectTrigger('digitalArtImageTrigger', 'digital-art');
+            bindDirectTrigger('paintingsImageTrigger', 'paintings');
+            bindDirectTrigger('muralsImageTrigger', 'murals');
+            bindDirectTrigger('tobaImageTrigger', 'toba');
+
+            closeGrid.addEventListener('click', () => setModalOpen(false));
+            gridModal.addEventListener('click', (event) => {
+                if (event.target === gridModal) setModalOpen(false);
+            });
+            zoomModal.addEventListener('click', (event) => {
+                if (event.target === zoomModal || event.target === zoomImage) {
+                    setZoomOpen(false);
+                }
+            });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    setZoomOpen(false);
+                    setModalOpen(false);
+                }
+            });
+        })();
     </script>
 </body>
 </html>
