@@ -184,10 +184,49 @@
             width: 100% !important;
             max-width: 640px;
         }
+        #png-illustration-showcase .png-hover-frame {
+            position: relative;
+            display: block;
+            width: 100%;
+            max-width: 640px;
+            border-radius: 10px;
+            overflow: visible;
+            isolation: isolate;
+            transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), filter 320ms ease, box-shadow 320ms ease;
+            transform-origin: center;
+        }
         #png-illustration-showcase .folder-grid-trigger img {
             width: 100% !important;
             cursor: pointer !important;
             pointer-events: auto !important;
+            display: block;
+        }
+        #png-illustration-showcase .png-hover-frame img {
+            position: relative;
+            z-index: 2;
+            transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), filter 320ms ease, box-shadow 320ms ease;
+            will-change: transform;
+        }
+        #png-illustration-showcase .png-hover-frame:hover,
+        #png-illustration-showcase .png-hover-frame:focus-within {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
+        }
+        #png-illustration-showcase .png-hover-frame:hover img,
+        #png-illustration-showcase .png-hover-frame:focus-within img {
+            transform: translateY(-3px) translateX(-8px) scale(1.03);
+            filter: brightness(1.07) saturate(1.06);
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.26);
+        }
+        #png-illustration-showcase .png-feature:nth-of-type(even) .png-hover-frame:hover img,
+        #png-illustration-showcase .png-feature:nth-of-type(even) .png-hover-frame:focus-within img {
+            transform: translateY(-3px) translateX(8px) scale(1.03);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #png-illustration-showcase .png-hover-frame,
+            #png-illustration-showcase .png-hover-frame img {
+                transition: none;
+            }
         }
         #digitalArtTrigger,
         #digitalArtImageTrigger,
@@ -203,6 +242,45 @@
             position: relative;
             z-index: 1;
             margin-top: 1.5rem;
+        }
+        .hover-underline-title {
+            position: relative;
+            display: inline-block;
+        }
+        .hover-underline-title::after,
+        .hover-underline-title::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #ff4d8d, #7be8ff);
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.4s ease-out;
+        }
+        .hover-underline-title::after {
+            bottom: -6px;
+            transform-origin: right;
+        }
+        .hover-underline-title::before {
+            top: -6px;
+            transform-origin: left;
+        }
+        .png-feature:hover .hover-underline-title::after,
+        .png-feature:hover .hover-underline-title::before,
+        .png-feature:focus-within .hover-underline-title::after,
+        .png-feature:focus-within .hover-underline-title::before {
+            transform: scaleX(1);
+        }
+        .png-open-gallery-note {
+            margin-top: 0.15rem;
+            margin-bottom: 0;
+            font-size: 0.72em;
+            line-height: 1.2;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.92);
         }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/glightbox.min.css" />
@@ -542,44 +620,54 @@
                 <div class="inner">
                     <!-- 1st: Image left, text right -->
                     <div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em;">
-                        <div id="digitalArtTrigger" class="folder-grid-trigger" data-folder="digital-art" onclick="return (window.openFolderGrid ? window.openFolderGrid('digital-art') : window.openFolderGridFallback('digital-art'));" style="max-width: 640px; width: 100%; display: block; border-bottom: none; cursor: pointer;">
+                        <div id="digitalArtTrigger" class="folder-grid-trigger png-hover-frame" data-folder="digital-art" onclick="return (window.openFolderGrid ? window.openFolderGrid('digital-art') : window.openFolderGridFallback('digital-art'));" style="max-width: 640px; width: 100%; display: block; border-bottom: none; cursor: pointer;">
                             <img id="digitalArtImageTrigger" src="images/ILLUSTRATION/PNGs_Illustrations/DigitalArt.png" alt="Digital Art" onclick="return (window.openFolderGrid ? window.openFolderGrid('digital-art') : window.openFolderGridFallback('digital-art'));" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px; cursor: pointer;" />
+                            <p class="png-open-gallery-note"><strong><em>Click to open gallery</em></strong></p>
                         </div>
                         <div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-start;">
                             <div style="width: 100%;">
-                                <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">DIGITAL ART</div>
-                                <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">A selection of digital illustrations created for personal projects and clients, showcasing a range of styles and subjects.</p>
+                                <div class="hover-underline-title" style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">DIGITAL ART</div>
+                                <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">A selection of digital illustrations created for personal projects and clients, showcasing a range of styles <br> and subjects.</p>
                             </div>
                         </div>
                     </div>
                     <!-- 2nd: Text left, image right -->
                     <div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em; flex-direction: row-reverse;">
-                        <img id="paintingsImageTrigger" src="images/ILLUSTRATION/PNGs_Illustrations/Paintings.png" alt="Paintings" onclick="return (window.openFolderGrid ? window.openFolderGrid('paintings') : window.openFolderGridFallback('paintings'));" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px; cursor: pointer;" />
+                        <div id="paintingsImageTrigger" class="png-hover-frame" onclick="return (window.openFolderGrid ? window.openFolderGrid('paintings') : window.openFolderGridFallback('paintings'));" style="max-width: 640px; width: 100%; cursor: pointer;">
+                            <img src="images/ILLUSTRATION/PNGs_Illustrations/Paintings.png" alt="Paintings" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px; cursor: pointer;" />
+                            <p class="png-open-gallery-note"><strong><em>Click to open gallery</em></strong></p>
+                        </div>
                         <div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-end; text-align: right;">
                             <div style="width: 100%;">
-                                <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">PAINTINGS</div>
-                                <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">Painted illustrations and digital paintings, blending traditional and modern techniques for unique results.</p>
+                                <div class="hover-underline-title" style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">PAINTINGS</div>
+                                <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">Traditional acrylic and oil paintings on canvas, wood, and custom-created <br> PLA plastics.</p>
                             </div>
                         </div>
                     </div>
                     <!-- 3rd: Image left, text right -->
                     <div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em;">
-                        <img id="muralsImageTrigger" src="images/ILLUSTRATION/PNGs_Illustrations/murals.png" alt="Murals" onclick="return (window.openFolderGrid ? window.openFolderGrid('murals') : window.openFolderGridFallback('murals'));" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px; cursor: pointer;" />
+                        <div id="muralsImageTrigger" class="png-hover-frame" onclick="return (window.openFolderGrid ? window.openFolderGrid('murals') : window.openFolderGridFallback('murals'));" style="max-width: 640px; width: 100%; cursor: pointer;">
+                            <img src="images/ILLUSTRATION/PNGs_Illustrations/murals.png" alt="Murals" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px; cursor: pointer;" />
+                            <p class="png-open-gallery-note"><strong><em>Click to open gallery</em></strong></p>
+                        </div>
                         <div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-start;">
                             <div style="width: 100%;">
-                                <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">MURALS</div>
-                                <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">Large-scale mural illustrations, from concept sketches to finished public art pieces.</p>
+                                <div class="hover-underline-title" style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">MURALS</div>
+                                <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">Large &amp; small scale, hand painted, commissioned murals.</p>
                                 <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0;"><a href="https://www.instagram.com/reel/DVz0hJECmYP/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" style="text-decoration: none; border-bottom: none !important;"><strong><em>Watch me paint!</em></strong></a></p>
                             </div>
                         </div>
                     </div>
                     <!-- 4th: Text left, image right -->
                     <div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em; flex-direction: row-reverse;">
-                        <img id="tobaImageTrigger" src="images/ILLUSTRATION/PNGs_Illustrations/TOBA.png" alt="TOBA" onclick="return (window.openFolderGrid ? window.openFolderGrid('toba') : window.openFolderGridFallback('toba'));" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px; cursor: pointer;" />
+                        <div id="tobaImageTrigger" class="png-hover-frame" onclick="return (window.openFolderGrid ? window.openFolderGrid('toba') : window.openFolderGridFallback('toba'));" style="max-width: 640px; width: 100%; cursor: pointer;">
+                            <img src="images/ILLUSTRATION/PNGs_Illustrations/TOBA.png" alt="TOBA" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px; cursor: pointer;" />
+                            <p class="png-open-gallery-note"><strong><em>Click to open gallery</em></strong></p>
+                        </div>
                         <div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-end; text-align: right;">
                             <div style="width: 100%;">
-                                <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">TOBA PROJECT</div>
-                                <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">Illustrations and concepts for the TOBA Centre Bison Statues and related public art initiatives.</p>
+                                <div class="hover-underline-title" style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">TOBA PROJECT</div>
+                                <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">Illustrations and concepts for the TOBA Centre <br> Bison Statues.</p>
                             </div>
                         </div>
                     </div>
@@ -592,39 +680,36 @@
                     </header>
                     <div class="box alt">
                         <div class="row gtr-50 gtr-uniform">
-                            <!-- Gallery with Digital Art popup -->
-                            <!-- Main illustrations -->
-                            <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/DigitalArt/9LivesLogo.jpg" alt="9 Lives Logo" /></span></div>
-                            <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/Paintings/Camping.jpg" alt="Camping" /></span></div>
-                            <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/Paintings/MajoraMask.png" alt="Majora's Mask" /></span></div>
-                            <!-- Digital Art & Doodles -->
-                            <a href="images/ILLUSTRATION/DigitalArt/9LivesLogo.jpg" class="glightbox" data-gallery="digital-art" style="grid-column: 1;"><div class="col-5" style="position: relative;"><span class="image fit"><img src="images/ILLUSTRATION/DigitalArt/9LivesLogo.jpg" alt="Digital Art" style="cursor: pointer;" /><div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.7); color: #fff; font-weight: bold; opacity: 0; transition: opacity 0.3s; font-size: 14px;">Digital Art Gallery</div></span></div></a>
+                            <!-- Digital Art -->
                             <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/9LivesLogo.jpg" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/9LivesLogo.jpg" alt="9 Lives Logo" style="cursor: pointer;" /></a></span></div>
                             <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/BirdPainting.jpg" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/BirdPainting.jpg" alt="Bird Painting" style="cursor: pointer;" /></a></span></div>
                             <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/Calendar Mess.jpg" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/Calendar Mess.jpg" alt="Calendar Mess" style="cursor: pointer;" /></a></span></div>
-                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/TaiChi_SillyGooseGraphics.jpg" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/TaiChi_SillyGooseGraphics.jpg" alt="TaiChi Silly Goose Graphics" style="cursor: pointer;" /></a></span></div>
-                            <!-- Murals -->
-                            <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/Murals/DogBarrel_01.jpg" alt="Dog Barrel 1" /></span></div>
-                            <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/Murals/DogBarrel_02.jpg" alt="Dog Barrel 2" /></span></div>
-                            <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/Murals/UnderTheSea_Mural.jpg" alt="Under The Sea Mural" /></span></div>
-                            <!-- Murals/Forest -->
-                            <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/Murals/Forest/Final_Forest.jpg" alt="Final Forest" /></span></div>
-                            <!-- Hidden gallery items for lightbox (not displayed in main gallery) -->
-                            <a href="images/ILLUSTRATION/DigitalArt/StreetSign.jpg" class="glightbox" data-gallery="digital-art" style="display: none;"><img src="images/ILLUSTRATION/DigitalArt/StreetSign.jpg" alt="Street Sign" /></a>
-                            <!-- Stickers from Digital Art -->
                             <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/FrozzySticker.png" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/FrozzySticker.png" alt="Frozzy Sticker" style="cursor: pointer;" /></a></span></div>
                             <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/Goose_Sticker.png" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/Goose_Sticker.png" alt="Goose Sticker" style="cursor: pointer;" /></a></span></div>
                             <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/MajorBotelho.png" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/MajorBotelho.png" alt="Major Botelho Sticker" style="cursor: pointer;" /></a></span></div>
                             <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/MushWordsSticker.png" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/MushWordsSticker.png" alt="Mush Words Sticker" style="cursor: pointer;" /></a></span></div>
                             <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/OwlSticker.png" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/OwlSticker.png" alt="Owl Sticker" style="cursor: pointer;" /></a></span></div>
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/StreetSign.jpg" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/StreetSign.jpg" alt="Street Sign" style="cursor: pointer;" /></a></span></div>
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/DigitalArt/TaiChi_SillyGooseGraphics.jpg" class="glightbox" data-gallery="digital-art"><img src="images/ILLUSTRATION/DigitalArt/TaiChi_SillyGooseGraphics.jpg" alt="Tai Chi" style="cursor: pointer;" /></a></span></div>
+
+                            <!-- Paintings -->
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/Paintings/Camping.jpg" class="glightbox" data-gallery="paintings"><img src="images/ILLUSTRATION/Paintings/Camping.jpg" alt="Camping" style="cursor: pointer;" /></a></span></div>
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/Paintings/MajoraMask.png" class="glightbox" data-gallery="paintings"><img src="images/ILLUSTRATION/Paintings/MajoraMask.png" alt="Majora Mask" style="cursor: pointer;" /></a></span></div>
+
+                            <!-- Murals -->
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/Murals/DogBarrel_01.jpg" class="glightbox" data-gallery="murals"><img src="images/ILLUSTRATION/Murals/DogBarrel_01.jpg" alt="Dog Barrel 1" style="cursor: pointer;" /></a></span></div>
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/Murals/DogBarrel_02.jpg" class="glightbox" data-gallery="murals"><img src="images/ILLUSTRATION/Murals/DogBarrel_02.jpg" alt="Dog Barrel 2" style="cursor: pointer;" /></a></span></div>
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/Murals/UnderTheSea_Mural.jpg" class="glightbox" data-gallery="murals"><img src="images/ILLUSTRATION/Murals/UnderTheSea_Mural.jpg" alt="Under The Sea Mural" style="cursor: pointer;" /></a></span></div>
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/Murals/Forest/Final_Forest.jpg" class="glightbox" data-gallery="murals"><img src="images/ILLUSTRATION/Murals/Forest/Final_Forest.jpg" alt="Final Forest" style="cursor: pointer;" /></a></span></div>
+
                             <!-- TOBA -->
-                            <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/TOBA/Bison01.jpg" alt="Bison 01" /></span></div>
-                            <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/TOBA/Bison02.jpg" alt="Bison 02" /></span></div>
-                            <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/TOBA/Bison_Main.JPG" alt="Bison Main" /></span></div>
-                            <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/TOBA/Bison_Ride.jpg" alt="Bison Ride" /></span></div>
-                            <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/TOBA/Bison_Top.jpg" alt="Bison Top" /></span></div>
-                            <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/TOBA/Bison_Zoo.jpg" alt="Bison Zoo" /></span></div>
-                            <div class="col-5"><span class="image fit"><img src="images/ILLUSTRATION/TOBA/TOBA_Design CUBE.jpg" alt="TOBA Design Cube" /></span></div>
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/TOBA/Bison01.jpg" class="glightbox" data-gallery="toba"><img src="images/ILLUSTRATION/TOBA/Bison01.jpg" alt="Bison 01" style="cursor: pointer;" /></a></span></div>
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/TOBA/Bison02.jpg" class="glightbox" data-gallery="toba"><img src="images/ILLUSTRATION/TOBA/Bison02.jpg" alt="Bison 02" style="cursor: pointer;" /></a></span></div>
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/TOBA/Bison_Main.JPG" class="glightbox" data-gallery="toba"><img src="images/ILLUSTRATION/TOBA/Bison_Main.JPG" alt="Bison Main" style="cursor: pointer;" /></a></span></div>
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/TOBA/Bison_Ride.jpg" class="glightbox" data-gallery="toba"><img src="images/ILLUSTRATION/TOBA/Bison_Ride.jpg" alt="Bison Ride" style="cursor: pointer;" /></a></span></div>
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/TOBA/Bison_Top.jpg" class="glightbox" data-gallery="toba"><img src="images/ILLUSTRATION/TOBA/Bison_Top.jpg" alt="Bison Top" style="cursor: pointer;" /></a></span></div>
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/TOBA/Bison_Zoo.jpg" class="glightbox" data-gallery="toba"><img src="images/ILLUSTRATION/TOBA/Bison_Zoo.jpg" alt="Bison Zoo" style="cursor: pointer;" /></a></span></div>
+                            <div class="col-5"><span class="image fit"><a href="images/ILLUSTRATION/TOBA/TOBA_Design CUBE.jpg" class="glightbox" data-gallery="toba"><img src="images/ILLUSTRATION/TOBA/TOBA_Design CUBE.jpg" alt="TOBA Design Cube" style="cursor: pointer;" /></a></span></div>
                         </div>
                     </div>
                 </div>
