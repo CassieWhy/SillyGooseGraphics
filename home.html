@@ -49,6 +49,12 @@
 				overflow: hidden;
 			}
 
+			#banner.major {
+				height: 61.47vh;
+				min-height: 24.59em;
+				max-height: 40.98em;
+			}
+
 			#banner .inner {
 				position: relative;
 				z-index: 2;
@@ -99,6 +105,239 @@
 			}
 			.home-banner-track {
 				gap: 0;
+			}
+
+			.bestslider-section {
+				background: #000000;
+				padding: 0.5em 0 1.5em;
+			}
+
+			.bestslider-shell {
+				width: min(calc(100% - 4vw), 1600px);
+				margin: 0 auto;
+				display: flex;
+				align-items: stretch;
+				gap: clamp(1em, 1.8vw, 1.75em);
+				padding: clamp(0.9em, 1.4vw, 1.35em);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 22px;
+				background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 105, 180, 0.08) 52%, rgba(120, 119, 198, 0.08));
+				box-shadow: 0 18px 46px rgba(0, 0, 0, 0.26);
+			}
+
+			.bestslider-header {
+				flex: 0 0 clamp(320px, 34%, 460px);
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				text-align: left;
+				margin: 0;
+				padding: clamp(1.2em, 2vw, 1.8em) clamp(1.1em, 1.8vw, 1.6em);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 16px;
+				background: rgba(8, 8, 8, 0.34);
+				box-shadow: none;
+				backdrop-filter: blur(8px);
+			}
+
+			.bestslider-header::before {
+				content: 'SPOTLIGHT';
+				display: block;
+				margin-bottom: 0.8em;
+				color: #ff69b4;
+				font-size: 0.72em;
+				font-weight: 700;
+				letter-spacing: 0.28em;
+			}
+
+			.bestslider-header h2 {
+				margin: 0 0 0.35em;
+				color: #ffffff;
+				font-size: clamp(1.45em, 2.2vw, 2.15em);
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+			}
+
+			.bestslider-header p {
+				margin: 0;
+				max-width: 32ch;
+				color: rgba(255, 255, 255, 0.84);
+				font-size: 1em;
+				line-height: 1.65;
+			}
+
+			.bestslider {
+				flex: 1 1 auto;
+				min-width: 0;
+				position: relative;
+				overflow: hidden;
+				border-radius: 16px;
+				background: #0d0d0d;
+				box-shadow: none;
+				border: 1px solid rgba(255, 255, 255, 0.08);
+				isolation: isolate;
+			}
+
+			.bestslider-track {
+				display: flex;
+				transition: transform 1.35s cubic-bezier(0.22, 1, 0.36, 1);
+				will-change: transform;
+			}
+
+			.bestslider-slide {
+				position: relative;
+				flex: 0 0 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 32.54vh;
+				min-height: 13.02em;
+				max-height: 21.7em;
+				margin: 0;
+				padding: 0 3vw;
+				box-sizing: border-box;
+				background: #080808;
+			}
+
+			.bestslider-slide img {
+				width: 100%;
+				height: 100%;
+				max-width: 100%;
+				max-height: 100%;
+				display: block;
+				object-fit: contain;
+				object-position: center center;
+			}
+
+			.bestslider-slide::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(to top, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.14) 52%, rgba(0, 0, 0, 0));
+				pointer-events: none;
+			}
+
+			.bestslider-caption {
+				position: absolute;
+				left: 1.25em;
+				right: 1.25em;
+				bottom: 1.15em;
+				z-index: 2;
+				color: #ffffff;
+				font-size: 1.02em;
+				font-weight: 700;
+				letter-spacing: 0.06em;
+				text-transform: uppercase;
+				text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+			}
+
+			.bestslider-button {
+				display: none;
+			}
+
+			.bestslider-nav {
+				position: absolute;
+				left: 50%;
+				bottom: 0.95em;
+				transform: translateX(-50%);
+				z-index: 3;
+				display: flex;
+				gap: 0.55em;
+				padding: 0.4em 0.7em;
+				border-radius: 999px;
+				background: rgba(8, 8, 8, 0.42);
+				box-shadow: none !important;
+				backdrop-filter: blur(8px);
+			}
+
+			.bestslider-dot {
+				appearance: none;
+				display: block;
+				width: 10px;
+				height: 10px;
+				min-width: 10px;
+				padding: 0;
+				border: 0;
+				border-radius: 999px;
+				background: rgba(255, 255, 255, 0.52);
+				box-shadow: none !important;
+				font-size: 0;
+				line-height: 0;
+				cursor: pointer;
+				transition: transform 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+			}
+
+			.bestslider-dot.is-active {
+				background: #ff69b4;
+				transform: scale(1.12);
+			}
+
+			@media screen and (max-width: 736px) {
+				.bestslider-section {
+					padding: 1.1em 0 0.75em;
+				}
+
+				.bestslider-shell {
+					width: min(calc(100% - 1em), 96%);
+					margin: 0 auto;
+					padding: 0.85em;
+					flex-direction: column;
+					gap: 1em;
+				}
+
+				.bestslider {
+					flex-basis: auto;
+					width: 100%;
+				}
+
+				.bestslider-header {
+					flex-basis: auto;
+					align-items: center;
+					text-align: center;
+					padding: 1.15em 1em;
+				}
+
+				.bestslider-header p {
+					max-width: none;
+				}
+
+				.bestslider-slide {
+					height: 29.27vh;
+					min-height: 11.72em;
+					max-height: 19.53em;
+					padding: 0 0.9em;
+				}
+
+				.bestslider-caption {
+					left: 0.9em;
+					right: 0.9em;
+					bottom: 0.8em;
+					font-size: 0.82em;
+				}
+
+				.bestslider-button {
+					width: 38px;
+					height: 38px;
+					font-size: 1.05em;
+				}
+
+				.bestslider-nav {
+					bottom: 0.75em;
+					padding: 0.35em 0.55em;
+				}
+
+				#one.tiles article,
+				.about-me-cta {
+					height: auto;
+					min-height: 190px;
+				}
+
+				#one.tiles article header.major,
+				.about-me-button {
+					width: 100%;
+					max-width: none;
+				}
 			}
 
 			/* Mobile optimizations */
@@ -254,7 +493,22 @@
 				}
 			}
 
+			#one.tiles {
+				width: min(calc(100% - 4vw), 1600px);
+				margin: 0 auto 1.5em;
+			}
+
+			#one.tiles article {
+				border-radius: 22px;
+				overflow: hidden;
+			}
+
+			#one.tiles article .image {
+				display: none !important;
+			}
+
 			.tiles article.slide-article {
+				position: relative;
 				background: #111;
 				overflow: hidden;
 			}
@@ -279,17 +533,62 @@
 				width: max-content;
 				z-index: 1;
 				transform: translateX(0);
-				animation: logosBgSlide 56s linear infinite;
+				animation: logosBgSlide 40s linear infinite;
 				will-change: transform;
+				pointer-events: none;
 			}
 
 			.tile-bg-track img {
-				width: 26vw;
+				width: min(28vw, 360px);
 				min-width: 220px;
 				height: 100%;
 				object-fit: cover;
-				opacity: 0.95;
+				opacity: 0.96;
 				flex: 0 0 auto;
+			}
+
+			.design-bg-track {
+				animation-duration: 38s;
+			}
+
+			.illustration-bg-track {
+				animation-duration: 44s;
+			}
+
+			.cta-bg-track {
+				position: absolute;
+				inset: 0;
+				display: flex;
+				width: max-content;
+				z-index: 1;
+				animation: logosBgSlide 34s linear infinite;
+				will-change: transform;
+				pointer-events: none;
+			}
+
+			.cta-bg-track img {
+				width: min(24vw, 320px);
+				min-width: 180px;
+				height: 100%;
+				object-fit: cover;
+				flex: 0 0 auto;
+				opacity: 0.94;
+			}
+
+			.about-bg-track {
+				animation-duration: 30s;
+			}
+
+			.products-bg-track {
+				animation-duration: 36s;
+			}
+
+			.products-bg-track img {
+				width: min(20vw, 280px);
+				min-width: 150px;
+				object-fit: contain;
+				background: rgba(0, 0, 0, 0.82);
+				padding: 0.55em;
 			}
 
 			.tiles article.murals-static-article {
@@ -303,7 +602,78 @@
 
 			.tiles article.design-tile,
 			.tiles article.illustration-tile {
-				width: 50% !important;
+				width: 100% !important;
+				background-image: none !important;
+				background-color: #111 !important;
+				background-position: center center !important;
+				background-size: cover !important;
+			}
+
+			#one.tiles article,
+			.about-me-cta {
+				min-height: 248px;
+				height: 248px;
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				padding: 1.5em !important;
+				box-sizing: border-box;
+			}
+
+			#one.tiles article header.major,
+			.about-me-button {
+				position: relative;
+				z-index: 3;
+				display: inline-flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: center;
+				gap: 0.55em;
+				width: min(100%, 450px);
+				margin: 0 0 0 auto;
+				padding: 1.15em 1.25em;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 16px;
+				background: linear-gradient(135deg, rgba(255, 105, 180, 0.16), rgba(120, 119, 198, 0.12) 55%, rgba(255, 255, 255, 0.04));
+				box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
+				backdrop-filter: blur(8px);
+				text-align: left;
+				transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+			}
+
+			#one.tiles article header.major > :first-child:after {
+				display: none !important;
+			}
+
+			#one.tiles article header.major .cta-kicker,
+			.about-me-button .cta-kicker {
+				color: #ff69b4;
+				font-size: 0.72em;
+				font-weight: 700;
+				letter-spacing: 0.28em;
+				text-transform: uppercase;
+			}
+
+			#one.tiles article header.major h3,
+			.about-me-button h3 {
+				margin: 0;
+			}
+
+			#one.tiles article header.major p,
+			.about-me-button p {
+				margin: 0;
+				max-width: 28ch;
+				color: rgba(255, 255, 255, 0.84);
+				font-size: 0.95em;
+				line-height: 1.5;
+			}
+
+			.tiles article:hover header.major,
+			.tiles article:focus-within header.major,
+			.about-me-cta:hover .about-me-button,
+			.about-me-cta:focus-visible .about-me-button {
+				transform: translateY(-2px);
+				border-color: rgba(255, 105, 180, 0.45);
 			}
 
 			.tiles article.threed-full-width {
@@ -311,14 +681,14 @@
 			}
 
 			.tiles article.threed-slide-article {
-				background-image: url('images/3D-Creations_Button-BG.jpg') !important;
+				background-image: none !important;
 				background-repeat: no-repeat !important;
 				background-size: cover !important;
 				background-position: center center !important;
 			}
 
 			.tiles article.threed-slide-article .tile-bg-track {
-				display: none !important;
+				display: flex !important;
 			}
 
 			.tiles article.sticker-slide-article {
@@ -354,24 +724,26 @@
 				position: relative;
 				overflow: hidden;
 				display: flex;
-				justify-content: center;
+				justify-content: flex-end;
 				align-items: center;
 				text-decoration: none;
 				cursor: pointer;
 				min-height: 210px;
-				border: 0;
-				border-radius: 0;
-				padding: 2em;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				border-radius: 22px;
+				padding: 1.35em;
 				width: 100%;
-				margin: 0;
-				background: #000 url('images/CassiePics/AboutMe.jpg') center center / cover no-repeat;
+				margin: 0 auto;
+				background: #000;
+				box-shadow: 0 18px 46px rgba(0, 0, 0, 0.26);
+				isolation: isolate;
 			}
 
 			.about-me-cta:before {
 				content: '';
 				position: absolute;
 				inset: 0;
-				background: rgba(36, 41, 67, 0.45);
+				background: linear-gradient(135deg, rgba(255, 105, 180, 0.16), rgba(120, 119, 198, 0.14) 55%, rgba(8, 8, 8, 0.36));
 				z-index: 2;
 				opacity: 1;
 				transition: opacity 0.35s ease;
@@ -379,7 +751,7 @@
 
 			.about-me-cta:hover:before,
 			.about-me-cta:focus-visible:before {
-				opacity: 0;
+				opacity: 0.82;
 			}
 
 			#two {
@@ -393,44 +765,67 @@
 			}
 
 			#two .inner {
-				max-width: 100% !important;
-				width: 100%;
-				margin: 0 !important;
+				max-width: min(calc(100% - 4vw), 1600px) !important;
+				width: min(calc(100% - 4vw), 1600px);
+				margin: 0 auto !important;
 				padding: 0 !important;
 			}
 
 			#products-cta .inner {
-				max-width: 100% !important;
-				width: 100%;
-				margin: 0 !important;
+				max-width: min(calc(100% - 4vw), 1600px) !important;
+				width: min(calc(100% - 4vw), 1600px);
+				margin: 0 auto !important;
 				padding: 0 !important;
 			}
 
 			.products-group-cta {
-				background-image: url('images/Products/Product_Button.png'), url('images/Products/Product_ButtonGB.jpg') !important;
-				background-repeat: no-repeat, no-repeat !important;
-				background-size: auto 100%, cover !important;
-				background-position: center center, center center !important;
-				background-color: #000 !important;
+				background: #000 !important;
 			}
 
 
-			.about-me-button {
-				position: relative;
-				z-index: 3;
-				margin: 0;
-				display: flex;
-				justify-content: center;
-				padding: 0;
+			.about-me-button .cta-kicker {
+				color: #ff69b4;
+				font-size: 0.72em;
+				font-weight: 700;
+				letter-spacing: 0.28em;
+				text-transform: uppercase;
+			}
+
+			.about-me-button h3 {
+				color: #ffffff;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+			}
+
+			.about-me-button p {
+				max-width: 30ch;
+				line-height: 1.55;
 			}
 
 			.about-me-button .button {
-				transition: opacity 0.35s ease;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				align-self: flex-start;
+				height: auto;
+				min-height: 3.1em;
+				margin-top: 0.35em;
+				padding: 0.8em 1.35em;
+				border: 1px solid rgba(255, 255, 255, 0.12);
+				border-radius: 16px;
+				background: linear-gradient(135deg, rgba(255, 105, 180, 0.18), rgba(120, 119, 198, 0.14) 55%, rgba(255, 255, 255, 0.04));
+				box-shadow: none !important;
+				color: #ffffff !important;
+				font-size: 0.78em;
+				line-height: 1.1;
+				letter-spacing: 0.16em;
+				transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 			}
 
 			.about-me-cta:hover .about-me-button .button,
 			.about-me-cta:focus-visible .about-me-button .button {
-				opacity: 0.7;
+				opacity: 1;
+				border-color: rgba(255, 105, 180, 0.45);
 			}
 
 
@@ -478,7 +873,6 @@
 						<a href="https://www.instagram.com/sillygoosegraphics_/" target="_blank" rel="noopener"><img src="images/insta_social.png" alt="Instagram" /></a>
 						<a href="https://www.linkedin.com/in/cassandra-fennell" target="_blank" rel="noopener"><img src="images/indeed_social.png" alt="LinkedIn" /></a>
 					</div>
-					<a href="home.html" class="logo" style="flex: 0 0 auto; text-align: center; margin: 7px auto 0 auto;"><strong style="padding: 0 40px; font-size: 1.5em; letter-spacing: 5px;">Silly Goose Graphics</strong></a>
 					<nav style="flex: 1; display: flex; justify-content: flex-end;">
 						<a href="home.html" class="mobile-home-nav" style="display: none;">HOME</a>
 						<a href="#contact" style="margin-right: 1.5em;">CONTACT ME</a>
@@ -505,23 +899,23 @@
 					<section id="banner" class="major" style="background-color: #000000;">
 						<div class="home-banner-bg" aria-hidden="true">
 							<div class="home-banner-track" style="position: relative;">
-								<img src="images/Logos&Designs/BlazingStars.jpg" alt="" />
-								<img src="images/Local_Business/THOM_Bus.jpg" alt="" />
-								<img src="images/TOBA/Bison_Main.JPG" alt="" />
-								<img src="images/Stickers/OwlSticker.png" alt="" />
-								<img src="images/Murals/DogBarrel_01.jpg" alt="" />
-								<img src="images/3D_Prints/Goose1.jpg" alt="" />
-								<img src="images/Logos&Designs/BlazingStars.jpg" alt="" />
-								<img src="images/Local_Business/THOM_Bus.jpg" alt="" />
-								<img src="images/TOBA/Bison_Main.JPG" alt="" />
-								<img src="images/Stickers/OwlSticker.png" alt="" />
-								<img src="images/Murals/DogBarrel_01.jpg" alt="" />
-								<img src="images/3D_Prints/Goose1.jpg" alt="" />
+								<img src="images/BestSlider/20250508_213225.jpg" alt="" />
+								<img src="images/BestSlider/LutheranSchool_Design.jpg" alt="" />
+								<img src="images/BestSlider/StreetSign.jpg" alt="" />
+								<img src="images/BestSlider/OwlSticker.png" alt="" />
+								<img src="images/BestSlider/ForestPainting.jpg" alt="" />
+								<img src="images/BestSlider/Goose1.jpg" alt="" />
+								<img src="images/BestSlider/20250508_213225.jpg" alt="" />
+								<img src="images/BestSlider/LutheranSchool_Design.jpg" alt="" />
+								<img src="images/BestSlider/StreetSign.jpg" alt="" />
+								<img src="images/BestSlider/OwlSticker.png" alt="" />
+								<img src="images/BestSlider/ForestPainting.jpg" alt="" />
+								<img src="images/BestSlider/Goose1.jpg" alt="" />
 							</div>
 						</div>
 						<div class="inner">
 							<header class="major" style="text-align: center;">
-							<img src="images/BW_SillyGooseLogo.svg" alt="Silly Goose Graphics Logo" style="max-width: 1000px; display: block; margin: 0 auto; position: relative; top: 20px;">
+							<img src="images/BW_SillyGooseLogo.svg" alt="Silly Goose Graphics Logo" style="width: 93.15%; max-width: 964px; display: block; margin: 0 auto; position: relative; top: -20px;">
 
 							</header>
 						<!-- Removed welcome text and Get In Touch button from banner section -->
@@ -531,35 +925,80 @@
 				<!-- Main -->
 					<div id="main" style="background-color: #000000;">
 
-						<!-- About Me -->
-							<section id="two">
-								<div class="inner">
-									<a href="About_Me.html" class="about-me-cta">
-										<div class="about-me-button">
-											<span class="button primary large">About Me</span>
-										</div>
-									</a>
+						<section class="bestslider-section" aria-label="Featured work slider">
+							<div class="bestslider-shell">
+								<div class="bestslider" data-bestslider>
+									<div class="bestslider-track">
+										<figure class="bestslider-slide">
+											<img src="images/BestSlider/20250508_213225.jpg" alt="Featured design and branding sample" />
+											<figcaption class="bestslider-caption">Design &amp; Branding</figcaption>
+										</figure>
+										<figure class="bestslider-slide">
+											<img src="images/BestSlider/LutheranSchool_Design.jpg" alt="Lutheran School design showcase" />
+											<figcaption class="bestslider-caption">Signage &amp; Local Business</figcaption>
+										</figure>
+										<figure class="bestslider-slide">
+											<img src="images/BestSlider/StreetSign.jpg" alt="Illustrated street sign artwork" />
+											<figcaption class="bestslider-caption">Illustration &amp; Graphic Art</figcaption>
+										</figure>
+										<figure class="bestslider-slide">
+											<img src="images/BestSlider/OwlSticker.png" alt="Custom owl sticker design" />
+											<figcaption class="bestslider-caption">Sticker Work</figcaption>
+										</figure>
+										<figure class="bestslider-slide">
+											<img src="images/BestSlider/ForestPainting.jpg" alt="Forest painting and mural detail" />
+											<figcaption class="bestslider-caption">Murals &amp; Paintings</figcaption>
+										</figure>
+										<figure class="bestslider-slide">
+											<img src="images/BestSlider/Goose1.jpg" alt="Hand-painted 3D goose creation" />
+											<figcaption class="bestslider-caption">3D Creations</figcaption>
+										</figure>
+									</div>
+									<button class="bestslider-button prev" type="button" aria-label="Previous featured image">&#10094;</button>
+									<button class="bestslider-button next" type="button" aria-label="Next featured image">&#10095;</button>
+									<div class="bestslider-nav" aria-label="Featured slide navigation">
+										<button class="bestslider-dot is-active" type="button" data-slide="0" aria-label="Go to slide 1"></button>
+										<button class="bestslider-dot" type="button" data-slide="1" aria-label="Go to slide 2"></button>
+										<button class="bestslider-dot" type="button" data-slide="2" aria-label="Go to slide 3"></button>
+										<button class="bestslider-dot" type="button" data-slide="3" aria-label="Go to slide 4"></button>
+										<button class="bestslider-dot" type="button" data-slide="4" aria-label="Go to slide 5"></button>
+										<button class="bestslider-dot" type="button" data-slide="5" aria-label="Go to slide 6"></button>
+									</div>
+								</div>
+								<div class="bestslider-header">
+									<h2>Featured Work</h2>
+									<p>A quick look at some favorite Silly Goose Graphics highlights.</p>
+								</div>
 							</div>
 						</section>
 
 						<!-- One -->
 							<section id="one" class="tiles">
-								<article class="design-tile">
-									<span class="image">
-										<img src="images/Popsicle_Button_1.gif" alt="Popsicle button animation" />
-									</span>
+								<article class="design-tile slide-article">
+									<div class="tile-bg-track design-bg-track" aria-hidden="true">
+										<img src="images/BestSlider/20250508_213225.jpg" alt="" />
+										<img src="images/BestSlider/LutheranSchool_Design.jpg" alt="" />
+										<img src="images/BestSlider/20250508_213225.jpg" alt="" />
+										<img src="images/BestSlider/LutheranSchool_Design.jpg" alt="" />
+									</div>
 									<header class="major">
-									<h3><a href="design.html" class="link">DESIGN</a></h3>
-									<p>LOGOS, BRANDING, SIGNAGE, PRINT ADVERTISING, STICKERS, WEB DESIGN, ETC</p>
+										<span class="cta-kicker">Branding</span>
+										<h3><a href="design.html" class="link">DESIGN</a></h3>
+										<p>Logos, print, signage &amp; web.</p>
 									</header>
 								</article>
-								<article class="local-static-article illustration-tile">
-									<span class="image" style="position: relative;">
-										<img src="images/ILLUSTRATION/PNGs_Illustrations/DigitalArt.png" alt="Digital Art" />
-									</span>
+								<article class="local-static-article illustration-tile slide-article">
+									<div class="tile-bg-track illustration-bg-track" aria-hidden="true">
+										<img src="images/BestSlider/StreetSign.jpg" alt="" />
+										<img src="images/BestSlider/ForestPainting.jpg" alt="" />
+										<img src="images/BestSlider/OwlSticker.png" alt="" />
+										<img src="images/BestSlider/StreetSign.jpg" alt="" />
+										<img src="images/BestSlider/ForestPainting.jpg" alt="" />
+									</div>
 									<header class="major">
-									<h3><a href="illustrations.html" class="link">ILLUSTRATION</a></h3>
-										<p>Murals, Paintings, & Digital Art</p>
+										<span class="cta-kicker">Art</span>
+										<h3><a href="illustrations.html" class="link">ILLUSTRATION</a></h3>
+										<p>Murals, paintings &amp; digital art.</p>
 									</header>
 								</article>
 								<article class="slide-article threed-slide-article threed-full-width">
@@ -568,17 +1007,15 @@
 										<img src="images/3D_Prints/Goose2.jpg" alt="" />
 										<img src="images/3D_Prints/XMas_01.jpg" alt="" />
 										<img src="images/3D_Prints/XMas_02.jpg" alt="" />
+										<img src="images/3D_Prints/Goose_Pair.jpg" alt="" />
+										<img src="images/3D_Prints/Goose_Pair02.jpg" alt="" />
 										<img src="images/3D_Prints/Goose1.jpg" alt="" />
 										<img src="images/3D_Prints/Goose2.jpg" alt="" />
-										<img src="images/3D_Prints/XMas_01.jpg" alt="" />
-										<img src="images/3D_Prints/XMas_02.jpg" alt="" />
 									</div>
-									<span class="image">
-										<img src="images/3D_Prints/Goose1.jpg" alt="" />
-									</span>
 									<header class="major">
-									<h3><a href="3D_Creations.html" class="link">3D Creations</a></h3>
-										<p>Built with blender, printed with Bambu, &amp; painted by hand</p>
+										<span class="cta-kicker">Build</span>
+										<h3><a href="3D_Creations.html" class="link">3D Creations</a></h3>
+										<p>Modeled, printed &amp; hand-painted.</p>
 									</header>
 								</article>
 							</section>
@@ -587,8 +1024,39 @@
 							<section id="products-cta">
 								<div class="inner">
 									<a href="products.html" class="about-me-cta products-group-cta">
+										<div class="cta-bg-track products-bg-track" aria-hidden="true">
+											<img src="images/Products/slider/cards_slider.png" alt="" />
+											<img src="images/Products/slider/coaster_slider.png" alt="" />
+											<img src="images/Products/slider/key_slider.png" alt="" />
+											<img src="images/Products/slider/mugs_slider.png" alt="" />
+											<img src="images/Products/slider/shirt_slider.png" alt="" />
+											<img src="images/Products/slider/stickers_slider.png" alt="" />
+										</div>
 										<div class="about-me-button">
-											<span class="button primary large">Products</span>
+											<span class="cta-kicker">Shop</span>
+											<h3>Products</h3>
+											<p>Stickers, mugs, shirts &amp; more.</p>
+										</div>
+									</a>
+								</div>
+							</section>
+
+						<!-- About Me -->
+							<section id="two">
+								<div class="inner">
+									<a href="About_Me.html" class="about-me-cta">
+										<div class="cta-bg-track about-bg-track" aria-hidden="true">
+											<img src="images/CassiePics/AboutMe.jpg" alt="" />
+											<img src="images/CassiePics/CampSelfie.jpg" alt="" />
+											<img src="images/CassiePics/CassieFennell.jpg" alt="" />
+											<img src="images/CassiePics/Heart.jpeg" alt="" />
+											<img src="images/CassiePics/AboutMe.jpg" alt="" />
+											<img src="images/CassiePics/CampSelfie.jpg" alt="" />
+										</div>
+										<div class="about-me-button">
+											<span class="cta-kicker">Profile</span>
+											<h3>About Me</h3>
+											<p>Meet the artist behind the work.</p>
 										</div>
 									</a>
 								</div>
@@ -662,7 +1130,76 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				(function () {
+					var slider = document.querySelector('[data-bestslider]');
+					if (!slider) return;
 
+					var track = slider.querySelector('.bestslider-track');
+					var slides = Array.prototype.slice.call(slider.querySelectorAll('.bestslider-slide'));
+					var dots = Array.prototype.slice.call(slider.querySelectorAll('.bestslider-dot'));
+					var prev = slider.querySelector('.bestslider-button.prev');
+					var next = slider.querySelector('.bestslider-button.next');
+					var index = 0;
+					var timer = null;
+
+					function updateSlider() {
+						track.style.transform = 'translateX(-' + (index * 100) + '%)';
+						dots.forEach(function (dot, dotIndex) {
+							dot.classList.toggle('is-active', dotIndex === index);
+						});
+					}
+
+					function goTo(newIndex) {
+						index = (newIndex + slides.length) % slides.length;
+						updateSlider();
+					}
+
+					function startAutoPlay() {
+						stopAutoPlay();
+						timer = window.setInterval(function () {
+							goTo(index + 1);
+						}, 7200);
+					}
+
+					function stopAutoPlay() {
+						if (timer !== null) {
+							window.clearInterval(timer);
+							timer = null;
+						}
+					}
+
+					prev.addEventListener('click', function () {
+						goTo(index - 1);
+						startAutoPlay();
+					});
+
+					next.addEventListener('click', function () {
+						goTo(index + 1);
+						startAutoPlay();
+					});
+
+					dots.forEach(function (dot) {
+						dot.addEventListener('click', function () {
+							goTo(Number(dot.getAttribute('data-slide')) || 0);
+							startAutoPlay();
+						});
+					});
+
+					slider.addEventListener('mouseenter', stopAutoPlay);
+					slider.addEventListener('mouseleave', startAutoPlay);
+					document.addEventListener('visibilitychange', function () {
+						if (document.hidden) {
+							stopAutoPlay();
+						} else {
+							startAutoPlay();
+						}
+					});
+
+					updateSlider();
+					startAutoPlay();
+				})();
+			</script>
 
 	</body>
 </html>

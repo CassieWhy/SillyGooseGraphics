@@ -291,6 +291,212 @@
             #header-social-icons a:hover img {
                 opacity: 0.75;
             }
+
+            .digital-art-modal-backdrop {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.82);
+                z-index: 10050;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                padding: 1.2rem;
+            }
+
+            .digital-art-modal-panel {
+                width: min(1120px, 95vw);
+                max-height: 90vh;
+                overflow: hidden;
+                background: rgba(12, 12, 12, 0.97);
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                border-radius: 12px;
+                box-shadow: 0 0 40px rgba(0, 0, 0, 0.45);
+                display: flex;
+                flex-direction: column;
+            }
+
+            .digital-art-modal-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+                padding: 0.95rem 1.1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            }
+
+            .digital-art-modal-close {
+                background: transparent;
+                border: 1px solid rgba(255, 255, 255, 0.45);
+                color: #fff;
+                border-radius: 8px;
+                padding: 0.35rem 0.7rem;
+                cursor: pointer;
+                font-size: 0.95rem;
+                display: inline-flex;
+                align-items: center;
+            }
+
+            .digital-art-modal-close-label {
+                display: inline-block;
+            }
+
+            .digital-art-modal-close:hover {
+                background: rgba(255, 255, 255, 0.12);
+            }
+
+            .digital-art-modal-grid {
+                padding: 1rem;
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 0.7rem;
+                overflow: auto;
+                align-content: start;
+            }
+
+            .digital-art-thumb {
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+                border-radius: 8px;
+                cursor: zoom-in;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                background: #101010;
+            }
+
+            .digital-art-zoom-backdrop {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.92);
+                z-index: 10060;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                padding: 1.2rem;
+            }
+
+            .digital-art-zoom-image {
+                max-width: min(1200px, 95vw);
+                max-height: 92vh;
+                width: auto;
+                height: auto;
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.35);
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+                background: #000;
+            }
+
+            @media (max-width: 960px) {
+                .digital-art-modal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            }
+
+            @media (max-width: 700px) {
+                .digital-art-modal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            }
+
+            #png-showcase {
+                position: relative;
+                z-index: 200;
+                isolation: isolate;
+            }
+
+            #png-showcase .folder-grid-trigger {
+                position: relative;
+                z-index: 202;
+                cursor: pointer !important;
+                pointer-events: auto !important;
+                width: 100% !important;
+                max-width: 640px;
+                border-bottom: none !important;
+            }
+
+            #png-showcase .png-hover-frame {
+                position: relative;
+                display: block;
+                width: 100%;
+                max-width: 640px;
+                border-radius: 10px;
+                overflow: visible;
+                isolation: isolate;
+                transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), filter 320ms ease, box-shadow 320ms ease;
+                transform-origin: center;
+            }
+
+            #png-showcase .folder-grid-trigger img {
+                width: 100% !important;
+                cursor: pointer !important;
+                pointer-events: auto !important;
+                display: block;
+            }
+
+            #png-showcase .png-hover-frame img {
+                position: relative;
+                z-index: 2;
+                transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), filter 320ms ease, box-shadow 320ms ease;
+                will-change: transform;
+            }
+
+            #png-showcase .png-hover-frame:hover,
+            #png-showcase .png-hover-frame:focus-within {
+                transform: translateY(-3px);
+                box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
+            }
+
+            #png-showcase .png-hover-frame:hover img,
+            #png-showcase .png-hover-frame:focus-within img {
+                transform: translateY(-3px) translateX(-8px) scale(1.03);
+                filter: brightness(1.07) saturate(1.06);
+                box-shadow: 0 12px 26px rgba(0, 0, 0, 0.26);
+            }
+
+            #png-showcase .png-feature:nth-of-type(even) .png-hover-frame:hover img,
+            #png-showcase .png-feature:nth-of-type(even) .png-hover-frame:focus-within img {
+                transform: translateY(-3px) translateX(8px) scale(1.03);
+            }
+
+            .hover-underline-title {
+                position: relative;
+                display: inline-block;
+            }
+
+            .hover-underline-title::after,
+            .hover-underline-title::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(to right, #ff4d8d, #7be8ff);
+                left: 0;
+                transform: scaleX(0);
+                transition: transform 0.4s ease-out;
+            }
+
+            .hover-underline-title::after {
+                bottom: -6px;
+                transform-origin: right;
+            }
+
+            .hover-underline-title::before {
+                top: -6px;
+                transform-origin: left;
+            }
+
+            .png-feature:hover .hover-underline-title::after,
+            .png-feature:hover .hover-underline-title::before,
+            .png-feature:focus-within .hover-underline-title::after,
+            .png-feature:focus-within .hover-underline-title::before {
+                transform: scaleX(1);
+            }
+
+            .png-open-gallery-note {
+                margin-top: 4px;
+                margin-bottom: 0;
+                font-size: 0.72em;
+                line-height: 1.2;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.92);
+            }
         </style>
     </head>
     <body class="is-preload">
@@ -360,29 +566,29 @@
                     <div class="inner">
                         <!-- 1st: Image left, text right -->
                         <div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em;">
-                            <img src="images/DESIGN/PNGs/Gas-BarGasBar.png" alt="Gas Bar" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px;" />
+                            <img src="images/DESIGN/PNGs/Branding.png" alt="Logos and Branding" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px;" />
                             <div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-start;">
                                 <div style="width: 100%;">
-                                    <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">LOGO'S & BRANDING</div>
+                                    <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">LOGO'S, BRANDING & PRINT</div>
                                     <!-- Removed <hr> below signage heading -->
-                                    <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">A strong logo and cohesive branding are the foundation of every successful business. I specialize in creating memorable, versatile logos and brand identities that capture your unique story and connect with your audience across all platforms.</p>
+                                    <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">A strong logo and cohesive brand system are the foundation of every successful business. I specialize in creating memorable, versatile logos and brand identities, plus print products like business cards, brochures, flyers, and other marketing materials that keep your brand consistent across every touchpoint.</p>
                                 </div>
                             </div>
                         </div>
                         <!-- 2nd: Text left, image right -->
                         <div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em; flex-direction: row-reverse;">
-                            <img src="images/DESIGN/PNGs/businesscardsLogos.png" alt="Business Cards" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px;" />
+                            <img src="images/DESIGN/PNGs/Popsicle.gif" alt="Animations and Video Editing" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px;" />
                             <div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-end; text-align: right;">
                                 <div style="width: 100%;">
-                                    <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">BUSINESS CARDS</div>
+                                    <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">ANIMATIONS &amp; <br> VIDEO EDITING</div>
                                     <hr style="width: 60px; border: 2px solid #fff; margin: 0 0 1em auto;">
-                                    <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">Custom business card designs to make your first impression count. Stand out with unique, professional cards tailored to your brand.</p>
+                                    <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">Dynamic animations and polished video editing to bring your brand and stories to life. From social clips and motion graphics to promotional edits, I create eye-catching content designed to engage your audience.</p>
                                 </div>
                             </div>
                         </div>
                         <!-- 3rd: Image left, text right -->
                         <div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em;">
-                            <img src="images/DESIGN/PNGs/BusWrapsLogos.png" alt="Bus Wraps" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px;" />
+                            <img src="images/DESIGN/PNGs/Signage.png" alt="Signage" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px;" />
                             <div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-start;">
                                 <div style="width: 100%;">
                                     <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">SIGNAGE</div>

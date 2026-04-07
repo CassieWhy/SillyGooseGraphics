@@ -153,23 +153,35 @@
 				overflow-y: hidden;
 				-webkit-overflow-scrolling: touch;
 				scroll-snap-type: x proximity;
-				scrollbar-width: thin;
-				scrollbar-color: rgba(255,255,255,0.55) rgba(255,255,255,0.14);
-				padding-bottom: 0.2em;
+				scrollbar-width: auto;
+				scrollbar-color: rgba(255, 255, 255, 0.82) rgba(255, 255, 255, 0.2);
+				padding: 0 0 0.75em;
+				cursor: ew-resize;
+				scroll-behavior: smooth;
 			}
 
 			.video-row::-webkit-scrollbar {
-				height: 8px;
+				height: 14px;
 			}
 
 			.video-row::-webkit-scrollbar-track {
-				background: rgba(255, 255, 255, 0.14);
+				background: rgba(255, 255, 255, 0.16);
 				border-radius: 999px;
+				box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 			}
 
 			.video-row::-webkit-scrollbar-thumb {
-				background: rgba(255, 255, 255, 0.55);
+				background: linear-gradient(90deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.95));
 				border-radius: 999px;
+				border: 2px solid rgba(0, 0, 0, 0.18);
+			}
+
+			.video-row::-webkit-scrollbar-thumb:hover {
+				background: linear-gradient(90deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 1));
+			}
+
+			.video-row.is-hover-scrolling {
+				scrollbar-color: rgba(255, 255, 255, 0.96) rgba(255, 255, 255, 0.26);
 			}
 
 			.video-row .video-card {
@@ -305,7 +317,8 @@
 					-webkit-overflow-scrolling: touch;
 					scroll-snap-type: x mandatory;
 					gap: 0.75em;
-					padding-bottom: 0.2em;
+					padding-bottom: 0.55em;
+					cursor: grab;
 				}
 
 				.video-row .video-card {
@@ -479,5 +492,72 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script>
+			(function () {
+				if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+					return;
+				}
+
+				var rows = document.querySelectorAll('.video-row');
+				var maxStep = 18;
+				var deadZone = 0.18;
+
+				rows.forEach(function (row) {
+					var pointerX = 0;
+					var frameId = null;
+					var isHovering = false;
+
+					function tick() {
+						if (!isHovering) {
+							frameId = null;
+							return;
+						}
+
+						var maxScroll = row.scrollWidth - row.clientWidth;
+						if (maxScroll <= 0) {
+							frameId = window.requestAnimationFrame(tick);
+							return;
+						}
+
+						var bounds = row.getBoundingClientRect();
+						var relativeX = pointerX - bounds.left;
+						var normalized = (relativeX / bounds.width) * 2 - 1;
+						var intensity = 0;
+
+						if (Math.abs(normalized) > deadZone) {
+							intensity = (Math.abs(normalized) - deadZone) / (1 - deadZone);
+							intensity = intensity * intensity * Math.sign(normalized);
+						}
+
+						row.scrollLeft += intensity * maxStep;
+						frameId = window.requestAnimationFrame(tick);
+					}
+
+					function startHover(event) {
+						pointerX = event.clientX;
+						isHovering = true;
+						row.classList.add('is-hover-scrolling');
+						if (frameId === null) {
+							frameId = window.requestAnimationFrame(tick);
+						}
+					}
+
+					function stopHover() {
+						isHovering = false;
+						row.classList.remove('is-hover-scrolling');
+						if (frameId !== null) {
+							window.cancelAnimationFrame(frameId);
+							frameId = null;
+						}
+					}
+
+					row.addEventListener('mouseenter', startHover);
+					row.addEventListener('mousemove', function (event) {
+						pointerX = event.clientX;
+					});
+					row.addEventListener('mouseleave', stopHover);
+				});
+			})();
+		</script>
 	</body>
 </html>
