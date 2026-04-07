@@ -655,17 +655,33 @@
 			}
 
 			#one.tiles article header.major h3,
+			#one.tiles article header.major h3 a,
 			.about-me-button h3 {
 				margin: 0;
+				color: #ffffff !important;
+				font-size: clamp(1.35em, 1.8vw, 1.7em);
+				font-weight: 700;
+				letter-spacing: 0.08em;
+				line-height: 1.05;
+				text-transform: uppercase;
+				text-decoration: none;
+			}
+
+			#one.tiles article header.major h3 a {
+				display: inline-block;
+				color: inherit !important;
+				border-bottom: 0 !important;
+				text-decoration: none !important;
 			}
 
 			#one.tiles article header.major p,
 			.about-me-button p {
 				margin: 0;
-				max-width: 28ch;
+				max-width: 30ch;
 				color: rgba(255, 255, 255, 0.84);
 				font-size: 0.95em;
-				line-height: 1.5;
+				font-weight: 400;
+				line-height: 1.55;
 			}
 
 			.tiles article:hover header.major,
@@ -791,16 +807,6 @@
 				text-transform: uppercase;
 			}
 
-			.about-me-button h3 {
-				color: #ffffff;
-				letter-spacing: 0.08em;
-				text-transform: uppercase;
-			}
-
-			.about-me-button p {
-				max-width: 30ch;
-				line-height: 1.55;
-			}
 
 			.about-me-button .button {
 				display: inline-flex;
@@ -981,7 +987,7 @@
 										<img src="images/BestSlider/20250508_213225.jpg" alt="" />
 										<img src="images/BestSlider/LutheranSchool_Design.jpg" alt="" />
 									</div>
-									<header class="major">
+									<header class="major about-me-button">
 										<span class="cta-kicker">Branding</span>
 										<h3><a href="design.html" class="link">DESIGN</a></h3>
 										<p>Logos, print, signage &amp; web.</p>
@@ -995,7 +1001,7 @@
 										<img src="images/BestSlider/StreetSign.jpg" alt="" />
 										<img src="images/BestSlider/ForestPainting.jpg" alt="" />
 									</div>
-									<header class="major">
+									<header class="major about-me-button">
 										<span class="cta-kicker">Art</span>
 										<h3><a href="illustrations.html" class="link">ILLUSTRATION</a></h3>
 										<p>Murals, paintings &amp; digital art.</p>
@@ -1012,7 +1018,7 @@
 										<img src="images/3D_Prints/Goose1.jpg" alt="" />
 										<img src="images/3D_Prints/Goose2.jpg" alt="" />
 									</div>
-									<header class="major">
+									<header class="major about-me-button">
 										<span class="cta-kicker">Build</span>
 										<h3><a href="3D_Creations.html" class="link">3D Creations</a></h3>
 										<p>Modeled, printed &amp; hand-painted.</p>
