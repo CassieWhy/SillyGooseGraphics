@@ -697,10 +697,13 @@
 
 			.tiles article:hover header.major,
 			.tiles article:focus-within header.major,
+			.tiles article:hover .about-me-button,
+			.tiles article:focus-within .about-me-button,
 			.about-me-cta:hover .about-me-button,
 			.about-me-cta:focus-visible .about-me-button {
 				transform: translateY(-2px);
-				border-color: rgba(255, 105, 180, 0.45);
+				border-color: rgba(255, 105, 180, 0.7);
+				box-shadow: 0 0 0 1px rgba(255, 105, 180, 0.28), 0 16px 38px rgba(0, 0, 0, 0.36);
 			}
 
 			.tiles article.threed-full-width {
