@@ -695,16 +695,18 @@
 				text-transform: none !important;
 			}
 
-			.tiles article:hover header.major,
-			.tiles article:focus-within header.major,
-			.tiles article:hover .about-me-button,
-			.tiles article:focus-within .about-me-button,
+			#one.tiles article:hover > header.major,
+			#one.tiles article:focus-within > header.major,
+			#one.tiles article:hover > .about-me-button,
+			#one.tiles article:focus-within > .about-me-button,
 			.about-me-cta:hover .about-me-button,
 			.about-me-cta:focus-visible .about-me-button {
 				transform: translateY(-2px);
-				border-color: #ff69b4;
-				background: linear-gradient(135deg, rgba(18, 8, 16, 0.92), rgba(28, 16, 30, 0.88) 55%, rgba(44, 16, 36, 0.82));
-				box-shadow: 0 0 0 2px rgba(255, 105, 180, 0.42), 0 18px 42px rgba(0, 0, 0, 0.4);
+				border-color: #ff69b4 !important;
+				outline: 2px solid rgba(255, 105, 180, 0.62);
+				outline-offset: 0;
+				background: linear-gradient(135deg, rgba(22, 8, 18, 0.94), rgba(34, 16, 32, 0.9) 55%, rgba(56, 18, 40, 0.84)) !important;
+				box-shadow: 0 0 0 2px rgba(255, 105, 180, 0.45), 0 0 22px rgba(255, 105, 180, 0.16), 0 18px 42px rgba(0, 0, 0, 0.4) !important;
 			}
 
 			.tiles article.threed-full-width {
