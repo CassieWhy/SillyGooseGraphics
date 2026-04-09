@@ -452,14 +452,19 @@
 				}
 
 				#one.tiles article.design-tile {
-					background-size: 170% auto !important;
-					background-position: right center !important;
+					background-size: auto 100% !important;
+					background-position: left center !important;
+					background-repeat: no-repeat !important;
 					width: 100% !important;
 				}
 
-				#one.tiles article.illustration-tile {
+				#one.tiles article.illustration-tile,
+				#one.tiles article.threed-slide-article,
+				#products-cta .about-me-cta,
+				#two .about-me-cta {
 					background-size: cover !important;
-					background-position: center center !important;
+					background-position: left center !important;
+					background-repeat: no-repeat !important;
 					width: 100% !important;
 				}
 			}
@@ -518,12 +523,23 @@
 			}
 
 			.tiles article.slide-article:before {
-				opacity: 0.58;
+				content: '';
+				position: absolute;
+				inset: 0 -30px 0 calc(38% + 30px);
+				left: calc(38% + 30px);
+				width: auto;
+				border-radius: 0;
+				background: linear-gradient(135deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.8)) !important;
+				clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+				opacity: 1;
+				pointer-events: none;
+				transition: opacity 0.35s ease, transform 0.35s ease;
 			}
 
 			.tiles article.slide-article:hover:before,
 			.tiles article.slide-article:focus-within:before {
-				opacity: 0;
+				opacity: 0 !important;
+				transform: scale(1.03);
 			}
 
 			.tiles article.slide-article:after {
@@ -604,13 +620,25 @@
 				background-position: center 18% !important;
 			}
 
-			.tiles article.design-tile,
-			.tiles article.illustration-tile {
+			.tiles article.design-tile {
 				width: 100% !important;
-				background-image: none !important;
+				background-image: url('images/HomeButtons/DESIGN_ button.jpg') !important;
 				background-color: #111 !important;
 				background-position: center center !important;
 				background-size: cover !important;
+			}
+
+			.tiles article.illustration-tile {
+				width: 100% !important;
+				background-image: url('images/HomeButtons/ILLUSTRATION2_ button.jpg') !important;
+				background-color: #111 !important;
+				background-position: center center !important;
+				background-size: cover !important;
+			}
+
+			.tiles article.design-tile .tile-bg-track,
+			.tiles article.illustration-tile .tile-bg-track {
+				display: none !important;
 			}
 
 			#one.tiles article,
@@ -655,11 +683,14 @@
 
 			#one.tiles article header.major .cta-kicker,
 			.about-me-button .cta-kicker {
+				display: inline-block;
 				color: #ff69b4;
-				font-size: 0.72em;
+				font-size: 0.8em;
 				font-weight: 700;
-				letter-spacing: 0.08em;
-				text-transform: none;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				transform: translateY(-20px);
+				text-shadow: 0 2px 10px rgba(0, 0, 0, 0.78);
 			}
 
 			#one.tiles article header.major h3,
@@ -667,13 +698,15 @@
 			.about-me-button h3 {
 				margin: 0;
 				color: #ffffff !important;
-				font-size: clamp(1.12em, 1.45vw, 1.38em);
+				font-size: clamp(2.31rem, 2.82vw, 2.71rem);
 				font-weight: 700;
-				letter-spacing: 0.045em;
-				line-height: 1.05;
+				letter-spacing: 0.035em;
+				line-height: calc(1em + 5px);
 				text-transform: uppercase;
 				text-decoration: none;
 				white-space: nowrap;
+				transform: translateY(0px);
+				text-shadow: 0 2px 12px rgba(0, 0, 0, 0.82);
 			}
 
 			#one.tiles article header.major h3 a {
@@ -687,12 +720,14 @@
 			.about-me-button p {
 				margin: 0;
 				max-width: 30ch;
-				color: rgba(255, 255, 255, 0.84);
-				font-size: 0.95em;
+				color: rgba(255, 255, 255, 0.88);
+				font-size: 0.82em;
 				font-weight: 400;
-				line-height: 1.55;
+				line-height: calc(1em + 5px);
 				letter-spacing: 0.01em;
 				text-transform: none !important;
+				transform: translateY(15px);
+				text-shadow: 0 2px 10px rgba(0, 0, 0, 0.78);
 			}
 
 			#one.tiles article:hover > header.major,
@@ -714,14 +749,14 @@
 			}
 
 			.tiles article.threed-slide-article {
-				background-image: none !important;
+				background-image: url('images/HomeButtons/3D_ button.jpg') !important;
 				background-repeat: no-repeat !important;
 				background-size: cover !important;
 				background-position: center center !important;
 			}
 
 			.tiles article.threed-slide-article .tile-bg-track {
-				display: flex !important;
+				display: none !important;
 			}
 
 			.tiles article.sticker-slide-article {
@@ -767,7 +802,7 @@
 				padding: 5px;
 				width: 100%;
 				margin: 0 auto;
-				background: #000;
+				background: #000 url('images/HomeButtons/ME_ button.jpg') center center / cover no-repeat;
 				box-shadow: 0 18px 46px rgba(0, 0, 0, 0.26);
 				isolation: isolate;
 			}
@@ -775,16 +810,22 @@
 			.about-me-cta:before {
 				content: '';
 				position: absolute;
-				inset: 0;
-				background: linear-gradient(135deg, rgba(0, 0, 0, 0.34), rgba(12, 12, 18, 0.28) 55%, rgba(0, 0, 0, 0.4));
+				inset: 0 -30px 0 calc(38% + 30px);
+				left: calc(38% + 30px);
+				width: auto;
+				border-radius: 0;
+				background: linear-gradient(135deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.8)) !important;
+				clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
 				z-index: 2;
 				opacity: 1;
-				transition: opacity 0.35s ease;
+				pointer-events: none;
+				transition: opacity 0.35s ease, transform 0.35s ease;
 			}
 
 			.about-me-cta:hover:before,
 			.about-me-cta:focus-visible:before {
-				opacity: 0.82;
+				opacity: 0 !important;
+				transform: scale(1.03);
 			}
 
 			#two {
@@ -818,10 +859,10 @@
 
 			.about-me-button .cta-kicker {
 				color: #ff69b4;
-				font-size: 0.72em;
+				font-size: 0.8em;
 				font-weight: 700;
-				letter-spacing: 0.08em;
-				text-transform: none;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
 			}
 
 
@@ -858,8 +899,79 @@
 					padding: 1.25em;
 				}
 
+				#one.tiles article header.major,
 				.about-me-button {
-					padding: 0;
+					padding: 34px 24px 16px 20px !important;
+					background: linear-gradient(90deg, rgba(6, 6, 10, 0) 0%, rgba(6, 6, 10, 0.12) 28%, rgba(10, 10, 16, 0.4) 64%, rgba(16, 16, 24, 0.58) 100%) !important;
+					border: 0 !important;
+					box-shadow: none !important;
+					backdrop-filter: blur(8px) !important;
+					-webkit-backdrop-filter: blur(8px) !important;
+					border-radius: 0 !important;
+					outline: 0 !important;
+					height: auto !important;
+					min-height: 0 !important;
+					margin: -2px -25px 0 -5px !important;
+					width: calc(100% + 30px) !important;
+					max-width: none !important;
+					align-items: flex-end !important;
+					text-align: right !important;
+					gap: 0.16em !important;
+				}
+
+				#one.tiles article header.major .cta-kicker,
+				.about-me-button .cta-kicker {
+					color: #ff69b4 !important;
+					text-transform: uppercase !important;
+					font-size: 1.6em !important;
+					line-height: 0.95 !important;
+					text-shadow: 0 1px 1px rgba(0, 0, 0, 0.98), 0 2px 4px rgba(0, 0, 0, 0.95) !important;
+					width: fit-content !important;
+					margin-left: auto !important;
+					margin-right: 0 !important;
+				}
+
+				#one.tiles article header.major h3,
+				#one.tiles article header.major h3 a,
+				.about-me-button h3 {
+					color: #ffffff !important;
+					text-transform: uppercase !important;
+					line-height: 0.95 !important;
+					text-shadow: 0 1px 1px rgba(0, 0, 0, 0.98), 0 2px 5px rgba(0, 0, 0, 0.96) !important;
+				}
+
+				#one.tiles article header.major p,
+				.about-me-button p {
+					color: rgba(255, 255, 255, 0.88) !important;
+					font-weight: 400 !important;
+					text-transform: none !important;
+					display: none !important;
+				}
+
+				#one.tiles article.design-tile {
+					background-position: left center !important;
+					background-repeat: no-repeat !important;
+					background-size: auto 100% !important;
+				}
+
+				#one.tiles article.illustration-tile,
+				#one.tiles article.threed-slide-article,
+				#products-cta .about-me-cta {
+					background-position: left center !important;
+					background-repeat: no-repeat !important;
+					background-size: cover !important;
+				}
+
+				#two .about-me-cta {
+					background-position: calc(0% - 120px) center !important;
+					background-repeat: no-repeat !important;
+					background-size: cover !important;
+				}
+
+				.tiles article.slide-article:before,
+				.about-me-cta:before {
+					opacity: 0 !important;
+					background: none !important;
 				}
 
 				#two .inner {
@@ -1006,7 +1118,7 @@
 									</div>
 									<header class="major about-me-button">
 										<span class="cta-kicker">Branding</span>
-										<h3><a href="design.html" class="link">DESIGN</a></h3>
+										<h3><a href="design.html" class="link">GRAPHIC DESIGN</a></h3>
 										<p>Logos, print, signage &amp; web.</p>
 									</header>
 								</article>
@@ -1068,15 +1180,8 @@
 							<section id="two">
 								<div class="inner">
 									<a href="About_Me.html" class="about-me-cta">
-										<div class="cta-bg-track about-bg-track" aria-hidden="true">
-											<img src="images/CassiePics/AboutMe.jpg" alt="" />
-											<img src="images/CassiePics/CampSelfie.jpg" alt="" />
-											<img src="images/CassiePics/CassieFennell.jpg" alt="" />
-											<img src="images/CassiePics/Heart.jpeg" alt="" />
-											<img src="images/CassiePics/AboutMe.jpg" alt="" />
-											<img src="images/CassiePics/CampSelfie.jpg" alt="" />
-										</div>
-										<div class="about-me-button">
+										<div class="cta-bg-track about-bg-track" aria-hidden="true"></div>
+<div class="about-me-button">
 											<span class="cta-kicker">Profile</span>
 											<h3>About Me</h3>
 											<p>Meet the artist behind the work.</p>
