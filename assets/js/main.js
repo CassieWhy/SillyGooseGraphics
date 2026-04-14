@@ -492,4 +492,43 @@
 
 			});
 
+	// Professional site credit footer.
+		(function() {
+
+			var wrapper = document.getElementById('wrapper') || document.body,
+				footer = document.getElementById('footer'),
+				inner,
+				copyright;
+
+			if (!footer) {
+				footer = document.createElement('footer');
+				footer.id = 'footer';
+				footer.innerHTML = '<div class="inner"></div>';
+				wrapper.appendChild(footer);
+			}
+
+			inner = footer.querySelector('.inner');
+
+			if (!inner) {
+				inner = document.createElement('div');
+				inner.className = 'inner';
+				footer.appendChild(inner);
+			}
+
+			copyright = footer.querySelector('ul.copyright');
+
+			if (!copyright) {
+				copyright = document.createElement('ul');
+				copyright.className = 'copyright';
+				inner.appendChild(copyright);
+			}
+
+			copyright.innerHTML = [
+				'<li>&copy; Silly Goose Graphics</li>',
+				'<li>Website designed and built by Cassie Fennell using Visual Studio Code with GitHub Copilot and published via GitHub Pages.</li>',
+				'<li>Template base: <a href="https://html5up.net">HTML5 UP</a></li>'
+			].join('');
+
+		})();
+
 })(jQuery);
