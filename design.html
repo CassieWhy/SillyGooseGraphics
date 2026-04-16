@@ -48,12 +48,17 @@
                 border: none !important;
                 margin: 0 !important;
                 padding: 0;
+                aspect-ratio: 1 / 1;
+                overflow: hidden;
+                border-radius: 6px;
             }
             .box.alt .image.fit img {
                 width: 100%;
-                height: auto;
-                max-height: 340px;
-                object-fit: contain;
+                height: 100%;
+                max-height: none;
+                object-fit: cover;
+                object-position: center;
+                transform: scale(1.08);
                 background: none;
                 border: none;
                 display: block;
@@ -530,9 +535,6 @@
                     <li><a href="illustrations.html">ILLUSTRATION</a></li>
                     <li><a href="3D_Creations.html">3D CREATIONS</a></li>
                     <li><a href="#contact">Contact Me</a></li>
-                </ul>
-                <ul class="actions stacked">
-                    <li><a href="#" class="button primary fit">Get Started</a></li>
                 </ul>
             </nav>
 
