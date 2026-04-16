@@ -1091,7 +1091,23 @@
 				opacity: 0.75;
 			}
 
-			</style>
+			   .menu-tint-overlay {
+				   position: fixed;
+				   top: 0;
+				   left: 0;
+				   width: 100vw;
+				   height: 100vh;
+				   background: rgba(180, 0, 80, 0.55);
+				   z-index: 999;
+				   pointer-events: none;
+				   opacity: 0;
+				   transition: opacity 0.3s cubic-bezier(0.22,1,0.36,1);
+			   }
+			   body.is-menu-visible .menu-tint-overlay {
+				   opacity: 1;
+				   pointer-events: auto;
+			   }
+			   </style>
 	</head>
 	<body class="is-preload">
 
@@ -1115,14 +1131,14 @@
 					<nav id="menu">
 						<ul class="links">
 							<li><a href="home.html">Home</a></li>
-							<li><a href="About_Me.html">About Me</a></li>
+							   <!-- <li><a href="About_Me.html">About Me</a></li> -->
 							<li><a href="design.html">DESIGN</a></li>
 							<li><a href="illustrations.html">ILLUSTRATION</a></li>
 							<li><a href="3D_Creations.html">3D CREATIONS</a></li>
 														<li><a href="#contact">Contact Me</a></li>
 						</ul>
 						<ul class="actions stacked">
-							<li><a href="#" class="button primary fit">Get Started</a></li>
+							   <!-- <li><a href="#" class="button primary fit">Get Started</a></li> -->
 						</ul>
 					</nav>
 
@@ -1279,18 +1295,34 @@
 							</section>
 
 						<!-- About Me -->
-							<section id="two">
-								<div class="inner">
-									<a href="About_Me.html" class="about-me-cta">
-										<div class="cta-bg-track about-bg-track" aria-hidden="true"></div>
-<div class="about-me-button">
-											<span class="cta-kicker">Profile</span>
-											<h3>About Me</h3>
-											<p>Meet the artist behind the work.</p>
-										</div>
-									</a>
-								</div>
-							</section>
+							   <section id="two">
+								   <div class="inner">
+									   <div id="aboutMeSection">
+										   <button id="aboutMeBtn" class="about-me-cta" type="button" style="border:none;width:100%;padding:0;cursor:pointer;">
+											   <div class="cta-bg-track about-bg-track" aria-hidden="true"></div>
+											   <div class="about-me-button">
+												   <span class="cta-kicker">Profile</span>
+												   <h3>About Me</h3>
+												   <p>Meet the artist behind the work.</p>
+											   </div>
+										   </button>
+										   <div id="aboutMePanel" class="about-me-panel" style="display:none;">
+											   <div class="about-me-panel-inner">
+												   <img src="images/CassiePics/CassieFennell.jpg" alt="Cassie Fennell" class="about-me-photo">
+												   <div class="about-me-bio">
+													   <h2 class="about-me-heading">Meet Cassie</h2>
+													   <p>I’ve always believed art is about more than what you make. It’s about the feeling, the story, and the experience of bringing an idea to life together.</p>
+													   <p>What started as passion and a little creative chaos grew into a career built on years of learning, experimenting, and showing up. I love turning sparks of ideas into bold, thoughtful designs, paintings, murals, and visual stories.</p>
+													   <p style="clear:left;">Working with clients is one of my favorite parts of what I do. Whether you have a clear vision or just a “hear me out” moment, I care about making the process smooth, collaborative, and actually fun.</p>
+													   <p>Deadlines matter, details matter, and good vibes matter.</p>
+													   <p><strong>Let’s make something unforgettable.</strong></p>
+												   </div>
+												   </div>
+											   </div>
+										   </div>
+									   </div>
+								   </div>
+							   </section>
 
 				<!-- Contact -->
 					<section id="contact">
@@ -1361,7 +1393,32 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			   <script src="assets/js/main.js"></script>
+			   <script>
+			   // Modular About Me Panel logic
+			   (function() {
+				   var btn = document.getElementById('aboutMeBtn');
+				   var panel = document.getElementById('aboutMePanel');
+				   if (!btn || !panel) return;
+				   var open = false;
+				   btn.addEventListener('click', function() {
+					   open = !open;
+					   if (open) {
+						   panel.style.display = 'block';
+						   panel.classList.add('open');
+						   setTimeout(function(){
+							   panel.style.maxHeight = panel.scrollHeight + 'px';
+						   }, 10);
+					   } else {
+						   panel.style.maxHeight = '0px';
+						   panel.classList.remove('open');
+						   setTimeout(function(){
+							   panel.style.display = 'none';
+						   }, 400);
+					   }
+				   });
+			   })();
+			   </script>
 			<script>
 				(function () {
 					var slider = document.querySelector('[data-bestslider]');
@@ -1433,7 +1490,105 @@
 				})();
 			</script>
 
-	</body>
+		   <style>
+		   #aboutMeSection { width: 100%; }
+		   .about-me-panel {
+			   width: 100%;
+			   background: linear-gradient(135deg, rgba(18,18,18,0.98) 70%, rgba(255,105,180,0.08) 100%);
+			   box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+			   border-radius: 0 0 32px 32px;
+			   overflow: hidden;
+			   margin: 0 auto 2em auto;
+			   transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.5s cubic-bezier(0.22,1,0.36,1);
+			   max-height: 0;
+			   padding: 0;
+			   opacity: 0;
+			   border-left: 6px solid #ff69b4;
+		   }
+		   .about-me-panel.open {
+			   max-height: 1200px;
+			   opacity: 1;
+			   animation: aboutMeFadeIn 0.7s cubic-bezier(0.22,1,0.36,1);
+		   }
+		   @keyframes aboutMeFadeIn {
+			   from { opacity: 0; transform: translateY(40px); }
+			   to { opacity: 1; transform: translateY(0); }
+		   }
+		   .about-me-panel-inner {
+			   padding: 2.5em 1.5em 2.5em 1.5em;
+			   display: block;
+			   position: relative;
+			   min-height: 240px;
+		   }
+		   .about-me-photo {
+			   width: 240px;
+			   max-width: 40vw;
+			   border-radius: 50%;
+			   margin-bottom: 0;
+			   box-shadow: 0 8px 32px rgba(255,105,180,0.18), 0 4px 24px rgba(0,0,0,0.18);
+			   float: left;
+			   shape-outside: circle(50% at 50% 50%);
+			   margin-right: 2.2em;
+			   margin-left: 0;
+			   margin-top: 0.2em;
+			   margin-bottom: 1.2em;
+			   display: block;
+		   }
+		   .about-me-bio {
+			   color: #fff;
+			   font-size: 1.18em;
+			   max-width: 100%;
+			   text-align: left;
+			   overflow: hidden;
+			   line-height: 1.85;
+			   padding: 0.5em 0 0.5em 0.5em;
+		   }
+		   .about-me-heading {
+			   font-family: 'Montserrat', 'Georgia', serif;
+			   font-size: 2.1em;
+			   font-weight: 700;
+			   color: #ff69b4;
+			   margin-bottom: 0.7em;
+			   letter-spacing: 0.04em;
+			   line-height: 1.1;
+		   }
+		   @media (max-width: 1200px) {
+			   .about-me-photo {
+				   width: 160px;
+				   max-width: 50vw;
+				   margin-right: 1.2em;
+			   }
+			   .about-me-heading {
+				   font-size: 1.5em;
+			   }
+		   }
+		   @media (max-width: 800px) {
+			   .about-me-panel-inner {
+				   padding: 1.2em 0.5em;
+			   }
+			   .about-me-photo {
+				   float: none;
+				   display: block;
+				   margin: 0 auto 1.5em auto;
+				   width: 120px;
+				   max-width: 70vw;
+				   shape-outside: none;
+			   }
+			   .about-me-bio {
+				   text-align: left;
+				   padding: 0;
+			   }
+			   .about-me-heading {
+				   font-size: 1.2em;
+			   }
+		   }
+		   @media (max-width: 600px) {
+			   .about-me-panel-inner { padding: 1.2em 0.5em; }
+			   .about-me-bio { font-size: 1em; }
+		   }
+		   </style>
+		   <div class="menu-tint-overlay"></div>
+		   </body>
 </html>
 
 

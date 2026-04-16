@@ -523,11 +523,10 @@
 				inner.appendChild(copyright);
 			}
 
-			copyright.innerHTML = [
-				'<li>&copy; Silly Goose Graphics</li>',
-				'<li>Website designed and built by Cassie Fennell using Visual Studio Code with GitHub Copilot and published via GitHub Pages.</li>',
-				'<li>Template base: <a href="https://html5up.net">HTML5 UP</a></li>'
-			].join('');
+			   copyright.innerHTML = [
+				   '<li>&copy; Silly Goose Graphics</li>',
+				   '<li>Website designed and built by Cassie Fennell using Visual Studio Code with GitHub Copilot and published via GitHub Pages.</li>'
+			   ].join('');
 
 		})();
 

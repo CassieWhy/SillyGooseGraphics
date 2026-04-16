@@ -1,21 +1,63 @@
 <!DOCTYPE HTML>
 <!--
-   
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+    
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
+    <head>
 		<title>3D Creations - Silly Goose Graphics</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/png" href="images/Goose-Favicon.png" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			@keyframes threedBannerSlide {
-				0% { transform: translateX(0); }
-				100% { transform: translateX(-50%); }
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/png" href="images/Goose-Favicon.png" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <style>
+            body { background: #000 !important; color: #fff !important; }
+			.box.alt .row.gtr-50.gtr-uniform {
+				display: grid;
+				grid-template-columns: repeat(5, minmax(0, 1fr));
+				row-gap: 0.5em !important;
+				column-gap: 0.5em !important;
+				margin: 0 !important;
+			}
+			.box.alt .row.gtr-50.gtr-uniform > * {
+				margin: 0 !important;
+				padding: 0 !important;
+			}
+			.box.alt .col-5 {
+				width: auto !important;
+				padding: 0 !important;
+				box-sizing: border-box;
+			}
+			@media (max-width: 1200px) {
+				.box.alt .row.gtr-50.gtr-uniform { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+			}
+			@media (max-width: 900px) {
+				.box.alt .row.gtr-50.gtr-uniform { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+			}
+			@media (max-width: 700px) {
+				.box.alt .row.gtr-50.gtr-uniform { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+			}
+			@media (max-width: 500px) {
+				.box.alt .row.gtr-50.gtr-uniform { grid-template-columns: 1fr; }
+			}
+			.box.alt .image.fit {
+				display: block;
+				background: none !important;
+				border: none !important;
+				margin: 0 !important;
+				padding: 0;
+			}
+			.box.alt .image.fit img {
+				width: 100%;
+				height: auto;
+				max-height: 340px;
+				object-fit: contain;
+				background: none;
+				border: none;
+				display: block;
+				margin: 0 !important;
 			}
 
 			#banner {
@@ -47,12 +89,11 @@
 			#banner > .inner {
 				max-width: 42em !important;
 				width: min(100%, 42em) !important;
-				margin-left: auto;
 				margin-right: auto;
 			}
 
 			#main > section > .inner {
-				max-width: 42em;
+				max-width: 65em;
 				margin-left: auto;
 				margin-right: auto;
 			}
@@ -96,6 +137,9 @@
 
 			.media-gallery {
 				margin-top: 1.5em;
+				max-width: 65em;
+				margin-left: auto;
+				margin-right: auto;
 			}
 
 			.media-title {
@@ -132,6 +176,14 @@
 
 			.photo-card {
 				aspect-ratio: 1 / 1;
+				max-width: 22vw;
+				min-width: 140px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.media-card img {
+				max-width: 100%;
+				height: auto;
 			}
 
 			.video-card {
@@ -152,33 +204,62 @@
 				overflow-x: auto;
 				overflow-y: hidden;
 				-webkit-overflow-scrolling: touch;
-				scroll-snap-type: x proximity;
-				scrollbar-width: auto;
-				scrollbar-color: rgba(255, 255, 255, 0.82) rgba(255, 255, 255, 0.2);
+				scroll-snap-type: x mandatory;
+				scrollbar-width: none !important; /* Firefox */
+				-ms-overflow-style: none !important; /* IE 10+ */
 				padding: 0 0 0.75em;
-				cursor: ew-resize;
+				cursor: grab;
 				scroll-behavior: smooth;
+				position: relative;
+				margin-bottom: -18px;
+			}
+			.video-row::-webkit-scrollbar {
+				display: none !important;
+				height: 0 !important;
+				background: transparent !important;
+			}
+			.video-row::-webkit-scrollbar {
+				display: none;
+			}
+			/* Gradient fade left/right edges */
+			.video-row::before, .video-row::after {
+				content: '';
+				position: absolute;
+				top: 0; bottom: 0;
+				width: 40px;
+				pointer-events: none;
+				z-index: 2;
+			}
+			.video-row::before {
+				left: 0;
+				background: linear-gradient(to right, #181818 90%, transparent);
+			}
+			.video-row::after {
+				right: 0;
+				background: linear-gradient(to left, #181818 90%, transparent);
 			}
 
 			.video-row::-webkit-scrollbar {
-				height: 14px;
+				height: 8px !important;
+				background: transparent !important;
 			}
 
 			.video-row::-webkit-scrollbar-track {
-				background: rgba(255, 255, 255, 0.16);
-				border-radius: 999px;
-				box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+				background: rgba(80, 80, 80, 0.12) !important;
+				border-radius: 6px !important;
 			}
 
 			.video-row::-webkit-scrollbar-thumb {
-				background: linear-gradient(90deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.95));
-				border-radius: 999px;
-				border: 2px solid rgba(0, 0, 0, 0.18);
+				background: linear-gradient(90deg, #e75480 0%, #ffb6c1 100%) !important;
+				border-radius: 6px !important;
+				border: 1px solid rgba(0,0,0,0.08) !important;
+				min-width: 40px !important;
 			}
 
 			.video-row::-webkit-scrollbar-thumb:hover {
-				background: linear-gradient(90deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 1));
+				background: linear-gradient(90deg, #ff69b4 0%, #ffe4ec 100%) !important;
 			}
+
 
 			.video-row.is-hover-scrolling {
 				scrollbar-color: rgba(255, 255, 255, 0.96) rgba(255, 255, 255, 0.26);
@@ -398,6 +479,7 @@
 				<ul class="links">
 					<li><a href="home.html">Home</a></li>
 					<li><a href="About_Me.html">About Me</a></li>
+					<!-- <li><a href="About_Me.html">About Me</a></li> -->
 					<li><a href="design.html">DESIGN</a></li>
 					<li><a href="illustrations.html">ILLUSTRATION</a></li>
 					<li><a href="3D_Creations.html">3D CREATIONS</a></li>
@@ -431,6 +513,9 @@
 			<div id="main">
 				<section id="one">
 					<div class="inner">
+						<header class="major">
+							<h2>3D Gallery</h2>
+						</header>
 						<div class="box alt media-gallery">
 							<div style="margin: 50px 0 80px 0; text-align: center;">
 								<a href="#contact" onclick="event.preventDefault(); document.getElementById('message').value='I\'m interested it knowing more about getting a 3D print'; document.getElementById('contact').scrollIntoView({behavior:'smooth'});" style="display: block; width: 100%; border-bottom: none; text-decoration: none; font-size: 1.2em; font-weight: 700; letter-spacing: 0.03em; padding: 0.3em 0.55em; background: #ffffff; color: #000000 !important; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.22); border-radius: 4px;">
@@ -438,10 +523,18 @@
 								</a>
 							</div>
 							<h3 class="media-title">Looping Videos</h3>
-							<div class="video-row">
+							<div class="video-carousel-wrapper" style="position:relative;">
+								<button class="carousel-arrow left-arrow" aria-label="Scroll left" style="position:absolute;left:0;top:50%;transform:translateY(-50%);z-index:3;background:rgba(24,24,24,0.7);border:none;border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:1.5em;box-shadow:0 2px 8px rgba(0,0,0,0.18);">
+									&#8592;
+								</button>
+								<div class="video-row">
 								<div class="media-card video-card"><video class="loop-video" autoplay muted loop playsinline preload="metadata" aria-label="3D print video loop 1"><source src="images/3D_Prints/House.mp4" type="video/mp4" /><source src="images/3D_Prints/House.mkv" type="video/x-matroska" /></video></div>
 								<div class="media-card video-card"><video class="loop-video" autoplay muted loop playsinline preload="metadata" aria-label="3D print video loop 2"><source src="images/3D_Prints/Goose_Dance.mp4" type="video/mp4" /><source src="images/3D_Prints/Goose_Dance.mkv" type="video/x-matroska" /></video></div>
 								<div class="media-card video-card"><video class="loop-video" autoplay muted loop playsinline preload="metadata" aria-label="3D print video loop 3"><source src="images/3D_Prints/Frog.mp4" type="video/mp4" /><source src="images/3D_Prints/Frog.mkv" type="video/x-matroska" /></video></div>
+								</div>
+								<button class="carousel-arrow right-arrow" aria-label="Scroll right" style="position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:3;background:rgba(24,24,24,0.7);border:none;border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:1.5em;box-shadow:0 2px 8px rgba(0,0,0,0.18);">
+									&#8594;
+								</button>
 							</div>
 							<h3 class="media-title" style="margin-top: 1.5em;">Photos</h3>
 							<div class="row gtr-50 gtr-uniform">
@@ -504,6 +597,23 @@
 		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
+		<script>
+		// Carousel arrow button logic
+		document.addEventListener('DOMContentLoaded', function() {
+			var wrapper = document.querySelector('.video-carousel-wrapper');
+			if (!wrapper) return;
+			var row = wrapper.querySelector('.video-row');
+			var left = wrapper.querySelector('.carousel-arrow.left-arrow');
+			var right = wrapper.querySelector('.carousel-arrow.right-arrow');
+			var scrollAmount = row && row.firstElementChild ? row.firstElementChild.offsetWidth + 16 : 320;
+			left.addEventListener('click', function() {
+				row.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+			});
+			right.addEventListener('click', function() {
+				row.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+			});
+		});
+		</script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
 		<script src="assets/js/browser.min.js"></script>
