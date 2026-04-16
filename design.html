@@ -14,6 +14,27 @@
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <style>
             body { background: #000 !important; color: #fff !important; }
+
+            /* Improve line breaks to reduce widows/orphans in responsive layouts. */
+            #wrapper h1,
+            #wrapper h2,
+            #wrapper h3,
+            #wrapper .hover-underline-title,
+            #wrapper .major {
+                text-wrap: balance;
+            }
+
+            #wrapper p,
+            #wrapper li,
+            #wrapper a {
+                text-wrap: pretty;
+                overflow-wrap: break-word;
+                word-break: normal;
+                hyphens: auto;
+                widows: 2;
+                orphans: 2;
+            }
+
             .box.alt .row.gtr-50.gtr-uniform {
                 display: grid;
                 grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -63,6 +84,253 @@
                 border: none;
                 display: block;
                 margin: 0 !important;
+            }
+
+            .folder-grid-trigger {
+                cursor: pointer;
+            }
+
+            #png-showcase {
+                position: relative;
+                z-index: 200;
+                isolation: isolate;
+            }
+
+            #png-showcase .folder-grid-trigger {
+                position: relative;
+                z-index: 202;
+                cursor: pointer !important;
+                pointer-events: auto !important;
+                width: 100% !important;
+                max-width: 640px;
+                border-bottom: none !important;
+            }
+
+            #png-showcase .folder-grid-trigger img {
+                width: 100% !important;
+                cursor: pointer !important;
+                pointer-events: auto !important;
+                display: block;
+            }
+
+            #png-showcase .png-hover-frame {
+                position: relative;
+                display: block;
+                width: 100%;
+                max-width: 640px;
+                border-radius: 10px;
+                overflow: visible;
+                isolation: isolate;
+                transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), filter 320ms ease, box-shadow 320ms ease;
+                transform-origin: center;
+            }
+
+            #png-showcase .png-hover-frame img {
+                position: relative;
+                z-index: 2;
+                transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), filter 320ms ease, box-shadow 320ms ease;
+                will-change: transform;
+            }
+
+            #png-showcase .png-hover-frame:hover,
+            #png-showcase .png-hover-frame:focus-within {
+                transform: translateY(-3px);
+                box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
+            }
+
+            #png-showcase .png-hover-frame:hover img,
+            #png-showcase .png-hover-frame:focus-within img {
+                transform: translateY(-3px) translateX(-8px) scale(1.03);
+                filter: brightness(1.07) saturate(1.06);
+                box-shadow: 0 12px 26px rgba(0, 0, 0, 0.26);
+            }
+
+            #png-showcase .png-feature:nth-of-type(even) .png-hover-frame:hover img,
+            #png-showcase .png-feature:nth-of-type(even) .png-hover-frame:focus-within img {
+                transform: translateY(-3px) translateX(8px) scale(1.03);
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                #png-showcase .png-hover-frame,
+                #png-showcase .png-hover-frame img {
+                    transition: none;
+                }
+            }
+
+            .hover-underline-title {
+                position: relative;
+                display: inline-block;
+            }
+
+            .hover-underline-title::after,
+            .hover-underline-title::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(to right, #ff4d8d, #7be8ff);
+                left: 0;
+                transform: scaleX(0);
+                transition: transform 0.4s ease-out;
+            }
+
+            .hover-underline-title::after {
+                bottom: -6px;
+                transform-origin: right;
+            }
+
+            .hover-underline-title::before {
+                top: -6px;
+                transform-origin: left;
+            }
+
+            .png-feature:hover .hover-underline-title::after,
+            .png-feature:hover .hover-underline-title::before,
+            .png-feature:focus-within .hover-underline-title::after,
+            .png-feature:focus-within .hover-underline-title::before {
+                transform: scaleX(1);
+            }
+
+            .png-open-gallery-note {
+                margin-top: 4px;
+                margin-bottom: 0;
+                font-size: 0.72em;
+                line-height: 1.2;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.92);
+            }
+
+            .insta-subtle-link {
+                position: relative;
+                display: inline-block;
+                color: rgba(255, 255, 255, 0.96);
+                transition: color 180ms ease, opacity 180ms ease, transform 180ms ease, text-shadow 180ms ease;
+            }
+
+            .insta-subtle-link:hover,
+            .insta-subtle-link:focus-visible {
+                color: #ffffff;
+                opacity: 1;
+                transform: translateY(-1px);
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+            }
+
+            .fastsigns-word {
+                position: relative;
+                display: inline-block;
+                color: transparent;
+                white-space: nowrap;
+                margin-left: 1.1em;
+                margin-right: 1.1em;
+            }
+
+            .fastsigns-word .fastsigns-inline-logo {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border-bottom: 0 !important;
+            }
+
+            .fastsigns-word .fastsigns-inline-logo img {
+                height: 1.1em !important;
+                width: auto !important;
+                display: block;
+            }
+
+            .design-modal-backdrop {
+                position: fixed;
+                inset: 0;
+                z-index: 11000;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0, 0, 0, 0.84);
+                padding: 3vh 1.25em;
+            }
+
+            .design-modal-panel {
+                width: min(1080px, 100%);
+                max-height: 92vh;
+                display: flex;
+                flex-direction: column;
+                border-radius: 12px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                background: #0a0a0a;
+                overflow: hidden;
+            }
+
+            .design-modal-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.8em 1em;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+                background: #121212;
+            }
+
+            .design-modal-close {
+                border: 1px solid rgba(255, 255, 255, 0.35);
+                border-radius: 999px;
+                background: transparent;
+                color: #ffffff;
+                cursor: pointer;
+                padding: 0.35em 0.85em;
+                font-size: 0.9em;
+            }
+
+            .design-modal-grid {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 0.6em;
+                padding: 1em;
+                overflow: auto;
+            }
+
+            .design-thumb {
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+                border-radius: 8px;
+                cursor: zoom-in;
+                border: 1px solid rgba(255, 255, 255, 0.14);
+            }
+
+            .design-zoom-backdrop {
+                position: fixed;
+                inset: 0;
+                z-index: 12000;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 2em;
+            }
+
+            .design-zoom-image {
+                max-width: min(92vw, 1600px);
+                max-height: 90vh;
+                width: auto;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+            }
+
+            @media (max-width: 980px) {
+                .design-modal-grid {
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                }
+            }
+
+            @media (max-width: 640px) {
+                .design-modal-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
             }
             #main, .inner, .box.alt, .row.gtr-50.gtr-uniform, .col-6, .col-12 {
                 background: transparent !important;
@@ -404,110 +672,6 @@
                 .digital-art-modal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             }
 
-            #png-showcase {
-                position: relative;
-                z-index: 200;
-                isolation: isolate;
-            }
-
-            #png-showcase .folder-grid-trigger {
-                position: relative;
-                z-index: 202;
-                cursor: pointer !important;
-                pointer-events: auto !important;
-                width: 100% !important;
-                max-width: 640px;
-                border-bottom: none !important;
-            }
-
-            #png-showcase .png-hover-frame {
-                position: relative;
-                display: block;
-                width: 100%;
-                max-width: 640px;
-                border-radius: 10px;
-                overflow: visible;
-                isolation: isolate;
-                transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), filter 320ms ease, box-shadow 320ms ease;
-                transform-origin: center;
-            }
-
-            #png-showcase .folder-grid-trigger img {
-                width: 100% !important;
-                cursor: pointer !important;
-                pointer-events: auto !important;
-                display: block;
-            }
-
-            #png-showcase .png-hover-frame img {
-                position: relative;
-                z-index: 2;
-                transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), filter 320ms ease, box-shadow 320ms ease;
-                will-change: transform;
-            }
-
-            #png-showcase .png-hover-frame:hover,
-            #png-showcase .png-hover-frame:focus-within {
-                transform: translateY(-3px);
-                box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
-            }
-
-            #png-showcase .png-hover-frame:hover img,
-            #png-showcase .png-hover-frame:focus-within img {
-                transform: translateY(-3px) translateX(-8px) scale(1.03);
-                filter: brightness(1.07) saturate(1.06);
-                box-shadow: 0 12px 26px rgba(0, 0, 0, 0.26);
-            }
-
-            #png-showcase .png-feature:nth-of-type(even) .png-hover-frame:hover img,
-            #png-showcase .png-feature:nth-of-type(even) .png-hover-frame:focus-within img {
-                transform: translateY(-3px) translateX(8px) scale(1.03);
-            }
-
-            .hover-underline-title {
-                position: relative;
-                display: inline-block;
-            }
-
-            .hover-underline-title::after,
-            .hover-underline-title::before {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 2px;
-                background: linear-gradient(to right, #ff4d8d, #7be8ff);
-                left: 0;
-                transform: scaleX(0);
-                transition: transform 0.4s ease-out;
-            }
-
-            .hover-underline-title::after {
-                bottom: -6px;
-                transform-origin: right;
-            }
-
-            .hover-underline-title::before {
-                top: -6px;
-                transform-origin: left;
-            }
-
-            .png-feature:hover .hover-underline-title::after,
-            .png-feature:hover .hover-underline-title::before,
-            .png-feature:focus-within .hover-underline-title::after,
-            .png-feature:focus-within .hover-underline-title::before {
-                transform: scaleX(1);
-            }
-
-            .png-open-gallery-note {
-                margin-top: 4px;
-                margin-bottom: 0;
-                font-size: 0.72em;
-                line-height: 1.2;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                text-align: center;
-                color: rgba(255, 255, 255, 0.92);
-            }
         </style>
     </head>
     <body class="is-preload">
@@ -574,10 +738,13 @@
                     <div class="inner">
                         <!-- 1st: Image left, text right -->
                         <div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em;">
-                            <img src="images/DESIGN/PNGs/Branding.png" alt="Logos and Branding" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px;" />
+                            <div id="logosBrandingImageTrigger" class="folder-grid-trigger png-hover-frame" data-folder="logos-branding" style="max-width: 640px; width: 100%; display: block; border-bottom: none; cursor: pointer;">
+                                <img src="images/DESIGN/PNGs/Branding.png" alt="Logos and Branding" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px; cursor: pointer;" />
+                                <p class="png-open-gallery-note"><strong><em>Click to open gallery</em></strong></p>
+                            </div>
                             <div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-start;">
                                 <div style="width: 100%;">
-                                    <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">LOGO'S, BRANDING & PRINT</div>
+                                    <div class="hover-underline-title" style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">LOGO'S, BRANDING & PRINT</div>
                                     <!-- Removed <hr> below signage heading -->
                                     <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">A strong logo and cohesive brand system are the foundation of every successful business. I specialize in creating memorable, versatile logos and brand identities, plus print products like business cards, brochures, flyers, and other marketing materials that keep your brand consistent across every touchpoint.</p>
                                 </div>
@@ -585,27 +752,28 @@
                         </div>
                         <!-- 2nd: Text left, image right -->
                         <div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em; flex-direction: row-reverse;">
-                            <img src="images/DESIGN/PNGs/Popsicle.gif" alt="Animations and Video Editing" style="max-width: 640px; width: 100%; height: auto; max-height: 360px; object-fit: contain; display: block; border-radius: 10px;" />
+                            <div id="animationImageTrigger" class="folder-grid-trigger png-hover-frame" data-folder="animation" style="max-width: 640px; width: 100%; display: block; border-bottom: none; cursor: pointer;">
+                                <img src="images/DESIGN/PNGs/Popsicle.gif" alt="Animations and Video Editing" style="max-width: 640px; width: 100%; height: auto; max-height: 360px; object-fit: contain; display: block; border-radius: 10px; cursor: pointer;" />
+                                <p class="png-open-gallery-note"><strong><em>Click to open gallery</em></strong></p>
+                            </div>
                             <div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-end; text-align: right;">
                                 <div style="width: 100%;">
-                                    <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">ANIMATIONS &amp; <br> VIDEO EDITING</div>
-                                    <hr style="width: 60px; border: 2px solid #fff; margin: 0 0 1em auto;">
+                                    <div class="hover-underline-title" style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">ANIMATIONS &amp; <br> VIDEO EDITING</div>
                                     <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">Dynamic animations and polished video editing to bring your brand and stories to life. From social clips and motion graphics to promotional edits, I create eye-catching content designed to engage your audience.</p>
+                                    <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;"><a href="https://www.instagram.com/sillygoosegraphics_/" target="_blank" rel="noopener noreferrer" class="insta-subtle-link" style="font-style: italic; font-weight: 700; text-decoration: none; border-bottom: none;">&gt; Check out my work on my Instagram page &lt;</a></p>
                                 </div>
                             </div>
                         </div>
                         <!-- 3rd: Image left, text right -->
                         <div class="png-feature" style="display: flex; align-items: center; gap: 2em; flex-wrap: wrap; margin-bottom: 2em;">
-                            <img src="images/DESIGN/PNGs/Signage.png" alt="Signage" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px;" />
+                            <div id="signageImageTrigger" class="folder-grid-trigger png-hover-frame" data-folder="signage" style="max-width: 640px; width: 100%; display: block; border-bottom: none; cursor: pointer;">
+                                <img src="images/DESIGN/PNGs/Signage.png" alt="Signage" style="max-width: 640px; width: 100%; height: auto; border-radius: 10px; cursor: pointer;" />
+                                <p class="png-open-gallery-note"><strong><em>Click to open gallery</em></strong></p>
+                            </div>
                             <div style="flex: 1; min-width: 220px; color: #fff; display: flex; flex-direction: column; align-items: flex-start;">
                                 <div style="width: 100%;">
-                                    <div style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">SIGNAGE</div>
-                                    <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">Local Signage and installation completed<br>in partnership with</p>
-                                    <div style="width: 100%; text-align: left; margin-top: 0.5em;">
-                                        <a href="https://www.fastsigns.com/winnipeg-manitoba/" target="_blank" rel="noopener noreferrer" style="border-bottom: 0 !important; display: inline-block;">
-                                            <img src="images/DESIGN/Fastsigns_logo.svg" alt="FASTSIGNS" style="height: 24px !important; max-height: 24px !important; width: auto !important; display: block !important; margin: 0.2em 0 0 0;" />
-                                        </a>
-                                    </div>
+                                    <div class="hover-underline-title" style="font-family: 'Montserrat', Arial, sans-serif; font-size: 2.1em; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2em; text-transform: uppercase;">SIGNAGE</div>
+                                    <p style="font-size: 1.08em; line-height: 1.5; margin-bottom: 0.5em;">Large-format signage created for businesses across Winnipeg through <span class="fastsigns-word">FastSigns<a href="https://www.fastsigns.com/winnipeg-manitoba/" target="_blank" rel="noopener noreferrer" class="fastsigns-inline-logo"><img src="images/DESIGN/Fastsigns_logo.svg" alt="FASTSIGNS" /></a></span>, including storefront graphics, window displays, wall murals, and vehicle wraps. Experienced working with vinyl, acrylic, aluminum, and coroplast to produce durable, high-impact visuals that strengthen brand visibility in physical spaces.</p>
                                 </div>
                             </div>
                         </div>
@@ -618,24 +786,46 @@
                         </header>
                         <div class="box alt">
                             <div class="row gtr-50 gtr-uniform">
-                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/BearRepair.jpg" alt="Bear Repair" /></span></div>
-                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/RattlingJ.jpg" alt="Rattling J" /></span></div>
-                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/ComedyClub.jpg" alt="Comedy Club" /></span></div>
-                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/HuntingShirt.jpg" alt="Hunting Shirt" /></span></div>
-                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Lightning.gif" alt="Lightning" /></span></div>
-                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/LutheranSchool_Design.jpg" alt="Lutheran School Design" /></span></div>
-                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Popsicle.gif" alt="Popsicle" /></span></div>
-                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Riptide.jpg" alt="Riptide" /></span></div>
-                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/RocketShirt.jpg" alt="Rocket Shirt" /></span></div>
-                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/RocketTicket.jpg" alt="Rocket Ticket" /></span></div>
-                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/RRC_Copyright.jpg" alt="RRC Copyright" /></span></div>
-                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/RRC_Retro.jpg" alt="RRC Retro" /></span></div>
-                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/THOM_Bus.jpg" alt="THOM Bus" /></span></div>
-                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Wedding_SeatingChart.jpg" alt="Wedding Seating Chart" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Animation/Lightning.gif" alt="Lightning" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Animation/Popsicle.gif" alt="Popsicle" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Logos&Branding/HuntingShirt.jpg" alt="Hunting Shirt" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Logos&Branding/lav_QRcode-Final.jpg" alt="LAV QR Code" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Logos&Branding/LAV_Square.jpg" alt="LAV Square" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Logos&Branding/RattlingJ.jpg" alt="Rattling J" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Logos&Branding/Riptide.jpg" alt="Riptide" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Logos&Branding/RocketShirt.jpg" alt="Rocket Shirt" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Logos&Branding/RocketTicket.jpg" alt="Rocket Ticket" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Logos&Branding/RRC_Retro.jpg" alt="RRC Retro" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Logos&Branding/TaiChi_SillyGooseGraphics.jpg" alt="Tai Chi" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/PNGs/Branding.png" alt="Branding" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/PNGs/businesscardsLogos.png" alt="Business Cards and Logos" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/PNGs/Popsicle.gif" alt="Popsicle Animation" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/PNGs/Signage.png" alt="Signage" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/PNGs/Wayfinding.png" alt="Wayfinding" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/PNGs/Wedding_SeatingChart.jpg" alt="Wedding Seating Chart" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Signage/BearRepair.jpg" alt="Bear Repair" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Signage/CancerCareMaps.jpg" alt="Cancer Care Maps" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Signage/LutheranSchool_Design.jpg" alt="Lutheran School Design" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Signage/RRC_Copyright.jpg" alt="RRC Copyright" /></span></div>
+                                <div class="col-5"><span class="image fit"><img src="images/DESIGN/Signage/THOM_Bus.jpg" alt="THOM Bus" /></span></div>
                             </div>
                         </div>
                     </div>
                 </section>
+            </div>
+
+            <div id="designGridModal" class="design-modal-backdrop" aria-hidden="true">
+                <div class="design-modal-panel" role="dialog" aria-label="Design Gallery" aria-modal="true">
+                    <div class="design-modal-header">
+                        <h3 id="designGridTitle" style="margin: 0; color: #fff;">Design Gallery</h3>
+                        <button type="button" id="closeDesignGrid" class="design-modal-close">Close</button>
+                    </div>
+                    <div id="designGrid" class="design-modal-grid"></div>
+                </div>
+            </div>
+
+            <div id="designZoomModal" class="design-zoom-backdrop" aria-hidden="true">
+                <img id="designZoomImage" class="design-zoom-image" alt="Design full size" />
             </div>
 
             <section id="contact">
@@ -688,5 +878,134 @@
         <script src="assets/js/breakpoints.min.js"></script>
         <script src="assets/js/util.js"></script>
         <script src="assets/js/main.js"></script>
+        <script>
+            (function () {
+                var gallerySets = {
+                    'animation': {
+                        title: 'Animation Gallery',
+                        images: [
+                            'images/DESIGN/Animation/Lightning.gif',
+                            'images/DESIGN/Animation/Popsicle.gif'
+                        ]
+                    },
+                    'logos-branding': {
+                        title: 'Logos & Branding Gallery',
+                        images: [
+                            'images/DESIGN/Logos&Branding/HuntingShirt.jpg',
+                            'images/DESIGN/Logos&Branding/lav_QRcode-Final.jpg',
+                            'images/DESIGN/Logos&Branding/LAV_Square.jpg',
+                            'images/DESIGN/Logos&Branding/RattlingJ.jpg',
+                            'images/DESIGN/Logos&Branding/Riptide.jpg',
+                            'images/DESIGN/Logos&Branding/RocketShirt.jpg',
+                            'images/DESIGN/Logos&Branding/RocketTicket.jpg',
+                            'images/DESIGN/Logos&Branding/RRC_Retro.jpg',
+                            'images/DESIGN/Logos&Branding/TaiChi_SillyGooseGraphics.jpg'
+                        ]
+                    },
+                    'signage': {
+                        title: 'Signage Gallery',
+                        images: [
+                            'images/DESIGN/Signage/BearRepair.jpg',
+                            'images/DESIGN/Signage/CancerCareMaps.jpg',
+                            'images/DESIGN/Signage/LutheranSchool_Design.jpg',
+                            'images/DESIGN/Signage/RRC_Copyright.jpg',
+                            'images/DESIGN/Signage/THOM_Bus.jpg'
+                        ]
+                    },
+                    'pngs': {
+                        title: 'PNG Gallery',
+                        images: [
+                            'images/DESIGN/PNGs/Branding.png',
+                            'images/DESIGN/PNGs/businesscardsLogos.png',
+                            'images/DESIGN/PNGs/Popsicle.gif',
+                            'images/DESIGN/PNGs/Signage.png',
+                            'images/DESIGN/PNGs/Wayfinding.png',
+                            'images/DESIGN/PNGs/Wedding_SeatingChart.jpg'
+                        ]
+                    }
+                };
+
+                var gridModal = document.getElementById('designGridModal');
+                var titleEl = document.getElementById('designGridTitle');
+                var closeGrid = document.getElementById('closeDesignGrid');
+                var grid = document.getElementById('designGrid');
+                var zoomModal = document.getElementById('designZoomModal');
+                var zoomImage = document.getElementById('designZoomImage');
+
+                if (!gridModal || !titleEl || !closeGrid || !grid || !zoomModal || !zoomImage) return;
+
+                function setModalOpen(isOpen) {
+                    gridModal.style.display = isOpen ? 'flex' : 'none';
+                    gridModal.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+                }
+
+                function setZoomOpen(isOpen, src) {
+                    if (isOpen) {
+                        zoomImage.src = src || '';
+                    } else {
+                        zoomImage.src = '';
+                    }
+                    zoomModal.style.display = isOpen ? 'flex' : 'none';
+                    zoomModal.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+                }
+
+                window.openDesignFolderGrid = function (folderName) {
+                    var selected = gallerySets[folderName];
+                    if (!selected) return false;
+
+                    titleEl.textContent = selected.title;
+                    grid.innerHTML = selected.images.map(function (src) {
+                        return '<img src="' + src + '" alt="' + selected.title + ' thumbnail" class="design-thumb" />';
+                    }).join('');
+                    setModalOpen(true);
+                    return false;
+                };
+
+                var setupTriggers = function () {
+                    var triggers = document.querySelectorAll('.folder-grid-trigger[data-folder]');
+                    triggers.forEach(function (trigger) {
+                        trigger.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            var folder = trigger.getAttribute('data-folder');
+                            window.openDesignFolderGrid(folder);
+                        });
+                    });
+                };
+
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', setupTriggers);
+                } else {
+                    setupTriggers();
+                }
+
+                document.addEventListener('click', function (event) {
+                    var thumb = event.target.closest('#designGrid .design-thumb');
+                    if (thumb) {
+                        event.preventDefault();
+                        setZoomOpen(true, thumb.getAttribute('src'));
+                    }
+                });
+
+                closeGrid.addEventListener('click', function () { setModalOpen(false); });
+
+                gridModal.addEventListener('click', function (event) {
+                    if (event.target === gridModal) setModalOpen(false);
+                });
+
+                zoomModal.addEventListener('click', function (event) {
+                    if (event.target === zoomModal || event.target === zoomImage) {
+                        setZoomOpen(false);
+                    }
+                });
+
+                document.addEventListener('keydown', function (event) {
+                    if (event.key === 'Escape') {
+                        setZoomOpen(false);
+                        setModalOpen(false);
+                    }
+                });
+            })();
+        </script>
     </body>
 </html>
